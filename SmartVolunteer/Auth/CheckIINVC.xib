@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckIINVC" customModule="SmartVolunteer" customModuleProvider="target">
+            <connections>
+                <outlet property="becomeVolunteerButton" destination="8G6-66-jd6" id="KT2-mg-tBK"/>
+                <outlet property="iinTextField" destination="BYG-E9-Tj8" id="2sG-Q5-n4f"/>
+                <outlet property="nextButton" destination="0fs-qI-XkZ" id="M8m-sN-ogR"/>
+                <outlet property="skipButton" destination="FMD-7A-H95" id="ZaC-iF-0Lf"/>
+                <outlet property="titleLabel" destination="md7-5Z-k7b" id="Tvh-T4-Udu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cel-sC-QKe">
+                    <rect key="frame" x="125" y="70" width="70" height="54"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="9JU-ph-u81"/>
+                        <constraint firstAttribute="width" constant="70" id="pMU-5A-i7x"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите иин, приложение проверит вы зарегистрированы или нет" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="md7-5Z-k7b">
+                    <rect key="frame" x="20" y="154" width="280" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCo-sw-zGz">
+                    <rect key="frame" x="0.0" y="283.5" width="320" height="1"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="1bQ-Nm-hDP"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите ИИН" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="BYG-E9-Tj8">
+                    <rect key="frame" x="20" y="239.5" width="280" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fs-qI-XkZ">
+                    <rect key="frame" x="20" y="294.5" width="280" height="60"/>
+                    <color key="backgroundColor" red="0.59607843137254901" green="0.73725490196078436" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="r8O-u8-fRX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="Далее">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="nextButtonPressed:" destination="-1" eventType="touchUpInside" id="jn0-Ov-iVq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G6-66-jd6">
+                    <rect key="frame" x="98" y="374.5" width="124" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Стать волонтером"/>
+                    <connections>
+                        <action selector="becomeVolunteerButtonPressed:" destination="-1" eventType="touchUpInside" id="LDj-mr-Yey"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMD-7A-H95">
+                    <rect key="frame" x="120" y="489" width="80" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Пропустить">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="skipButtonPressed:" destination="-1" eventType="touchUpInside" id="Fgc-vj-LwD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8G6-66-jd6" firstAttribute="top" secondItem="0fs-qI-XkZ" secondAttribute="bottom" constant="20" id="1D6-aA-Hk7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BYG-E9-Tj8" secondAttribute="trailing" constant="20" id="8qR-3E-5g3"/>
+                <constraint firstItem="0fs-qI-XkZ" firstAttribute="leading" secondItem="BYG-E9-Tj8" secondAttribute="leading" id="Dun-VV-Kc1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FMD-7A-H95" secondAttribute="bottom" constant="50" id="Eiy-Bm-ylk"/>
+                <constraint firstItem="md7-5Z-k7b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="N9h-Do-1ae"/>
+                <constraint firstItem="BYG-E9-Tj8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="P6h-PY-Uaa"/>
+                <constraint firstItem="XCo-sw-zGz" firstAttribute="top" secondItem="BYG-E9-Tj8" secondAttribute="bottom" constant="10" id="Um4-zJ-xwS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="md7-5Z-k7b" secondAttribute="trailing" constant="20" id="XvQ-6i-qe2"/>
+                <constraint firstItem="0fs-qI-XkZ" firstAttribute="top" secondItem="XCo-sw-zGz" secondAttribute="bottom" constant="10" id="exj-xf-adU"/>
+                <constraint firstItem="8G6-66-jd6" firstAttribute="centerX" secondItem="0fs-qI-XkZ" secondAttribute="centerX" id="fjS-4t-d33"/>
+                <constraint firstItem="XCo-sw-zGz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fnX-HM-pKx"/>
+                <constraint firstItem="XCo-sw-zGz" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="iHZ-4I-efa"/>
+                <constraint firstItem="md7-5Z-k7b" firstAttribute="top" secondItem="cel-sC-QKe" secondAttribute="bottom" constant="30" id="oDm-3d-e54"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XCo-sw-zGz" secondAttribute="trailing" id="onw-lJ-lTv"/>
+                <constraint firstItem="cel-sC-QKe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="vDF-p6-UcH"/>
+                <constraint firstItem="cel-sC-QKe" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="x7X-qG-Cnu"/>
+                <constraint firstItem="0fs-qI-XkZ" firstAttribute="trailing" secondItem="BYG-E9-Tj8" secondAttribute="trailing" id="xJv-2R-F1g"/>
+                <constraint firstItem="FMD-7A-H95" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="yeN-l3-Jp3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="154"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="GroupLogo" width="106" height="88.5"/>
+    </resources>
+</document>

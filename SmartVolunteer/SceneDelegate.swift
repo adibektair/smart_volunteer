@@ -1,9 +1,9 @@
 //
 //  SceneDelegate.swift
-//  SmartVolunteer
+//  Qoima
 //
-//  Created by Таир Адибек on 6/21/20.
-//  Copyright © 2020 Таир Адибек. All rights reserved.
+//  Created by root user on 5/6/20.
+//  Copyright © 2020 iitu. All rights reserved.
 //
 
 import UIKit
@@ -14,10 +14,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+
+//        let token = Helper.shared().getToken()
+//
+//        if token != ""{
+//            window?.rootViewController = TabBarViewController()
+//            window?.makeKeyAndVisible()
+//        }else{
+            let navigationController = UINavigationController()
+            navigationController.addChild(CheckIINVC())
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+//        }
+                           
         guard let _ = (scene as? UIWindowScene) else { return }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,4 +61,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-

@@ -3,27 +3,53 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		917714ACC9491D5F50AAB7B3 /* Pods_SmartVolunteer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */; };
 		F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */; };
-		F24B2D33249FC5CC0080C5B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D32249FC5CC0080C5B4 /* SceneDelegate.swift */; };
-		F24B2D35249FC5CC0080C5B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D34249FC5CC0080C5B4 /* ViewController.swift */; };
 		F24B2D38249FC5CC0080C5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24B2D36249FC5CC0080C5B4 /* Main.storyboard */; };
 		F24B2D3A249FC5CF0080C5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24B2D39249FC5CF0080C5B4 /* Assets.xcassets */; };
 		F24B2D3D249FC5CF0080C5B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24B2D3B249FC5CF0080C5B4 /* LaunchScreen.storyboard */; };
+		F24B2D4F249FC6350080C5B4 /* StackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D47249FC6340080C5B4 /* StackViewExtensions.swift */; };
+		F24B2D50249FC6350080C5B4 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D48249FC6340080C5B4 /* ViewExtensions.swift */; };
+		F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D49249FC6340080C5B4 /* StringExtension.swift */; };
+		F24B2D52249FC6350080C5B4 /* LabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D4A249FC6340080C5B4 /* LabelExtensions.swift */; };
+		F24B2D53249FC6350080C5B4 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D4B249FC6340080C5B4 /* UIViewExtensions.swift */; };
+		F24B2D54249FC6350080C5B4 /* ScrollStackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D4C249FC6340080C5B4 /* ScrollStackController.swift */; };
+		F24B2D55249FC6350080C5B4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D4D249FC6340080C5B4 /* Colors.swift */; };
+		F24B2D56249FC6350080C5B4 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D4E249FC6350080C5B4 /* ViewControllerExtension.swift */; };
+		F24B2D59249FC6780080C5B4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D58249FC6780080C5B4 /* Constants.swift */; };
+		F24B2D5B249FC72E0080C5B4 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D5A249FC72E0080C5B4 /* Requests.swift */; };
+		F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F262524A11EE800934874 /* CheckIINVC.swift */; };
+		F26F262824A11EE800934874 /* CheckIINVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F26F262624A11EE800934874 /* CheckIINVC.xib */; };
+		F26F262A24A128ED00934874 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F262924A128ED00934874 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4850EF2CF64FA1018328D9A9 /* Pods-SmartVolunteer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartVolunteer.debug.xcconfig"; path = "Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer.debug.xcconfig"; sourceTree = "<group>"; };
+		5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartVolunteer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FD70581A056A715446020F8 /* Pods-SmartVolunteer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartVolunteer.release.xcconfig"; path = "Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer.release.xcconfig"; sourceTree = "<group>"; };
 		F24B2D2D249FC5CC0080C5B4 /* SmartVolunteer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartVolunteer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F24B2D32249FC5CC0080C5B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F24B2D34249FC5CC0080C5B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F24B2D37249FC5CC0080C5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F24B2D39249FC5CF0080C5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F24B2D3C249FC5CF0080C5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F24B2D3E249FC5CF0080C5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F24B2D47249FC6340080C5B4 /* StackViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewExtensions.swift; sourceTree = "<group>"; };
+		F24B2D48249FC6340080C5B4 /* ViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		F24B2D49249FC6340080C5B4 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		F24B2D4A249FC6340080C5B4 /* LabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelExtensions.swift; sourceTree = "<group>"; };
+		F24B2D4B249FC6340080C5B4 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		F24B2D4C249FC6340080C5B4 /* ScrollStackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollStackController.swift; sourceTree = "<group>"; };
+		F24B2D4D249FC6340080C5B4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F24B2D4E249FC6350080C5B4 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		F24B2D58249FC6780080C5B4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F24B2D5A249FC72E0080C5B4 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		F26F262524A11EE800934874 /* CheckIINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIINVC.swift; sourceTree = "<group>"; };
+		F26F262624A11EE800934874 /* CheckIINVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckIINVC.xib; sourceTree = "<group>"; };
+		F26F262924A128ED00934874 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +57,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				917714ACC9491D5F50AAB7B3 /* Pods_SmartVolunteer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54D5D171D3AF39C0D4DE1129 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9EB19CCD45862BC4C894374F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4850EF2CF64FA1018328D9A9 /* Pods-SmartVolunteer.debug.xcconfig */,
+				7FD70581A056A715446020F8 /* Pods-SmartVolunteer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F24B2D24249FC5CC0080C5B4 = {
 			isa = PBXGroup;
 			children = (
 				F24B2D2F249FC5CC0080C5B4 /* SmartVolunteer */,
 				F24B2D2E249FC5CC0080C5B4 /* Products */,
+				9EB19CCD45862BC4C894374F /* Pods */,
+				54D5D171D3AF39C0D4DE1129 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +102,50 @@
 		F24B2D2F249FC5CC0080C5B4 /* SmartVolunteer */ = {
 			isa = PBXGroup;
 			children = (
+				F24B2D57249FC64E0080C5B4 /* Networking */,
+				F24B2D46249FC6280080C5B4 /* Other */,
+				F26F262424A11DE000934874 /* Auth */,
 				F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */,
-				F24B2D32249FC5CC0080C5B4 /* SceneDelegate.swift */,
-				F24B2D34249FC5CC0080C5B4 /* ViewController.swift */,
+				F26F262924A128ED00934874 /* SceneDelegate.swift */,
 				F24B2D36249FC5CC0080C5B4 /* Main.storyboard */,
 				F24B2D39249FC5CF0080C5B4 /* Assets.xcassets */,
 				F24B2D3B249FC5CF0080C5B4 /* LaunchScreen.storyboard */,
 				F24B2D3E249FC5CF0080C5B4 /* Info.plist */,
 			);
 			path = SmartVolunteer;
+			sourceTree = "<group>";
+		};
+		F24B2D46249FC6280080C5B4 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F24B2D4D249FC6340080C5B4 /* Colors.swift */,
+				F24B2D4A249FC6340080C5B4 /* LabelExtensions.swift */,
+				F24B2D4C249FC6340080C5B4 /* ScrollStackController.swift */,
+				F24B2D47249FC6340080C5B4 /* StackViewExtensions.swift */,
+				F24B2D49249FC6340080C5B4 /* StringExtension.swift */,
+				F24B2D4B249FC6340080C5B4 /* UIViewExtensions.swift */,
+				F24B2D4E249FC6350080C5B4 /* ViewControllerExtension.swift */,
+				F24B2D48249FC6340080C5B4 /* ViewExtensions.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		F24B2D57249FC64E0080C5B4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F24B2D58249FC6780080C5B4 /* Constants.swift */,
+				F24B2D5A249FC72E0080C5B4 /* Requests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F26F262424A11DE000934874 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F26F262524A11EE800934874 /* CheckIINVC.swift */,
+				F26F262624A11EE800934874 /* CheckIINVC.xib */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F24B2D41249FC5CF0080C5B4 /* Build configuration list for PBXNativeTarget "SmartVolunteer" */;
 			buildPhases = (
+				5C6C1136FDD12AA8F490A14B /* [CP] Check Pods Manifest.lock */,
 				F24B2D29249FC5CC0080C5B4 /* Sources */,
 				F24B2D2A249FC5CC0080C5B4 /* Frameworks */,
 				F24B2D2B249FC5CC0080C5B4 /* Resources */,
+				A307360540055038EEA0F023 /* [CP] Embed Pods Frameworks */,
+				EB98A7C9DD774387F748AB4D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -127,20 +211,90 @@
 			files = (
 				F24B2D3D249FC5CF0080C5B4 /* LaunchScreen.storyboard in Resources */,
 				F24B2D3A249FC5CF0080C5B4 /* Assets.xcassets in Resources */,
+				F26F262824A11EE800934874 /* CheckIINVC.xib in Resources */,
 				F24B2D38249FC5CC0080C5B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5C6C1136FDD12AA8F490A14B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartVolunteer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A307360540055038EEA0F023 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB98A7C9DD774387F748AB4D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F24B2D29249FC5CC0080C5B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F24B2D35249FC5CC0080C5B4 /* ViewController.swift in Sources */,
 				F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */,
-				F24B2D33249FC5CC0080C5B4 /* SceneDelegate.swift in Sources */,
+				F24B2D59249FC6780080C5B4 /* Constants.swift in Sources */,
+				F24B2D55249FC6350080C5B4 /* Colors.swift in Sources */,
+				F24B2D53249FC6350080C5B4 /* UIViewExtensions.swift in Sources */,
+				F24B2D4F249FC6350080C5B4 /* StackViewExtensions.swift in Sources */,
+				F24B2D52249FC6350080C5B4 /* LabelExtensions.swift in Sources */,
+				F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */,
+				F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */,
+				F26F262A24A128ED00934874 /* SceneDelegate.swift in Sources */,
+				F24B2D50249FC6350080C5B4 /* ViewExtensions.swift in Sources */,
+				F24B2D5B249FC72E0080C5B4 /* Requests.swift in Sources */,
+				F24B2D56249FC6350080C5B4 /* ViewControllerExtension.swift in Sources */,
+				F24B2D54249FC6350080C5B4 /* ScrollStackController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,10 +436,13 @@
 		};
 		F24B2D42249FC5CF0080C5B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4850EF2CF64FA1018328D9A9 /* Pods-SmartVolunteer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SmartVolunteer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,10 +456,13 @@
 		};
 		F24B2D43249FC5CF0080C5B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FD70581A056A715446020F8 /* Pods-SmartVolunteer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SmartVolunteer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
