@@ -30,12 +30,23 @@ class CheckIINVC: UIViewController, UITextFieldDelegate {
     func setViews(){
         self.setButtonState(state: false)
         self.nextButton.cornerRadius(radius: 10, width: 0)
-        
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
+        self.startLoad()
+        let json = ["iin" : self.iinTextField.text!] as [String : AnyObject]
+        Requests.shared().checkLogin(params: json) { (response) in
+            self.stopLoad()
+            if response?.isExists ?? false{
+                PasswordVC.open(vc: self, iin: self.iinTextField.text!)
+            }else{
+                SignUpVC.open(vc: self)
+            }
+        }
+        
     }
     @IBAction func becomeVolunteerButtonPressed(_ sender: Any) {
+        SignUpVC.open(vc: self)
     }
     @IBAction func skipButtonPressed(_ sender: Any) {
     }
@@ -57,7 +68,7 @@ class CheckIINVC: UIViewController, UITextFieldDelegate {
         }
         let substringToReplace = textFieldText[rangeOfTextToReplace]
         let count = textFieldText.count - substringToReplace.count + string.count
-        self.setButtonState(state: !(count <= 10))
-        return count <= 10
+        self.setButtonState(state: !(count <= 11))
+        return count <= 12
     }
 }

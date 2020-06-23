@@ -22,7 +22,7 @@ class ScrollStackController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1921568627, blue: 0.2235294118, alpha: 1)
+        self.view.backgroundColor = .white
         setBackButton()
         self.view.addSubview(scrollView)
         if #available(iOS 13.0, *) {
@@ -113,9 +113,17 @@ class ScrollStackController: UIViewController {
           small.backgroundColor = UIColor.white
           small.layer.cornerRadius = 15
           small.center = dark.center
+        if #available(iOS 13.0, *) {
             indicator.style = UIActivityIndicatorView.Style.medium
+        } else {
+            // Fallback on earlier versions
+        }
           indicator.color = UIColor.black
-          indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        if #available(iOS 13.0, *) {
+            indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        } else {
+            // Fallback on earlier versions
+        }
           indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
           let transform: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
           indicator.transform = transform
@@ -144,9 +152,17 @@ extension UIViewController{
             small.backgroundColor = UIColor.white
             small.layer.cornerRadius = 15
             small.center = dark.center
-              indicator.style = UIActivityIndicatorView.Style.medium
+        if #available(iOS 13.0, *) {
+            indicator.style = UIActivityIndicatorView.Style.medium
+        } else {
+            // Fallback on earlier versions
+        }
             indicator.color = UIColor.black
+        if #available(iOS 13.0, *) {
             indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        } else {
+            // Fallback on earlier versions
+        }
             indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
             let transform: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
             indicator.transform = transform
