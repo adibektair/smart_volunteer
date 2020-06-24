@@ -23,7 +23,7 @@ class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         life()
         setUI()
-        
+        getData()
     }
     
     // MARK: - Outlets
