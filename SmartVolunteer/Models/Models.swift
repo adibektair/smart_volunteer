@@ -181,7 +181,7 @@ class RegisterResponse : NSObject, NSCoding, Mappable{
     var success : Bool?
     var surname : String?
     var token : String?
-
+    var isVolunteer : Bool?
 
     class func newInstance(map: Map) -> Mappable?{
         return RegisterResponse()
@@ -196,7 +196,7 @@ class RegisterResponse : NSObject, NSCoding, Mappable{
         success <- map["success"]
         surname <- map["surname"]
         token <- map["token"]
-        
+        isVolunteer <- map["is_volunterr"]
     }
 
     /**

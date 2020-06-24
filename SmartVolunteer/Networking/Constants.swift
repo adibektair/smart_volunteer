@@ -26,6 +26,13 @@ class Constants: NSObject {
         return UserDefaults.standard.string(forKey: "token")
     }
     
+    func setRole(isVolunteer : Bool?){
+        UserDefaults.standard.set(isVolunteer ?? false, forKey: "isVolunteer")
+    }
+    func isVolunteer() -> Bool{
+        return UserDefaults.standard.bool(forKey: "isVolunteer")
+    }
+    
     public let baseUrl = "https://sups.kz/api/v1/"
     
     
