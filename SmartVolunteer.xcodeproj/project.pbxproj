@@ -27,7 +27,12 @@
 		F24B2D5B249FC72E0080C5B4 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D5A249FC72E0080C5B4 /* Requests.swift */; };
 		F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F262524A11EE800934874 /* CheckIINVC.swift */; };
 		F26F262824A11EE800934874 /* CheckIINVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F26F262624A11EE800934874 /* CheckIINVC.xib */; };
-		F26F262A24A128ED00934874 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F262924A128ED00934874 /* SceneDelegate.swift */; };
+		F2B26A8A24A2246A001EAC0E /* PasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A8824A2246A001EAC0E /* PasswordVC.swift */; };
+		F2B26A8B24A2246A001EAC0E /* PasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B26A8924A2246A001EAC0E /* PasswordVC.xib */; };
+		F2B26A8D24A22A25001EAC0E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A8C24A22A25001EAC0E /* SignUpVC.swift */; };
+		F2B26A9024A27755001EAC0E /* GeneralButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A8F24A27755001EAC0E /* GeneralButton.swift */; };
+		F2B26A9224A279F4001EAC0E /* ChooseCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A9124A279F4001EAC0E /* ChooseCityVC.swift */; };
+		F2B26A9524A28330001EAC0E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A9424A28330001EAC0E /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +60,12 @@
 		F24B2D5A249FC72E0080C5B4 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		F26F262524A11EE800934874 /* CheckIINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIINVC.swift; sourceTree = "<group>"; };
 		F26F262624A11EE800934874 /* CheckIINVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckIINVC.xib; sourceTree = "<group>"; };
-		F26F262924A128ED00934874 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F2B26A8824A2246A001EAC0E /* PasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVC.swift; sourceTree = "<group>"; };
+		F2B26A8924A2246A001EAC0E /* PasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordVC.xib; sourceTree = "<group>"; };
+		F2B26A8C24A22A25001EAC0E /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		F2B26A8F24A27755001EAC0E /* GeneralButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralButton.swift; sourceTree = "<group>"; };
+		F2B26A9124A279F4001EAC0E /* ChooseCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityVC.swift; sourceTree = "<group>"; };
+		F2B26A9424A28330001EAC0E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,12 +128,13 @@
 		F24B2D2F249FC5CC0080C5B4 /* SmartVolunteer */ = {
 			isa = PBXGroup;
 			children = (
+				F2B26A9324A28321001EAC0E /* Models */,
+				F2B26A8E24A2773F001EAC0E /* Views */,
 				F24B2D57249FC64E0080C5B4 /* Networking */,
 				F24B2D46249FC6280080C5B4 /* Other */,
 				2F65436C24A23A8D0080C445 /* News */,
 				F26F262424A11DE000934874 /* Auth */,
 				F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */,
-				F26F262924A128ED00934874 /* SceneDelegate.swift */,
 				F24B2D36249FC5CC0080C5B4 /* Main.storyboard */,
 				F24B2D39249FC5CF0080C5B4 /* Assets.xcassets */,
 				F24B2D3B249FC5CF0080C5B4 /* LaunchScreen.storyboard */,
@@ -161,8 +172,28 @@
 			children = (
 				F26F262524A11EE800934874 /* CheckIINVC.swift */,
 				F26F262624A11EE800934874 /* CheckIINVC.xib */,
+				F2B26A8824A2246A001EAC0E /* PasswordVC.swift */,
+				F2B26A8924A2246A001EAC0E /* PasswordVC.xib */,
+				F2B26A8C24A22A25001EAC0E /* SignUpVC.swift */,
+				F2B26A9124A279F4001EAC0E /* ChooseCityVC.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		F2B26A8E24A2773F001EAC0E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F2B26A8F24A27755001EAC0E /* GeneralButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F2B26A9324A28321001EAC0E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2B26A9424A28330001EAC0E /* Models.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +260,7 @@
 				F24B2D3D249FC5CF0080C5B4 /* LaunchScreen.storyboard in Resources */,
 				F24B2D3A249FC5CF0080C5B4 /* Assets.xcassets in Resources */,
 				F26F262824A11EE800934874 /* CheckIINVC.xib in Resources */,
+				F2B26A8B24A2246A001EAC0E /* PasswordVC.xib in Resources */,
 				F24B2D38249FC5CC0080C5B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +331,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2B26A9224A279F4001EAC0E /* ChooseCityVC.swift in Sources */,
+				F2B26A9524A28330001EAC0E /* Models.swift in Sources */,
+				F2B26A8D24A22A25001EAC0E /* SignUpVC.swift in Sources */,
 				F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */,
 				F24B2D59249FC6780080C5B4 /* Constants.swift in Sources */,
 				F24B2D55249FC6350080C5B4 /* Colors.swift in Sources */,
@@ -306,7 +341,9 @@
 				2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */,
 				F24B2D53249FC6350080C5B4 /* UIViewExtensions.swift in Sources */,
 				F24B2D4F249FC6350080C5B4 /* StackViewExtensions.swift in Sources */,
+				F2B26A9024A27755001EAC0E /* GeneralButton.swift in Sources */,
 				F24B2D52249FC6350080C5B4 /* LabelExtensions.swift in Sources */,
+				F2B26A8A24A2246A001EAC0E /* PasswordVC.swift in Sources */,
 				F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */,
 				F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */,
 				2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */,

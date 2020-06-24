@@ -22,7 +22,7 @@ class ScrollStackController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1921568627, blue: 0.2235294118, alpha: 1)
+        self.view.backgroundColor = .white
         setBackButton()
         self.view.addSubview(scrollView)
         if #available(iOS 13.0, *) {
@@ -104,38 +104,38 @@ class ScrollStackController: UIViewController {
     }
     
     func startLoading(){
-        
-        let w = UIScreen.main.bounds.size.width
-        let h = UIScreen.main.bounds.size.height
-        dark.frame = CGRect(x: 0, y: 0, width: w, height: h)
-        dark.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
-        small.frame.size = CGSize(width: w * 0.25, height: w * 0.25)
-        small.backgroundColor = UIColor.white
-        small.layer.cornerRadius = 15
-        small.center = dark.center
+          
+          let w = UIScreen.main.bounds.size.width
+          let h = UIScreen.main.bounds.size.height
+          dark.frame = CGRect(x: 0, y: 0, width: w, height: h)
+          dark.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+          small.frame.size = CGSize(width: w * 0.25, height: w * 0.25)
+          small.backgroundColor = UIColor.white
+          small.layer.cornerRadius = 15
+          small.center = dark.center
         if #available(iOS 13.0, *) {
             indicator.style = UIActivityIndicatorView.Style.medium
         } else {
             // Fallback on earlier versions
         }
-        indicator.color = UIColor.black
+          indicator.color = UIColor.black
         if #available(iOS 13.0, *) {
             indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         } else {
             // Fallback on earlier versions
         }
-        indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        let transform: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        indicator.transform = transform
-        indicator.center = dark.center
-        dark.addSubview(small)
-        dark.addSubview(indicator)
-        view.addSubview(dark)
-        indicator.startAnimating()
-    }
-    func stopLoading(){
-        dark.removeFromSuperview()
-    }
+          indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+          let transform: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+          indicator.transform = transform
+          indicator.center = dark.center
+          dark.addSubview(small)
+          dark.addSubview(indicator)
+          view.addSubview(dark)
+          indicator.startAnimating()
+      }
+      func stopLoading(){
+          dark.removeFromSuperview()
+      }
     
     func showError(text : String){
         self.showAlert(title: "Внимание", message: text)
@@ -143,25 +143,34 @@ class ScrollStackController: UIViewController {
 }
 extension UIViewController{
     func startLoad(){
-        
-        let w = UIScreen.main.bounds.size.width
-        let h = UIScreen.main.bounds.size.height
-        dark.frame = CGRect(x: 0, y: 0, width: w, height: h)
-        dark.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
-        small.frame.size = CGSize(width: w * 0.25, height: w * 0.25)
-        small.backgroundColor = UIColor.white
-        small.layer.cornerRadius = 15
-        small.center = dark.center
+            
+            let w = UIScreen.main.bounds.size.width
+            let h = UIScreen.main.bounds.size.height
+            dark.frame = CGRect(x: 0, y: 0, width: w, height: h)
+            dark.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+            small.frame.size = CGSize(width: w * 0.25, height: w * 0.25)
+            small.backgroundColor = UIColor.white
+            small.layer.cornerRadius = 15
+            small.center = dark.center
         if #available(iOS 13.0, *) {
             indicator.style = UIActivityIndicatorView.Style.medium
         } else {
             // Fallback on earlier versions
         }
-        indicator.color = UIColor.black
+            indicator.color = UIColor.black
         if #available(iOS 13.0, *) {
             indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         } else {
             // Fallback on earlier versions
+        }
+            indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            let transform: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            indicator.transform = transform
+            indicator.center = dark.center
+            dark.addSubview(small)
+            dark.addSubview(indicator)
+            view.addSubview(dark)
+            indicator.startAnimating()
         }
         indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         let transform: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)

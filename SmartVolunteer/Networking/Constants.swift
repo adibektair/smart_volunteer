@@ -19,6 +19,13 @@ class Constants: NSObject {
           return sharedReference
     }
     
+    func saveToken(token : String){
+        UserDefaults.standard.set(token, forKey: "token")
+    }
+    func getToken() -> String?{
+        return UserDefaults.standard.string(forKey: "token")
+    }
+    
     public let baseUrl = "https://sups.kz/api/v1/"
     
     
