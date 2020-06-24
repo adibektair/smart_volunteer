@@ -30,6 +30,7 @@
 		F2B26A9024A27755001EAC0E /* GeneralButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A8F24A27755001EAC0E /* GeneralButton.swift */; };
 		F2B26A9224A279F4001EAC0E /* ChooseCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A9124A279F4001EAC0E /* ChooseCityVC.swift */; };
 		F2B26A9524A28330001EAC0E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A9424A28330001EAC0E /* Models.swift */; };
+		F2B26A9824A33B9C001EAC0E /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A9724A33B9C001EAC0E /* TabbarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		F2B26A8F24A27755001EAC0E /* GeneralButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralButton.swift; sourceTree = "<group>"; };
 		F2B26A9124A279F4001EAC0E /* ChooseCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityVC.swift; sourceTree = "<group>"; };
 		F2B26A9424A28330001EAC0E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		F2B26A9724A33B9C001EAC0E /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		F24B2D2F249FC5CC0080C5B4 /* SmartVolunteer */ = {
 			isa = PBXGroup;
 			children = (
+				F2B26A9624A33B6B001EAC0E /* Profile */,
 				F2B26A9324A28321001EAC0E /* Models */,
 				F2B26A8E24A2773F001EAC0E /* Views */,
 				F24B2D57249FC64E0080C5B4 /* Networking */,
@@ -122,6 +125,7 @@
 				F24B2D39249FC5CF0080C5B4 /* Assets.xcassets */,
 				F24B2D3B249FC5CF0080C5B4 /* LaunchScreen.storyboard */,
 				F24B2D3E249FC5CF0080C5B4 /* Info.plist */,
+				F2B26A9724A33B9C001EAC0E /* TabbarViewController.swift */,
 			);
 			path = SmartVolunteer;
 			sourceTree = "<group>";
@@ -177,6 +181,13 @@
 				F2B26A9424A28330001EAC0E /* Models.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F2B26A9624A33B6B001EAC0E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +333,7 @@
 				F24B2D55249FC6350080C5B4 /* Colors.swift in Sources */,
 				F24B2D53249FC6350080C5B4 /* UIViewExtensions.swift in Sources */,
 				F24B2D4F249FC6350080C5B4 /* StackViewExtensions.swift in Sources */,
+				F2B26A9824A33B9C001EAC0E /* TabbarViewController.swift in Sources */,
 				F2B26A9024A27755001EAC0E /* GeneralButton.swift in Sources */,
 				F24B2D52249FC6350080C5B4 /* LabelExtensions.swift in Sources */,
 				F2B26A8A24A2246A001EAC0E /* PasswordVC.swift in Sources */,
