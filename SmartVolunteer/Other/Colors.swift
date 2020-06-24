@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
 
     func titleDefault() -> UIColor{
-        return #colorLiteral(red: 0.2039215686, green: 0.262745098, blue: 0.337254902, alpha: 1)
+        return #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1)
     }
     
 }

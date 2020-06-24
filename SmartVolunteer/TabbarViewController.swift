@@ -16,7 +16,16 @@ class TabbarViewController: UITabBarController {
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
+        
+        let icon1 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "Shape"))
+        
+        let homeNav = UINavigationController()
+        homeNav.addChild(NewsListVC())
+        homeNav.tabBarItem = icon1
+        controllers.append(homeNav)
+        
 
+        self.viewControllers = controllers
     }
     
 }

@@ -14,8 +14,8 @@ let small = UIView()
 var indicator = UIActivityIndicatorView()
 
 class ScrollStackController: UIViewController {
-
-
+    
+    
     open var scrollView = UIScrollView()
     open var stackView = UIStackView()
     open var bottomAnchor = NSLayoutConstraint()
@@ -26,8 +26,8 @@ class ScrollStackController: UIViewController {
         setBackButton()
         self.view.addSubview(scrollView)
         if #available(iOS 13.0, *) {
-             overrideUserInterfaceStyle = .light
-         }
+            overrideUserInterfaceStyle = .light
+        }
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         let bottomAnchorCalc = self.tabBarController?.tabBar.frame.size.height ?? 0
         bottomAnchor = scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -bottomAnchorCalc)
@@ -37,7 +37,7 @@ class ScrollStackController: UIViewController {
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
             scrollView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
-            ])
+        ])
         
         stackView.axis = .vertical
         stackView.spacing = 15
@@ -58,7 +58,7 @@ class ScrollStackController: UIViewController {
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-            ])
+        ])
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -104,38 +104,38 @@ class ScrollStackController: UIViewController {
     }
     
     func startLoading(){
-          
-          let w = UIScreen.main.bounds.size.width
-          let h = UIScreen.main.bounds.size.height
-          dark.frame = CGRect(x: 0, y: 0, width: w, height: h)
-          dark.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
-          small.frame.size = CGSize(width: w * 0.25, height: w * 0.25)
-          small.backgroundColor = UIColor.white
-          small.layer.cornerRadius = 15
-          small.center = dark.center
+        
+        let w = UIScreen.main.bounds.size.width
+        let h = UIScreen.main.bounds.size.height
+        dark.frame = CGRect(x: 0, y: 0, width: w, height: h)
+        dark.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+        small.frame.size = CGSize(width: w * 0.25, height: w * 0.25)
+        small.backgroundColor = UIColor.white
+        small.layer.cornerRadius = 15
+        small.center = dark.center
         if #available(iOS 13.0, *) {
             indicator.style = UIActivityIndicatorView.Style.medium
         } else {
             // Fallback on earlier versions
         }
-          indicator.color = UIColor.black
+        indicator.color = UIColor.black
         if #available(iOS 13.0, *) {
             indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         } else {
             // Fallback on earlier versions
         }
-          indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-          let transform: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-          indicator.transform = transform
-          indicator.center = dark.center
-          dark.addSubview(small)
-          dark.addSubview(indicator)
-          view.addSubview(dark)
-          indicator.startAnimating()
-      }
-      func stopLoading(){
-          dark.removeFromSuperview()
-      }
+        indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        let transform: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        indicator.transform = transform
+        indicator.center = dark.center
+        dark.addSubview(small)
+        dark.addSubview(indicator)
+        view.addSubview(dark)
+        indicator.startAnimating()
+    }
+    func stopLoading(){
+        dark.removeFromSuperview()
+    }
     
     func showError(text : String){
         self.showAlert(title: "Внимание", message: text)
@@ -143,37 +143,44 @@ class ScrollStackController: UIViewController {
 }
 extension UIViewController{
     func startLoad(){
-            
-            let w = UIScreen.main.bounds.size.width
-            let h = UIScreen.main.bounds.size.height
-            dark.frame = CGRect(x: 0, y: 0, width: w, height: h)
-            dark.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
-            small.frame.size = CGSize(width: w * 0.25, height: w * 0.25)
-            small.backgroundColor = UIColor.white
-            small.layer.cornerRadius = 15
-            small.center = dark.center
+        
+        let w = UIScreen.main.bounds.size.width
+        let h = UIScreen.main.bounds.size.height
+        dark.frame = CGRect(x: 0, y: 0, width: w, height: h)
+        dark.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+        small.frame.size = CGSize(width: w * 0.25, height: w * 0.25)
+        small.backgroundColor = UIColor.white
+        small.layer.cornerRadius = 15
+        small.center = dark.center
         if #available(iOS 13.0, *) {
             indicator.style = UIActivityIndicatorView.Style.medium
         } else {
             // Fallback on earlier versions
         }
-            indicator.color = UIColor.black
+        indicator.color = UIColor.black
         if #available(iOS 13.0, *) {
             indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         } else {
             // Fallback on earlier versions
         }
-            indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-            let transform: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-            indicator.transform = transform
-            indicator.center = dark.center
-            dark.addSubview(small)
-            dark.addSubview(indicator)
-            view.addSubview(dark)
-            indicator.startAnimating()
-        }
-        func stopLoad(){
-            dark.removeFromSuperview()
-        }
-      
+        indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        let transform: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        indicator.transform = transform
+        indicator.center = dark.center
+        dark.addSubview(small)
+        dark.addSubview(indicator)
+        view.addSubview(dark)
+        indicator.startAnimating()
+        indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        indicator.transform = transform
+        indicator.center = dark.center
+        dark.addSubview(small)
+        dark.addSubview(indicator)
+        view.addSubview(dark)
+        indicator.startAnimating()
+    }
+    func stopLoad(){
+        dark.removeFromSuperview()
+    }
+    
 }
