@@ -12,7 +12,7 @@ import AlamofireObjectMapper
 
 class News : NSObject, NSCoding, Mappable{
 
-    var categories : Category?
+    var news : New?
     var success : Bool?
 
 
@@ -24,7 +24,7 @@ class News : NSObject, NSCoding, Mappable{
 
     func mapping(map: Map)
     {
-        categories <- map["categories"]
+        news <- map["news"]
         success <- map["success"]
         
     }
@@ -35,7 +35,7 @@ class News : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         categories = aDecoder.decodeObject(forKey: "categories") as? Category
+         news = aDecoder.decodeObject(forKey: "news") as? New
          success = aDecoder.decodeObject(forKey: "success") as? Bool
 
     }
@@ -46,8 +46,8 @@ class News : NSObject, NSCoding, Mappable{
     */
     @objc func encode(with aCoder: NSCoder)
     {
-        if categories != nil{
-            aCoder.encode(categories, forKey: "categories")
+        if news != nil{
+            aCoder.encode(news, forKey: "news")
         }
         if success != nil{
             aCoder.encode(success, forKey: "success")
@@ -58,7 +58,7 @@ class News : NSObject, NSCoding, Mappable{
 }
 
 
-class Category : NSObject, NSCoding, Mappable{
+class New : NSObject, NSCoding, Mappable{
 
     var currentPage : Int?
     var data : [Data]?
@@ -75,7 +75,7 @@ class Category : NSObject, NSCoding, Mappable{
 
 
     class func newInstance(map: Map) -> Mappable?{
-        return Category()
+        return New()
     }
     required init?(map: Map){}
     private override init(){}
@@ -168,13 +168,15 @@ class Category : NSObject, NSCoding, Mappable{
 
 class Data : NSObject, NSCoding, Mappable{
 
-    var categoryTypeId : Int?
+    var categoryId : Int?
     var createdAt : String?
-    var deletedAt : AnyObject?
+    var fullText : String?
     var id : Int?
-    var isVisible : Int?
-    var name : String?
+    var imgPath : String?
+    var readMinutes : Int?
+    var title : String?
     var updatedAt : String?
+    var viewsCount : Int?
 
 
     class func newInstance(map: Map) -> Mappable?{
@@ -185,13 +187,15 @@ class Data : NSObject, NSCoding, Mappable{
 
     func mapping(map: Map)
     {
-        categoryTypeId <- map["category_type_id"]
+        categoryId <- map["category_id"]
         createdAt <- map["created_at"]
-        deletedAt <- map["deleted_at"]
+        fullText <- map["full_text"]
         id <- map["id"]
-        isVisible <- map["is_visible"]
-        name <- map["name"]
+        imgPath <- map["img_path"]
+        readMinutes <- map["read_minutes"]
+        title <- map["title"]
         updatedAt <- map["updated_at"]
+        viewsCount <- map["views_count"]
         
     }
 
@@ -201,13 +205,15 @@ class Data : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         categoryTypeId = aDecoder.decodeObject(forKey: "category_type_id") as? Int
+         categoryId = aDecoder.decodeObject(forKey: "category_id") as? Int
          createdAt = aDecoder.decodeObject(forKey: "created_at") as? String
-         deletedAt = aDecoder.decodeObject(forKey: "deleted_at") as? AnyObject
+         fullText = aDecoder.decodeObject(forKey: "full_text") as? String
          id = aDecoder.decodeObject(forKey: "id") as? Int
-         isVisible = aDecoder.decodeObject(forKey: "is_visible") as? Int
-         name = aDecoder.decodeObject(forKey: "name") as? String
+         imgPath = aDecoder.decodeObject(forKey: "img_path") as? String
+         readMinutes = aDecoder.decodeObject(forKey: "read_minutes") as? Int
+         title = aDecoder.decodeObject(forKey: "title") as? String
          updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? String
+         viewsCount = aDecoder.decodeObject(forKey: "views_count") as? Int
 
     }
 
@@ -217,26 +223,32 @@ class Data : NSObject, NSCoding, Mappable{
     */
     @objc func encode(with aCoder: NSCoder)
     {
-        if categoryTypeId != nil{
-            aCoder.encode(categoryTypeId, forKey: "category_type_id")
+        if categoryId != nil{
+            aCoder.encode(categoryId, forKey: "category_id")
         }
         if createdAt != nil{
             aCoder.encode(createdAt, forKey: "created_at")
         }
-        if deletedAt != nil{
-            aCoder.encode(deletedAt, forKey: "deleted_at")
+        if fullText != nil{
+            aCoder.encode(fullText, forKey: "full_text")
         }
         if id != nil{
             aCoder.encode(id, forKey: "id")
         }
-        if isVisible != nil{
-            aCoder.encode(isVisible, forKey: "is_visible")
+        if imgPath != nil{
+            aCoder.encode(imgPath, forKey: "img_path")
         }
-        if name != nil{
-            aCoder.encode(name, forKey: "name")
+        if readMinutes != nil{
+            aCoder.encode(readMinutes, forKey: "read_minutes")
+        }
+        if title != nil{
+            aCoder.encode(title, forKey: "title")
         }
         if updatedAt != nil{
             aCoder.encode(updatedAt, forKey: "updated_at")
+        }
+        if viewsCount != nil{
+            aCoder.encode(viewsCount, forKey: "views_count")
         }
 
     }

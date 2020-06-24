@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F07095924A3E5340023B1AB /* NewsPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07095824A3E5340023B1AB /* NewsPageVC.swift */; };
 		2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436D24A23AF00080C445 /* NewsListVC.swift */; };
 		2F65437024A23C0A0080C445 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436F24A23C0A0080C445 /* NewsView.swift */; };
 		2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65437124A249F00080C445 /* NewsObjevcts.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F07095824A3E5340023B1AB /* NewsPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageVC.swift; sourceTree = "<group>"; };
 		2F65436D24A23AF00080C445 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
 		2F65436F24A23C0A0080C445 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		2F65437124A249F00080C445 /* NewsObjevcts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsObjevcts.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				2F65436D24A23AF00080C445 /* NewsListVC.swift */,
+				2F07095824A3E5340023B1AB /* NewsPageVC.swift */,
 				2F65436F24A23C0A0080C445 /* NewsView.swift */,
 				2F65437124A249F00080C445 /* NewsObjevcts.swift */,
 			);
@@ -350,6 +353,7 @@
 				F24B2D55249FC6350080C5B4 /* Colors.swift in Sources */,
 				2F65437024A23C0A0080C445 /* NewsView.swift in Sources */,
 				2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */,
+				2F07095924A3E5340023B1AB /* NewsPageVC.swift in Sources */,
 				F24B2D53249FC6350080C5B4 /* UIViewExtensions.swift in Sources */,
 				F24B2D4F249FC6350080C5B4 /* StackViewExtensions.swift in Sources */,
 				F2B26A9824A33B9C001EAC0E /* TabbarViewController.swift in Sources */,
@@ -359,7 +363,6 @@
 				F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */,
 				F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */,
 				2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */,
-				F26F262A24A128ED00934874 /* SceneDelegate.swift in Sources */,
 				F24B2D50249FC6350080C5B4 /* ViewExtensions.swift in Sources */,
 				F24B2D5B249FC72E0080C5B4 /* Requests.swift in Sources */,
 				F24B2D56249FC6350080C5B4 /* ViewControllerExtension.swift in Sources */,

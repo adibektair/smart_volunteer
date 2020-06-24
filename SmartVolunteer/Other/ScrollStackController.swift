@@ -97,7 +97,7 @@ class ScrollStackController: UIViewController {
     
     open func addLine() {
         let line = UIView()
-        line.backgroundColor = #colorLiteral(red: 0.2039215686, green: 0.262745098, blue: 0.337254902, alpha: 0.05)
+        line.backgroundColor = #colorLiteral(red: 0.8352941176, green: 0.8666666667, blue: 0.8784313725, alpha: 0.9870590491)
         line.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         line.easy.layout(Left(30),Right(30))
         stackView.addArrangedSubview(line)

@@ -38,6 +38,17 @@ class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func setUI(){
         self.view.addSubview(tableView)
         tableView.easy.layout(Edges())
+        self.navigationItem.title = "Новости"
+        let search = UISearchController(searchResultsController: nil)
+        search.searchBar.placeholder = "Название новости"
+        navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     func getData(){
         Requests.shared().getNews(page: 0) { (result) in
@@ -50,15 +61,22 @@ class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return news?.categories?.data?.count ?? 5
+        return news?.news?.data?.count ?? 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
-        let n = NewsView(frame: .zero)
-        cell.addSubview(n)
-        n.easy.layout(Top(5),Bottom(5),Left(20),Right(20))
+        if let data = self.news?.news?.data?[indexPath.row] {
+            let n = NewsView(data: data)
+            cell.addSubview(n)
+            n.easy.layout(Top(5),Bottom(5),Left(20),Right(20))
+        }
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let data = self.news?.news?.data?[indexPath.row] {
+            NewsPageVC.open(vc: self, data: data)
+        }
     }
 
 }

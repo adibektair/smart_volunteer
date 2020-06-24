@@ -8,6 +8,7 @@
 
 import UIKit
 import EasyPeasy
+import SDWebImage
 
 class NewsView: UIView {
 
@@ -18,10 +19,11 @@ class NewsView: UIView {
     let desc = UILabel()
     let time = UILabel()
     let image = UIImageView()
+    var data : Data?
     
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(data: Data) {
+        super.init(frame: .zero)
+        self.data = data
         setUI()
     }
     
@@ -34,15 +36,20 @@ class NewsView: UIView {
         stackView.easy.layout(Edges(10))
         stackView.setProperties(axis: .horizontal, alignment: .fill, spacing: 10, distribution: .fill)
         image.layer.cornerRadius = 5
+        image.clipsToBounds = true
         image.easy.layout(Width(80),Height(80))
         stackView.addArrangedSubview(image)
         image.image = #imageLiteral(resourceName: "GroupLogo")
-        image.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0.3660012462)
+        let img = URL(string: data?.imgPath ?? "")
+        image.sd_setImage(with: img, completed: nil)
         titleStackView.setProperties(axis: .vertical, alignment: .fill, spacing: 8, distribution: .fill)
-        title.setProperties(text: "asdlkfjn", textColor: UIColor.titleDefault(UIColor())(), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 2)
-        desc.setProperties(text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...", textColor: #colorLiteral(red: 0.5921568627, green: 0.6784313725, blue: 0.7137254902, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 2)
+        let t = data?.title ?? ""
+        let fullText = data?.fullText ?? ""
+        title.setProperties(text: t, textColor: UIColor.titleDefault(UIColor())(), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 2)
+        desc.setProperties(text: fullText, textColor: #colorLiteral(red: 0.5921568627, green: 0.6784313725, blue: 0.7137254902, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 2)
         titleStackView.addArrangedSubview(title)
         titleStackView.addArrangedSubview(desc)
+        
         
         timeStackView.setProperties(axis: .horizontal, alignment: .leading, spacing: 5, distribution: .fill)
         let icon = UIImageView()
@@ -50,11 +57,27 @@ class NewsView: UIView {
         icon.easy.layout(Width(12),Height(12))
         timeStackView.addArrangedSubview(icon)
         let timeLabel = UILabel()
-        timeLabel.setProperties(text: "3 minutes", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 10))
+        let d = data?.createdAt ?? ""
+        timeLabel.setProperties(text: dateFormat(date: d), textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 10))
         timeStackView.addArrangedSubview(timeLabel)
         titleStackView.addArrangedSubview(timeStackView)
         
         stackView.addArrangedSubview(titleStackView)
+    }
+    func dateFormat(date: String) -> String{
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "dd MM yyyy"
+
+        if let date = dateFormatterGet.date(from: date) {
+            print(dateFormatterPrint.string(from: date))
+            return dateFormatterPrint.string(from: date)
+        } else {
+           print("There was an error decoding the string")
+            return ""
+        }
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
