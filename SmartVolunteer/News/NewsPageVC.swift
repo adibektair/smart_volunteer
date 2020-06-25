@@ -29,9 +29,11 @@ class NewsPageVC: ScrollStackController {
         let h = (270 * UIScreen.main.bounds.width) / 375
         img.easy.layout(Height(h))
         stackView.setSpacing()
+       
         let titlesStackView = UIStackView()
         titlesStackView.setProperties(axis: .vertical, alignment: .leading, spacing: 7, distribution: .fill)
         titlesStackView.setSpacing(left:20, right:20, bottom:12)
+      
         let container = UIView()
         let ttr = data?.readMinutes ?? 0
         container.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.06274509804, blue: 0.3333333333, alpha: 1)
@@ -40,6 +42,7 @@ class NewsPageVC: ScrollStackController {
         container.addSubview(timeToRead)
         timeToRead.easy.layout(Height(18),Left(8),Right(8),Top(2),Bottom(2))
         titlesStackView.addArrangedSubview(container)
+      
         let title = data?.title ?? ""
         titleLabel.setProperties(text: title, textColor: .white, font: .systemFont(ofSize: 20, weight: .semibold), textAlignment: .left, numberLines: 0)
         img.addSubview(titlesStackView)
@@ -47,6 +50,7 @@ class NewsPageVC: ScrollStackController {
         img.clipsToBounds = true
         titlesStackView.easy.layout(Left(),Right(),Bottom())
         titlesStackView.addArrangedSubview(titleLabel)
+      
         let imgUrl = URL(string: data?.imgPath ?? "")
         img.sd_setImage(with: imgUrl, completed: nil)
         stackView.addArrangedSubview(img)
@@ -54,12 +58,14 @@ class NewsPageVC: ScrollStackController {
         let infoStackView = UIStackView()
         infoStackView.setSpacing(left: 20, right: 20)
         infoStackView.setProperties(axis: .horizontal, alignment: .fill, spacing: 7, distribution: .fill)
+     
         let timeIcon = UIImageView()
         timeIcon.image = #imageLiteral(resourceName: "Clock")
         timeIcon.easy.layout(Width(12),Height(12))
         infoStackView.addArrangedSubview(timeIcon)
+      
         let created = data?.createdAt ?? ""
-        date.setProperties(text: dateFormat(date: created), textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 12), textAlignment: .left, numberLines: 1)
+        date.setProperties(text: dateFormat(date: created), textColor: #colorLiteral(red: 0.5921568627, green: 0.6784313725, blue: 0.7137254902, alpha: 1), font: .systemFont(ofSize: 12), textAlignment: .left, numberLines: 1)
         infoStackView.addArrangedSubview(timeIcon)
         infoStackView.addArrangedSubview(date)
         infoStackView.addArrangedSubview(UIView())

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2F07095924A3E5340023B1AB /* NewsPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07095824A3E5340023B1AB /* NewsPageVC.swift */; };
+		2F07095C24A46FE20023B1AB /* ApplicationsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07095B24A46FE20023B1AB /* ApplicationsListVC.swift */; };
+		2F07095E24A476250023B1AB /* ApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07095D24A476250023B1AB /* ApplicationView.swift */; };
+		2F2A137924A494F800E4A9DA /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2A137824A494F800E4A9DA /* FilterVC.swift */; };
+		2F2A137E24A4A8FC00E4A9DA /* CityCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2A137C24A4A8FC00E4A9DA /* CityCVC.swift */; };
+		2F2A137F24A4A8FC00E4A9DA /* CityCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A137D24A4A8FC00E4A9DA /* CityCVC.xib */; };
 		2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436D24A23AF00080C445 /* NewsListVC.swift */; };
 		2F65437024A23C0A0080C445 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436F24A23C0A0080C445 /* NewsView.swift */; };
 		2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65437124A249F00080C445 /* NewsObjevcts.swift */; };
@@ -39,6 +44,11 @@
 
 /* Begin PBXFileReference section */
 		2F07095824A3E5340023B1AB /* NewsPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageVC.swift; sourceTree = "<group>"; };
+		2F07095B24A46FE20023B1AB /* ApplicationsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsListVC.swift; sourceTree = "<group>"; };
+		2F07095D24A476250023B1AB /* ApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationView.swift; sourceTree = "<group>"; };
+		2F2A137824A494F800E4A9DA /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		2F2A137C24A4A8FC00E4A9DA /* CityCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCVC.swift; sourceTree = "<group>"; };
+		2F2A137D24A4A8FC00E4A9DA /* CityCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCVC.xib; sourceTree = "<group>"; };
 		2F65436D24A23AF00080C445 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
 		2F65436F24A23C0A0080C445 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		2F65437124A249F00080C445 /* NewsObjevcts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsObjevcts.swift; sourceTree = "<group>"; };
@@ -84,6 +94,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F07095A24A46FA90023B1AB /* applications */ = {
+			isa = PBXGroup;
+			children = (
+				2F07095B24A46FE20023B1AB /* ApplicationsListVC.swift */,
+				2F07095D24A476250023B1AB /* ApplicationView.swift */,
+				2F2A137824A494F800E4A9DA /* FilterVC.swift */,
+				2F2A137C24A4A8FC00E4A9DA /* CityCVC.swift */,
+				2F2A137D24A4A8FC00E4A9DA /* CityCVC.xib */,
+			);
+			path = applications;
+			sourceTree = "<group>";
+		};
 		2F65436C24A23A8D0080C445 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +161,7 @@
 				F24B2D57249FC64E0080C5B4 /* Networking */,
 				F24B2D46249FC6280080C5B4 /* Other */,
 				2F65436C24A23A8D0080C445 /* News */,
+				2F07095A24A46FA90023B1AB /* applications */,
 				F26F262424A11DE000934874 /* Auth */,
 				F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */,
 				F24B2D36249FC5CC0080C5B4 /* Main.storyboard */,
@@ -276,6 +299,7 @@
 				F26F262824A11EE800934874 /* CheckIINVC.xib in Resources */,
 				F2B26A8B24A2246A001EAC0E /* PasswordVC.xib in Resources */,
 				F24B2D38249FC5CC0080C5B4 /* Main.storyboard in Resources */,
+				2F2A137F24A4A8FC00E4A9DA /* CityCVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,12 +385,16 @@
 				F24B2D52249FC6350080C5B4 /* LabelExtensions.swift in Sources */,
 				F2B26A8A24A2246A001EAC0E /* PasswordVC.swift in Sources */,
 				F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */,
+				2F2A137924A494F800E4A9DA /* FilterVC.swift in Sources */,
+				2F2A137E24A4A8FC00E4A9DA /* CityCVC.swift in Sources */,
 				F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */,
 				2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */,
 				F24B2D50249FC6350080C5B4 /* ViewExtensions.swift in Sources */,
+				2F07095C24A46FE20023B1AB /* ApplicationsListVC.swift in Sources */,
 				F24B2D5B249FC72E0080C5B4 /* Requests.swift in Sources */,
 				F24B2D56249FC6350080C5B4 /* ViewControllerExtension.swift in Sources */,
 				F24B2D54249FC6350080C5B4 /* ScrollStackController.swift in Sources */,
+				2F07095E24A476250023B1AB /* ApplicationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

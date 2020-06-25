@@ -23,7 +23,13 @@ class TabbarViewController: UITabBarController {
         homeNav.addChild(NewsListVC())
         homeNav.tabBarItem = icon1
         controllers.append(homeNav)
-        
+       
+        let icon2 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "Shape"))
+               
+               let app = UINavigationController()
+               app.addChild(ApplicationsListVC())
+               app.tabBarItem = icon2
+               controllers.append(app)
 
         self.viewControllers = controllers
     }
