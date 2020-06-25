@@ -17,15 +17,22 @@ class TabbarViewController: UITabBarController {
             overrideUserInterfaceStyle = .light
         }
         
-        let icon1 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "Shape"))
+        let icon1 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "GroupLogo"))
         
         let homeNav = UINavigationController()
         homeNav.addChild(NewsListVC())
         homeNav.tabBarItem = icon1
         controllers.append(homeNav)
         
-
+        let icon2 = UITabBarItem(title: "Фонды", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "GroupLogo"))
+        
+        let fundNav = UINavigationController()
+        fundNav.addChild(FundsListVC())
+        fundNav.tabBarItem = icon2
+        controllers.append(fundNav)
+        
         self.viewControllers = controllers
+        
     }
     
 }

@@ -37,6 +37,7 @@ class PasswordVC: UIViewController {
                 self.stopLoad()
                 if response?.success ?? false{
                     Constants.shared().saveToken(token: response!.token!)
+                    self.present(TabbarViewController(), animated: true, completion: nil)
                 }else{
                     self.showAlert(title: "Внимание", message: "что то не то")
                 }

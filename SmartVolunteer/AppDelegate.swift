@@ -15,8 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        window?.rootViewController = TabbarViewController()
+        if Constants.shared().getToken() != nil{
+            window?.rootViewController = TabbarViewController()
+        }else{
+            let navigationController = UINavigationController()
+            navigationController.addChild(CheckIINVC())
+            window?.rootViewController = navigationController
+        }
         window?.makeKeyAndVisible()
         IQKeyboardManager.shared.enable = true
         return true
