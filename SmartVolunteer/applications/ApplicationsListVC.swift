@@ -83,7 +83,11 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let d = self.applications?.applications?.data?[indexPath.row] {
+            ApplicationVC.open(vc: self, data: d)
+        }
+    }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let c = UIView()
         let stackView = UIStackView()

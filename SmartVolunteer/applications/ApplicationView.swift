@@ -44,15 +44,18 @@ class ApplicationView: UIView {
         let contAuth = UIView()
         contAuth.addSubview(authorLabel)
         contAuth.backgroundColor = data?.user != nil ? #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1) : #colorLiteral(red: 0.9882352941, green: 0.06274509804, blue: 0.3333333333, alpha: 1)
+        if data?.user == nil && data?.fund == nil {
+            contAuth.backgroundColor = .gray
+        }
         contAuth.layer.cornerRadius = 11
         authorLabel.easy.layout(Height(18),Left(8),Right(8),Top(2),Bottom(2))
-        authorLabel.setProperties(text: data?.fund?.name ?? data?.user?.name ?? "", textColor: .white, font: .systemFont(ofSize: 12, weight: .bold), textAlignment: .center, numberLines: 1)
+        authorLabel.setProperties(text: data?.fund?.name ?? data?.user?.name ?? "Анонимно", textColor: .white, font: .systemFont(ofSize: 12, weight: .bold), textAlignment: .center, numberLines: 1)
         countOf.setProperties(text: "\(data?.volunteerNumberAccessed ?? 0) из \(data?.volunteerNumber ?? 0) желающих", textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 12), textAlignment: .right, numberLines: 1)
         infoStackView.addArrangedSubview(contAuth)
         infoStackView.addArrangedSubview(UIView())
         infoStackView.addArrangedSubview(countOf)
         
-        image.image = #imageLiteral(resourceName: "Almaty")
+        image.image = #imageLiteral(resourceName: "anonymous")
         if let url = URL(string: data?.fund?.imgPath ?? data?.user?.imgPath ?? "") {
             image.sd_setImage(with: url, completed: nil)
         }
