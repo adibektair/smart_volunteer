@@ -51,7 +51,9 @@ class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     func getData(){
+        startLoad()
         Requests.shared().getNews(page: 0) { (result) in
+            self.stopLoad()
             self.news = result
             self.tableView.reloadData()
         }

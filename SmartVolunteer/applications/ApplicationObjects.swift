@@ -1,30 +1,30 @@
 //
-//  NewsObjevcts.swift
+//  ApplicationObjects.swift
 //  SmartVolunteer
 //
-//  Created by Sultan on 6/23/20.
+//  Created by Sultan on 6/26/20.
 //  Copyright © 2020 Таир Адибек. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
-import AlamofireObjectMapper
 
-class News : NSObject, NSCoding, Mappable{
 
-    var news : New?
+class Applications : NSObject, NSCoding, Mappable{
+
+    var applications : Application?
     var success : Bool?
 
 
     class func newInstance(map: Map) -> Mappable?{
-        return News()
+        return Applications()
     }
     required init?(map: Map){}
     private override init(){}
 
     func mapping(map: Map)
     {
-        news <- map["news"]
+        applications <- map["applications"]
         success <- map["success"]
         
     }
@@ -35,7 +35,7 @@ class News : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         news = aDecoder.decodeObject(forKey: "news") as? New
+         applications = aDecoder.decodeObject(forKey: "applications") as? Application
          success = aDecoder.decodeObject(forKey: "success") as? Bool
 
     }
@@ -46,8 +46,8 @@ class News : NSObject, NSCoding, Mappable{
     */
     @objc func encode(with aCoder: NSCoder)
     {
-        if news != nil{
-            aCoder.encode(news, forKey: "news")
+        if applications != nil{
+            aCoder.encode(applications, forKey: "applications")
         }
         if success != nil{
             aCoder.encode(success, forKey: "success")
@@ -57,8 +57,7 @@ class News : NSObject, NSCoding, Mappable{
 
 }
 
-
-class New : NSObject, NSCoding, Mappable{
+class Application : NSObject, NSCoding, Mappable{
 
     var currentPage : Int?
     var data : [Data]?
@@ -75,7 +74,7 @@ class New : NSObject, NSCoding, Mappable{
 
 
     class func newInstance(map: Map) -> Mappable?{
-        return New()
+        return Application()
     }
     required init?(map: Map){}
     private override init(){}
@@ -165,155 +164,34 @@ class New : NSObject, NSCoding, Mappable{
 
 }
 
+class Fund : NSObject, NSCoding, Mappable{
 
-class Data : NSObject, NSCoding, Mappable{
-
-    var categoryId : Int?
-    var createdAt : String?
-    var fullText : String?
-    var id : Int?
-    var imgPath : String?
-    var readMinutes : Int?
-    var title : String?
-    var updatedAt : String?
-    var viewsCount : Int?
-    var applicationTypeId : Int?
-    var category : Category?
-    var city : City?
     var cityId : Int?
+    var createdAt : String?
     var descriptionField : String?
-    var fund : Fund?
-    var fundId : Int?
-    var user : User?
-    var userId : AnyObject?
-    var volunteer : AnyObject?
-    var volunteerNumber : Int?
-    var volunteerNumberAccessed : Int?
-    var categoryTypeId : Int?
-    var deletedAt : AnyObject?
-    var isVisible : Int?
-    var name : String?
-
-
-    class func newInstance(map: Map) -> Mappable?{
-        return Data()
-    }
-    required init?(map: Map){}
-    private override init(){}
-
-    func mapping(map: Map)
-    {
-        categoryId <- map["category_id"]
-        createdAt <- map["created_at"]
-        fullText <- map["full_text"]
-        id <- map["id"]
-        imgPath <- map["img_path"]
-        readMinutes <- map["read_minutes"]
-        title <- map["title"]
-        updatedAt <- map["updated_at"]
-        viewsCount <- map["views_count"]
-        applicationTypeId <- map["application_type_id"]
-        category <- map["category"]
-        city <- map["city"]
-        cityId <- map["city_id"]
-        descriptionField <- map["description"]
-        fund <- map["fund"]
-        fundId <- map["fund_id"]
-        user <- map["user"]
-        userId <- map["user_id"]
-        volunteer <- map["volunteer"]
-        volunteerNumber <- map["volunteer_number"]
-        volunteerNumberAccessed <- map["volunteer_number_accessed"]
-        categoryTypeId <- map["category_type_id"]
-        deletedAt <- map["deleted_at"]
-        isVisible <- map["is_visible"]
-        name <- map["name"]
-    }
-
-    /**
-    * NSCoding required initializer.
-    * Fills the data from the passed decoder
-    */
-    @objc required init(coder aDecoder: NSCoder)
-    {
-         categoryId = aDecoder.decodeObject(forKey: "category_id") as? Int
-         createdAt = aDecoder.decodeObject(forKey: "created_at") as? String
-         fullText = aDecoder.decodeObject(forKey: "full_text") as? String
-         id = aDecoder.decodeObject(forKey: "id") as? Int
-         imgPath = aDecoder.decodeObject(forKey: "img_path") as? String
-         readMinutes = aDecoder.decodeObject(forKey: "read_minutes") as? Int
-         title = aDecoder.decodeObject(forKey: "title") as? String
-         updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? String
-         viewsCount = aDecoder.decodeObject(forKey: "views_count") as? Int
-        
-
-    }
-
-    /**
-    * NSCoding required method.
-    * Encodes mode properties into the decoder
-    */
-    @objc func encode(with aCoder: NSCoder)
-    {
-        if categoryId != nil{
-            aCoder.encode(categoryId, forKey: "category_id")
-        }
-        if createdAt != nil{
-            aCoder.encode(createdAt, forKey: "created_at")
-        }
-        if fullText != nil{
-            aCoder.encode(fullText, forKey: "full_text")
-        }
-        if id != nil{
-            aCoder.encode(id, forKey: "id")
-        }
-        if imgPath != nil{
-            aCoder.encode(imgPath, forKey: "img_path")
-        }
-        if readMinutes != nil{
-            aCoder.encode(readMinutes, forKey: "read_minutes")
-        }
-        if title != nil{
-            aCoder.encode(title, forKey: "title")
-        }
-        if updatedAt != nil{
-            aCoder.encode(updatedAt, forKey: "updated_at")
-        }
-        if viewsCount != nil{
-            aCoder.encode(viewsCount, forKey: "views_count")
-        }
-
-    }
-
-}
-
-
-class User : NSObject, NSCoding, Mappable{
-
     var id : Int?
     var imgPath : String?
-    var isVolunteer : Bool?
     var name : String?
-    var role : Role?
-    var roleId : Int?
-    var surname : AnyObject?
+    var updatedAt : String?
+    var volunteerNumber : Int?
 
 
     class func newInstance(map: Map) -> Mappable?{
-        return User()
+        return Fund()
     }
     required init?(map: Map){}
     private override init(){}
 
     func mapping(map: Map)
     {
+        cityId <- map["city_id"]
+        createdAt <- map["created_at"]
+        descriptionField <- map["description"]
         id <- map["id"]
         imgPath <- map["img_path"]
-        isVolunteer <- map["is_volunteer"]
         name <- map["name"]
-        role <- map["role"]
-        roleId <- map["role_id"]
-        surname <- map["surname"]
+        updatedAt <- map["updated_at"]
+        volunteerNumber <- map["volunteer_number"]
         
     }
 
@@ -323,13 +201,14 @@ class User : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
     {
+         cityId = aDecoder.decodeObject(forKey: "city_id") as? Int
+         createdAt = aDecoder.decodeObject(forKey: "created_at") as? String
+         descriptionField = aDecoder.decodeObject(forKey: "description") as? String
          id = aDecoder.decodeObject(forKey: "id") as? Int
          imgPath = aDecoder.decodeObject(forKey: "img_path") as? String
-         isVolunteer = aDecoder.decodeObject(forKey: "is_volunteer") as? Bool
          name = aDecoder.decodeObject(forKey: "name") as? String
-         role = aDecoder.decodeObject(forKey: "role") as? Role
-         roleId = aDecoder.decodeObject(forKey: "role_id") as? Int
-         surname = aDecoder.decodeObject(forKey: "surname") as? AnyObject
+         updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? String
+         volunteerNumber = aDecoder.decodeObject(forKey: "volunteer_number") as? Int
 
     }
 
@@ -339,54 +218,75 @@ class User : NSObject, NSCoding, Mappable{
     */
     @objc func encode(with aCoder: NSCoder)
     {
+        if cityId != nil{
+            aCoder.encode(cityId, forKey: "city_id")
+        }
+        if createdAt != nil{
+            aCoder.encode(createdAt, forKey: "created_at")
+        }
+        if descriptionField != nil{
+            aCoder.encode(descriptionField, forKey: "description")
+        }
         if id != nil{
             aCoder.encode(id, forKey: "id")
         }
         if imgPath != nil{
             aCoder.encode(imgPath, forKey: "img_path")
         }
-        if isVolunteer != nil{
-            aCoder.encode(isVolunteer, forKey: "is_volunteer")
-        }
         if name != nil{
             aCoder.encode(name, forKey: "name")
         }
-        if role != nil{
-            aCoder.encode(role, forKey: "role")
+        if updatedAt != nil{
+            aCoder.encode(updatedAt, forKey: "updated_at")
         }
-        if roleId != nil{
-            aCoder.encode(roleId, forKey: "role_id")
-        }
-        if surname != nil{
-            aCoder.encode(surname, forKey: "surname")
+        if volunteerNumber != nil{
+            aCoder.encode(volunteerNumber, forKey: "volunteer_number")
         }
 
     }
 
 }
-class Role : NSObject, NSCoding, Mappable{
 
-    var createdAt : AnyObject?
-    var deletedAt : AnyObject?
+class Category : NSObject, NSCoding, Mappable{
+
     var id : Int?
     var name : String?
-    var updatedAt : AnyObject?
+    var currentPage : Int?
+    var data : [Data]?
+    var firstPageUrl : String?
+    var from : Int?
+    var lastPage : Int?
+    var lastPageUrl : String?
+    var nextPageUrl : AnyObject?
+    var path : String?
+    var perPage : Int?
+    var prevPageUrl : AnyObject?
+    var to : Int?
+    var total : Int?
 
 
     class func newInstance(map: Map) -> Mappable?{
-        return Role()
+        return Category()
     }
     required init?(map: Map){}
     private override init(){}
 
     func mapping(map: Map)
     {
-        createdAt <- map["created_at"]
-        deletedAt <- map["deleted_at"]
         id <- map["id"]
         name <- map["name"]
-        updatedAt <- map["updated_at"]
-        
+        currentPage <- map["current_page"]
+        data <- map["data"]
+        firstPageUrl <- map["first_page_url"]
+        from <- map["from"]
+        lastPage <- map["last_page"]
+        lastPageUrl <- map["last_page_url"]
+        nextPageUrl <- map["next_page_url"]
+        path <- map["path"]
+        perPage <- map["per_page"]
+        prevPageUrl <- map["prev_page_url"]
+        to <- map["to"]
+        total <- map["total"]
     }
 
     /**
@@ -395,11 +295,8 @@ class Role : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         createdAt = aDecoder.decodeObject(forKey: "created_at") as? AnyObject
-         deletedAt = aDecoder.decodeObject(forKey: "deleted_at") as? AnyObject
          id = aDecoder.decodeObject(forKey: "id") as? Int
          name = aDecoder.decodeObject(forKey: "name") as? String
-         updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? AnyObject
 
     }
 
@@ -409,20 +306,58 @@ class Role : NSObject, NSCoding, Mappable{
     */
     @objc func encode(with aCoder: NSCoder)
     {
-        if createdAt != nil{
-            aCoder.encode(createdAt, forKey: "created_at")
-        }
-        if deletedAt != nil{
-            aCoder.encode(deletedAt, forKey: "deleted_at")
-        }
         if id != nil{
             aCoder.encode(id, forKey: "id")
         }
         if name != nil{
             aCoder.encode(name, forKey: "name")
         }
-        if updatedAt != nil{
-            aCoder.encode(updatedAt, forKey: "updated_at")
+
+    }
+
+}
+
+class Categories : NSObject, NSCoding, Mappable{
+
+    var categories : Category?
+    var success : Bool?
+
+
+    class func newInstance(map: Map) -> Mappable?{
+        return Categories()
+    }
+    required init?(map: Map){}
+    private override init(){}
+
+    func mapping(map: Map)
+    {
+        categories <- map["categories"]
+        success <- map["success"]
+        
+    }
+
+    /**
+    * NSCoding required initializer.
+    * Fills the data from the passed decoder
+    */
+    @objc required init(coder aDecoder: NSCoder)
+    {
+         categories = aDecoder.decodeObject(forKey: "categories") as? Category
+         success = aDecoder.decodeObject(forKey: "success") as? Bool
+
+    }
+
+    /**
+    * NSCoding required method.
+    * Encodes mode properties into the decoder
+    */
+    @objc func encode(with aCoder: NSCoder)
+    {
+        if categories != nil{
+            aCoder.encode(categories, forKey: "categories")
+        }
+        if success != nil{
+            aCoder.encode(success, forKey: "success")
         }
 
     }

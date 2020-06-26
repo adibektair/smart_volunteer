@@ -14,8 +14,8 @@ class CheckLoginResponse : NSObject, NSCoding, Mappable{
 
     var isExists : Bool?
     var success : Bool?
-
-
+    var message : String?
+    
     class func newInstance(map: Map) -> Mappable?{
         return CheckLoginResponse()
     }
@@ -26,7 +26,7 @@ class CheckLoginResponse : NSObject, NSCoding, Mappable{
     {
         isExists <- map["is_exists"]
         success <- map["success"]
-        
+        message <- map["message"]
     }
 
     /**

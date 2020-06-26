@@ -13,7 +13,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
     
     // MARK: - Variables
     let tableView = UITableView()
-    var news : News?
+    var applications : Applications?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         }
         life()
         setUI()
-        
+        getData()
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -47,6 +47,14 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         rightButton()
     }
     
+    func getData(){
+        startLoad()
+        Requests.shared().getApplications { (result) in
+            self.stopLoad()
+            self.applications = result
+            self.tableView.reloadData()
+        }
+    }
     func rightButton(){
         let b = UIBarButtonItem(image: #imageLiteral(resourceName: "Filter 24px"), style: .plain, target: self, action: #selector(filterPressed(_:)))
         navigationItem.rightBarButtonItem = b
@@ -61,17 +69,17 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return applications?.applications?.data?.count ?? 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
-        
-        let n = ApplicationView()
-        cell.addSubview(n)
-        n.easy.layout(Top(5),Bottom(5),Left(20),Right(20))
-        
+        if let d = self.applications?.applications?.data?[indexPath.row] {
+            let n = ApplicationView(data: d)
+            cell.addSubview(n)
+            n.easy.layout(Top(5),Bottom(5),Left(20),Right(20))
+        }
         return cell
     }
     

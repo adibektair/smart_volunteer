@@ -9,7 +9,7 @@
 import UIKit
 
 class TabbarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var controllers = [UIViewController]()
@@ -23,15 +23,22 @@ class TabbarViewController: UITabBarController {
         homeNav.addChild(NewsListVC())
         homeNav.tabBarItem = icon1
         controllers.append(homeNav)
-       
+        
         let icon2 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "Shape"))
-               
-               let app = UINavigationController()
-               app.addChild(ApplicationsListVC())
-               app.tabBarItem = icon2
-               controllers.append(app)
-
+        
+        let app = UINavigationController()
+        app.addChild(ApplicationsListVC())
+        app.tabBarItem = icon2
+        controllers.append(app)
+        
+        let icon3 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "Shape"))
+        
+        let create = UINavigationController()
+        create.addChild(CreateApplicationVC())
+        create.tabBarItem = icon3
+        controllers.append(create)
         self.viewControllers = controllers
+        
     }
     
 }
