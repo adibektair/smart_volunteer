@@ -85,7 +85,12 @@ class FundsListVC: ScrollStackController, UITableViewDelegate, UITableViewDataSo
         cell.actionButton.tag = fund!.id!
         cell.actionButton.addTarget(self, action: #selector(self.subscribe(_:)), for: .touchUpInside)
         cell.dropShadow()
+        cell.selectionStyle = .none
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let fund = self.funds?[indexPath.section]
+        FundVC.open(vc: self, fund: fund!)
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         filtering = false

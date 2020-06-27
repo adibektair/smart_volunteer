@@ -37,7 +37,8 @@
 		F2B26A9B24A34B08001EAC0E /* FundsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A9A24A34B08001EAC0E /* FundsListVC.swift */; };
 		F2B26A9F24A34C33001EAC0E /* FuncTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A9D24A34C33001EAC0E /* FuncTVC.swift */; };
 		F2B26AA024A34C33001EAC0E /* FuncTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B26A9E24A34C33001EAC0E /* FuncTVC.xib */; };
-		F2B26AA224A3D1E5001EAC0E /* FundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26AA124A3D1E5001EAC0E /* FundViewController.swift */; };
+		F2DB2CEE24A4BCC600940F1C /* FundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DB2CEC24A4BCC600940F1C /* FundVC.swift */; };
+		F2DB2CEF24A4BCC600940F1C /* FundVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2DB2CED24A4BCC600940F1C /* FundVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +76,8 @@
 		F2B26A9A24A34B08001EAC0E /* FundsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListVC.swift; sourceTree = "<group>"; };
 		F2B26A9D24A34C33001EAC0E /* FuncTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncTVC.swift; sourceTree = "<group>"; };
 		F2B26A9E24A34C33001EAC0E /* FuncTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FuncTVC.xib; sourceTree = "<group>"; };
-		F2B26AA124A3D1E5001EAC0E /* FundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundViewController.swift; sourceTree = "<group>"; };
+		F2DB2CEC24A4BCC600940F1C /* FundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundVC.swift; sourceTree = "<group>"; };
+		F2DB2CED24A4BCC600940F1C /* FundVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FundVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				F2B26A9A24A34B08001EAC0E /* FundsListVC.swift */,
-				F2B26AA124A3D1E5001EAC0E /* FundViewController.swift */,
+				F2DB2CEC24A4BCC600940F1C /* FundVC.swift */,
+				F2DB2CED24A4BCC600940F1C /* FundVC.xib */,
 			);
 			path = Funds;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				F26F262824A11EE800934874 /* CheckIINVC.xib in Resources */,
 				F2B26A8B24A2246A001EAC0E /* PasswordVC.xib in Resources */,
 				F24B2D38249FC5CC0080C5B4 /* Main.storyboard in Resources */,
+				F2DB2CEF24A4BCC600940F1C /* FundVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,9 +388,9 @@
 				F24B2D4F249FC6350080C5B4 /* StackViewExtensions.swift in Sources */,
 				F2B26A9824A33B9C001EAC0E /* TabbarViewController.swift in Sources */,
 				F2B26A9024A27755001EAC0E /* GeneralButton.swift in Sources */,
+				F2DB2CEE24A4BCC600940F1C /* FundVC.swift in Sources */,
 				F24B2D52249FC6350080C5B4 /* LabelExtensions.swift in Sources */,
 				F2B26A8A24A2246A001EAC0E /* PasswordVC.swift in Sources */,
-				F2B26AA224A3D1E5001EAC0E /* FundViewController.swift in Sources */,
 				F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */,
 				F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */,
 				2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */,
