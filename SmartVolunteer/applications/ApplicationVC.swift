@@ -66,6 +66,7 @@ class ApplicationVC: ScrollStackController {
                         let t = "\((self.data?.volunteerNumberAccessed ?? 0) + 1) из \(self.data?.volunteerNumber ?? 0) желающих"
                         counterLabel.text = t
                         self.proceedLabel.isHidden = true
+                        self.succceedAction()
                     }
                 }
             } else if let id = self.data?.id, self.nuzhd {
@@ -74,6 +75,14 @@ class ApplicationVC: ScrollStackController {
         }
     }
     
+    func succceedAction(){
+        let s = SuccessView(buttonName: "Готово", messsage: "Ваша заявка успешно подана\nОжидайте ответа от фонда") {
+            
+        }
+        self.view.addSubview(s)
+        s.easy.layout(Edges())
+        
+    }
     func headViews(){
         let headStack = UIStackView()
         let titleStack = UIStackView()

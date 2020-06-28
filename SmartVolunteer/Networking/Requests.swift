@@ -80,7 +80,7 @@ class Requests: NSObject {
     
     public func getApplications(page:Int,filter: String = "",type : String? = "",callback: @escaping (Applications) -> ()){
         let header = Constants.shared().getHeaders()
-        let url = Constants.shared().baseUrl + "applications?page=\(page)" + (type ?? "") + filter
+        let url = Constants.shared().baseUrl + "applications" + (type ?? "") + filter + "?page=\(page)"
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<Applications>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {

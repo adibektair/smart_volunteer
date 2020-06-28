@@ -139,9 +139,11 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
             break
         case 1:
             self.getData(type: "?type=2")
+            self.filter = ""
             break
         case 2:
             self.getData(type: "?type=1")
+            self.filter = ""
             break
         default:
             break
