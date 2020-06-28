@@ -144,6 +144,24 @@ class Requests: NSObject {
                }
            }
        }
+
+    public func getFunds(page: Int, callback: @escaping (FundsResponse) -> ()){
+        Alamofire.request(Constants.shared().baseUrl + "funds?=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+               (response: DataResponse<FundsResponse>) in
+               if let statusCode = response.response?.statusCode, statusCode == 401 {
+                   NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
+                   return
+               }
+            
+               if let _ = response.response{
+                   let model  = response.result
+                print("get funds \(model.value!)")
+                   if model.value != nil {
+                       callback(model.value!)
+                   }
+               }
+           }
+       }
     
     func createApplicationReqs(params : [String: AnyObject], callback: @escaping (CheckLoginResponse?) -> ()) {
           let header = ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvc3Vwcy5relwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1OTMyNDgyMzksImV4cCI6MTU5MzQ2NDIzOSwibmJmIjoxNTkzMjQ4MjM5LCJqdGkiOiJHbUNBRVJxSjlyd255UU9PIiwic3ViIjoxNSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.wv6FScJzlgmCxQz5-K1PN9XHMkpgDLFgoEJn64PANi4"]
@@ -156,4 +174,14 @@ class Requests: NSObject {
         }
     }
     
+    func subscribe(id : Int, callback: @escaping (StandartResponse?) -> ()) {
+        Alamofire.request(Constants.shared().baseUrl + "fund/subscribe/\(id)", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+               (response: DataResponse<StandartResponse>) in
+               if let _ = response.response{
+                   let model = response.result
+                   callback(model.value ?? nil)
+                   }
+               }
+       }
+
 }

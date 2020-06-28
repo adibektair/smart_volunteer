@@ -35,4 +35,8 @@ extension UIViewController {
            backItem.title = named
            navigationItem.backBarButtonItem = backItem
        }
+    func singleVibration(){
+        let impact = UIImpactFeedbackGenerator()
+        impact.impactOccurred()
+    }
 }

@@ -32,6 +32,10 @@ class Constants: NSObject {
     func isVolunteer() -> Bool{
         return UserDefaults.standard.bool(forKey: "isVolunteer")
     }
+    func getHeaders() -> [String : String]{
+        let headers = ["Authorization" : "Bearer " + self.getToken()!]
+        return headers
+    }
     
     public let baseUrl = "https://sups.kz/api/v1/"
     
