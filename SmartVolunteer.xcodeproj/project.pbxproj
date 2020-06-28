@@ -24,6 +24,7 @@
 		2FF6C17A24A8E09300E64505 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17924A8E09300E64505 /* SuccessView.swift */; };
 		917714ACC9491D5F50AAB7B3 /* Pods_SmartVolunteer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */; };
 		F2156CE624A8F96000BFFDBD /* FundsRequestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2156CE524A8F96000BFFDBD /* FundsRequestsVC.swift */; };
+		F2156CE824A901FF00BFFDBD /* MyFundsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2156CE724A901FF00BFFDBD /* MyFundsVC.swift */; };
 		F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */; };
 		F24B2D38249FC5CC0080C5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24B2D36249FC5CC0080C5B4 /* Main.storyboard */; };
 		F24B2D3A249FC5CF0080C5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24B2D39249FC5CF0080C5B4 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartVolunteer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD70581A056A715446020F8 /* Pods-SmartVolunteer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartVolunteer.release.xcconfig"; path = "Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer.release.xcconfig"; sourceTree = "<group>"; };
 		F2156CE524A8F96000BFFDBD /* FundsRequestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsRequestsVC.swift; sourceTree = "<group>"; };
+		F2156CE724A901FF00BFFDBD /* MyFundsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFundsVC.swift; sourceTree = "<group>"; };
 		F24B2D2D249FC5CC0080C5B4 /* SmartVolunteer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartVolunteer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F24B2D37249FC5CC0080C5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				F2B26A9A24A34B08001EAC0E /* FundsListVC.swift */,
+				F2156CE724A901FF00BFFDBD /* MyFundsVC.swift */,
 				F2DB2CEC24A4BCC600940F1C /* FundVC.swift */,
 				F2156CE524A8F96000BFFDBD /* FundsRequestsVC.swift */,
 				F2DB2CED24A4BCC600940F1C /* FundVC.xib */,
@@ -437,6 +440,7 @@
 				F2B26A9F24A34C33001EAC0E /* FuncTVC.swift in Sources */,
 				F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */,
 				F24B2D59249FC6780080C5B4 /* Constants.swift in Sources */,
+				F2156CE824A901FF00BFFDBD /* MyFundsVC.swift in Sources */,
 				F24B2D55249FC6350080C5B4 /* Colors.swift in Sources */,
 				2F65437024A23C0A0080C445 /* NewsView.swift in Sources */,
 				2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */,
