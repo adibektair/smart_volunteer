@@ -13,6 +13,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
 
     let searchBar = UISearchBar()
     var tableView = UITableView()
+    var fundsObj : FundsResponse?
     var funds : [Fond]?
     var filteredFunds : [Fond]?
     var filtering = false
@@ -37,6 +38,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func getData(){
         self.startLoad()
         Requests.shared().getFunds(page: 0) { (response) in
+            self.fundsObj = response
             self.funds = response.funds?.data
             self.tableView.reloadData()
             self.stopLoad()
@@ -61,7 +63,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         if self.filtering{
             return self.filteredFunds?.count ?? 0
         }
-        return self.funds?.count ?? 0
+        return self.fundsObj?.funds?.data?.count ?? 0
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -80,7 +82,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         if self.filtering{
             fund = self.filteredFunds![indexPath.section]
         }else{
-            fund = self.funds![indexPath.section]
+            fund = self.fundsObj?.funds?.data![indexPath.section]
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FuncTVC
@@ -90,6 +92,11 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         cell.actionButton.addTarget(self, action: #selector(self.subscribe(_:)), for: .touchUpInside)
         cell.dropShadow()
         cell.selectionStyle = .none
+        if indexPath.section == (fundsObj?.funds?.data?.count ?? 0) - 1 {
+            fundsObj?.funds?.loadNextPage {
+                self.tableView.reloadData()
+            }
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
