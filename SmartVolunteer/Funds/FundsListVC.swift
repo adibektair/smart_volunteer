@@ -119,7 +119,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         self.tableView.reloadData()
     }
     @objc func myFundsPressed(_ sender:UIBarButtonItem) {
-    
+        MyFundsVC.open(vc: self)
     }
     @objc func subscribe(_ sender : UIButton){
         Requests.shared().subscribe(id: sender.tag) { (response) in
@@ -129,4 +129,11 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             }
         }
     }
+    static func open(vc: UIViewController){
+        let viewController = self.init()
+        if let nav = vc.navigationController {
+            nav.pushViewController(viewController, animated: true)
+        }
+    }
+    
 }
