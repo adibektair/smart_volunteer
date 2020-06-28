@@ -214,8 +214,8 @@ class FilterVC: ScrollStackController,CityPickerProtocol {
         }
     }
     func getData() {
-        var url = Constants.shared().baseUrl + "applications/filter?"
-        
+        let url = Constants.shared().baseUrl + "applications/filter?"
+        self.filterText = ""
         if citiesList.count > 0 {
             let a = "\(citiesList.map(({ $0.id! })))"
             let set = CharacterSet(charactersIn: "123456789,")
