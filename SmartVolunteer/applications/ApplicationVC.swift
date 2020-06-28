@@ -71,7 +71,7 @@ class ApplicationVC: ScrollStackController {
         
         let placeStack = UIStackView()
         placeStack.setProperties(axis: .horizontal, alignment: .fill, spacing: 8, distribution: .fill)
-        let geoIcon = UIImageView(image: #imageLiteral(resourceName: "Vector"))
+        let geoIcon = UIImageView(image: #imageLiteral(resourceName: "VectorGeo"))
         geoIcon.easy.layout(Width(13),Height(13))
         let cityLabel = UILabel()
         cityLabel.setProperties(text: data?.city?.name ?? "", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
