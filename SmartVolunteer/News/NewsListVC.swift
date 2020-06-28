@@ -18,16 +18,10 @@ class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
-            overrideUserInterfaceStyle = .light
-        }
         life()
         setUI()
         getData()
     }
-    
-    // MARK: - Outlets
-
     
     // MARK: - Functions
     func life() {
@@ -63,7 +57,7 @@ class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return news?.news?.data?.count ?? 5
+        return news?.news?.data?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
@@ -72,6 +66,11 @@ class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let n = NewsView(data: data)
             cell.addSubview(n)
             n.easy.layout(Top(5),Bottom(5),Left(20),Right(20))
+        }
+        if indexPath.row == (self.news?.news?.data?.count ?? 0) - 1 {
+            self.news!.news!.loadNextPage {
+                self.tableView.reloadData()
+            }
         }
         return cell
     }

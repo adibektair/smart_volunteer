@@ -20,6 +20,7 @@
 		2F82279C24A5D3AC00612BFF /* CreateApplicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279B24A5D3AC00612BFF /* CreateApplicationVC.swift */; };
 		2F82279E24A605D000612BFF /* MyApplicationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279D24A605D000612BFF /* MyApplicationsVC.swift */; };
 		2F8227A024A61EE600612BFF /* ApplicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279F24A61EE600612BFF /* ApplicationVC.swift */; };
+		2FF6C17824A8B4EB00E64505 /* VolunteerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17724A8B4EA00E64505 /* VolunteerListVC.swift */; };
 		917714ACC9491D5F50AAB7B3 /* Pods_SmartVolunteer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */; };
 		F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */; };
 		F24B2D38249FC5CC0080C5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24B2D36249FC5CC0080C5B4 /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		2F82279B24A5D3AC00612BFF /* CreateApplicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateApplicationVC.swift; sourceTree = "<group>"; };
 		2F82279D24A605D000612BFF /* MyApplicationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplicationsVC.swift; sourceTree = "<group>"; };
 		2F82279F24A61EE600612BFF /* ApplicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationVC.swift; sourceTree = "<group>"; };
+		2FF6C17724A8B4EA00E64505 /* VolunteerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerListVC.swift; sourceTree = "<group>"; };
 		4850EF2CF64FA1018328D9A9 /* Pods-SmartVolunteer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartVolunteer.debug.xcconfig"; path = "Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer.debug.xcconfig"; sourceTree = "<group>"; };
 		5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartVolunteer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD70581A056A715446020F8 /* Pods-SmartVolunteer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartVolunteer.release.xcconfig"; path = "Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				2F82279B24A5D3AC00612BFF /* CreateApplicationVC.swift */,
 				2F82279D24A605D000612BFF /* MyApplicationsVC.swift */,
+				2FF6C17724A8B4EA00E64505 /* VolunteerListVC.swift */,
 			);
 			path = "Create application";
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				F2B26A8A24A2246A001EAC0E /* PasswordVC.swift in Sources */,
 				F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */,
 				2F82279C24A5D3AC00612BFF /* CreateApplicationVC.swift in Sources */,
+				2FF6C17824A8B4EB00E64505 /* VolunteerListVC.swift in Sources */,
 				2F2A137924A494F800E4A9DA /* FilterVC.swift in Sources */,
 				2F2A137E24A4A8FC00E4A9DA /* CityCVC.swift in Sources */,
 				F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */,

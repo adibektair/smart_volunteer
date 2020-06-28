@@ -25,7 +25,8 @@ class FilterVC: ScrollStackController,CityPickerProtocol {
     var categoryList : [Data] = []
     var type : Type?
     var types : Types?
-    var callback: ((_ app : Applications?) -> Void)? = nil
+    var callback: ((_ app : Applications?,_ filter:String) -> Void)? = nil
+    var filterText = "/filter?"
     var app : Applications?
     lazy var citiesCollectionView : UICollectionView = {
         let layout: UICollectionViewFlowLayout = LeftAlignedFlowLayout()
@@ -207,33 +208,34 @@ class FilterVC: ScrollStackController,CityPickerProtocol {
         }
         filter.addTapGestureRecognizer {
             if self.callback != nil && self.app != nil {
-                self.callback!(self.app!)
+                self.callback!(self.app!,self.filterText)
                 self.navigationController?.popViewController(animated: true)
             }
         }
     }
     func getData() {
         var url = Constants.shared().baseUrl + "applications/filter?"
+        
         if citiesList.count > 0 {
             let a = "\(citiesList.map(({ $0.id! })))"
             let set = CharacterSet(charactersIn: "123456789,")
             let b = a.components(separatedBy: set.inverted).joined()
-            url = url + "filter[city_id]=\(b)"
+            filterText = filterText + "filter[city_id]=\(b)"
         }
         if let id = type?.id {
             if self.cities.count > 0 {
-                url += "&"
+                filterText += "&"
             }
-            url += "filter[application_type_id]=\(id)"
+            filterText += "filter[application_type_id]=\(id)"
         }
         if categoryList.count > 0 {
             let a = "\(categoryList.map(({ $0.id! })))"
             let set = CharacterSet(charactersIn: "123456789,")
             let b = a.components(separatedBy: set.inverted).joined()
-            url += "&filter[category_id]=\(b)"
+            filterText += "&filter[category_id]=\(b)"
         }
         
-        Requests.shared().getApplicationsFiltered(url: url) { (result) in
+        Requests.shared().getApplicationsFiltered(url: (url + filterText)) { (result) in
             self.app = result
             self.filter.text = "\(result.applications?.total ?? 0) заявок"
         }
@@ -250,7 +252,7 @@ class FilterVC: ScrollStackController,CityPickerProtocol {
     }
     
     // MARK: - Navigation
-    static func open(vc: UIViewController,callback:  ((_ app:Applications?) -> Void)? = nil) {
+    static func open(vc: UIViewController,callback:  ((_ app:Applications?,_ filter:String) -> Void)? = nil) {
         let viewController = FilterVC()
         viewController.callback = callback
         if let nav = vc.navigationController {

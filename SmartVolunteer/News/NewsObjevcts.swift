@@ -62,6 +62,7 @@ class New : NSObject, NSCoding, Mappable{
 
     var currentPage : Int?
     var data : [Data]?
+    var dataAll = [Data]()
     var firstPageUrl : String?
     var from : Int?
     var lastPage : Int?
@@ -72,8 +73,30 @@ class New : NSObject, NSCoding, Mappable{
     var prevPageUrl : AnyObject?
     var to : Int?
     var total : Int?
+    var inprogress = false
+    var counter = 2
 
-
+    
+    func resetList(){
+            self.dataAll.removeAll()
+            if let arr = data {
+                self.dataAll.append(contentsOf: arr)
+            }
+        }
+       func loadNextPage(done:@escaping (()-> Void)){
+           if inprogress { return }
+           if counter <= lastPage ?? 1{
+               inprogress = true
+            Requests.shared().getNews(page: counter) { (result) in
+                self.data?.append(contentsOf: result.news?.data ?? [])
+                self.resetList()
+                self.counter += 1
+                self.inprogress = false
+                done()
+            }
+           }
+       }
+    
     class func newInstance(map: Map) -> Mappable?{
         return New()
     }
@@ -193,7 +216,11 @@ class Data : NSObject, NSCoding, Mappable{
     var deletedAt : AnyObject?
     var isVisible : Int?
     var name : String?
-
+    var isVolunteer : Bool?
+    var phone : String?
+    var role : Role?
+    var roleId : Int?
+    var surname : String?
 
     class func newInstance(map: Map) -> Mappable?{
         return Data()
@@ -228,6 +255,11 @@ class Data : NSObject, NSCoding, Mappable{
         deletedAt <- map["deleted_at"]
         isVisible <- map["is_visible"]
         name <- map["name"]
+        isVolunteer <- map["is_volunteer"]
+        phone <- map["phone"]
+        role <- map["role"]
+        roleId <- map["role_id"]
+        surname <- map["surname"]
     }
 
     /**
@@ -296,7 +328,7 @@ class User : NSObject, NSCoding, Mappable{
     var name : String?
     var role : Role?
     var roleId : Int?
-    var surname : AnyObject?
+    var surname : String?
 
 
     class func newInstance(map: Map) -> Mappable?{
@@ -329,7 +361,7 @@ class User : NSObject, NSCoding, Mappable{
          name = aDecoder.decodeObject(forKey: "name") as? String
          role = aDecoder.decodeObject(forKey: "role") as? Role
          roleId = aDecoder.decodeObject(forKey: "role_id") as? Int
-         surname = aDecoder.decodeObject(forKey: "surname") as? AnyObject
+         surname = aDecoder.decodeObject(forKey: "surname") as? String
 
     }
 

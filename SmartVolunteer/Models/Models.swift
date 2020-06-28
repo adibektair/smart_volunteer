@@ -537,16 +537,106 @@ class StandartResponse : NSObject, NSCoding, Mappable{
 
 }
 
+
+class Volunteers : NSObject, NSCoding, Mappable{
+
+    var success : Bool?
+    var volunteers : Volunteer?
+
+
+    class func newInstance(map: Map) -> Mappable?{
+        return Volunteers()
+    }
+    required init?(map: Map){}
+    private override init(){}
+
+    func mapping(map: Map)
+    {
+        success <- map["success"]
+        volunteers <- map["volunteers"]
+        
+    }
+
+    /**
+    * NSCoding required initializer.
+    * Fills the data from the passed decoder
+    */
+    @objc required init(coder aDecoder: NSCoder)
+    {
+         success = aDecoder.decodeObject(forKey: "success") as? Bool
+         volunteers = aDecoder.decodeObject(forKey: "volunteers") as? Volunteer
+
+    }
+
+    /**
+    * NSCoding required method.
+    * Encodes mode properties into the decoder
+    */
+    @objc func encode(with aCoder: NSCoder)
+    {
+        if success != nil{
+            aCoder.encode(success, forKey: "success")
+        }
+        if volunteers != nil{
+            aCoder.encode(volunteers, forKey: "volunteers")
+        }
+
+    }
+
+}
+
 class Volunteer : NSObject, NSCoding, Mappable{
 
+    var outId = 0
     var createdAt : String?
     var fundId : Int?
     var id : Int?
     var updatedAt : String?
     var userId : Int?
     var applicationId : Int?
+    var imgPath : String?
+    var isVolunteer : Bool?
+    var name : String?
+    var role : City?
+    var roleId : Int?
+    var surname : String?
+    var phone : String?
+    var currentPage : Int?
+    var data : [Data]?
+    var firstPageUrl : String?
+    var from : Int?
+    var lastPage : Int?
+    var lastPageUrl : String?
+    var nextPageUrl : AnyObject?
+    var path : String?
+    var perPage : Int?
+    var prevPageUrl : AnyObject?
+    var to : Int?
+    var total : Int?
+    var dataAll = [Data]()
+    var inprogress = false
+    var counter = 2
 
-
+      
+      func resetList(){
+              self.dataAll.removeAll()
+              if let arr = data {
+                  self.dataAll.append(contentsOf: arr)
+              }
+          }
+         func loadNextPage(done:@escaping (()-> Void)){
+             if inprogress { return }
+             if counter <= lastPage ?? 1{
+                 inprogress = true
+                Requests.shared().getVolunteersList(id: outId, page: counter) { (result) in
+                    self.data?.append(contentsOf: result.volunteers?.data ?? [])
+                    self.resetList()
+                    self.counter += 1
+                    self.inprogress = false
+                    done()
+                }
+             }
+         }
     class func newInstance(map: Map) -> Mappable?{
         return Volunteer()
     }
@@ -561,7 +651,25 @@ class Volunteer : NSObject, NSCoding, Mappable{
         id <- map["id"]
         updatedAt <- map["updated_at"]
         userId <- map["user_id"]
-        
+        imgPath <- map["img_path"]
+        isVolunteer <- map["is_volunteer"]
+        name <- map["name"]
+        role <- map["role"]
+        roleId <- map["role_id"]
+        phone <- map["phone"]
+        surname <- map["surname"]
+        currentPage <- map["current_page"]
+        data <- map["data"]
+        firstPageUrl <- map["first_page_url"]
+        from <- map["from"]
+        lastPage <- map["last_page"]
+        lastPageUrl <- map["last_page_url"]
+        nextPageUrl <- map["next_page_url"]
+        path <- map["path"]
+        perPage <- map["per_page"]
+        prevPageUrl <- map["prev_page_url"]
+        to <- map["to"]
+        total <- map["total"]
     }
 
     /**

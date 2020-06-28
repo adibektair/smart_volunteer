@@ -47,6 +47,8 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
         self.navigationItem.title = "Создание заявки"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = .white
+        setBackButton()
         volCount.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         titleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         descTextView.delegate = self

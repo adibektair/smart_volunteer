@@ -16,6 +16,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
     var applications : Applications?
     var selected = 0
     let segmentedController = UISegmentedControl(items: ["Все","Фондовые", "В работе"])
+    var filter = ""
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
     
     func getData(type:String? = ""){
         startLoad()
-        Requests.shared().getApplications(type: type, callback: { (result) in
+        Requests.shared().getApplications(page: 1,type: type, callback: { (result) in
             self.stopLoad()
             self.applications = result
             self.tableView.reloadData()
@@ -63,7 +64,8 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         navigationItem.rightBarButtonItem?.tintColor = UIColor.black
     }
     @objc func filterPressed(_ sender:UIBarButtonItem) {
-        FilterVC.open(vc: self) { (result) in
+        FilterVC.open(vc: self) { (result,filter) in
+            self.filter = filter
             if result != nil {
                 self.segmentedController.selectedSegmentIndex = 0
                 self.applications = result
@@ -88,6 +90,22 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
             cell.addSubview(n)
             n.easy.layout(Top(5),Bottom(5),Left(20),Right(20))
         }
+        if indexPath.row == (applications?.applications?.data?.count ?? 0) - 1 {
+            var type = ""
+            switch segmentedController.selectedSegmentIndex {
+            case 1:
+                type = "?type=2"
+                break
+            case 2:
+                type = "?type=1"
+                break
+            default:
+                break
+            }
+            applications?.applications?.loadNextPage(filter: self.filter, type: type, done: {
+                self.tableView.reloadData()
+            })
+        }
         return cell
     }
     
@@ -105,7 +123,8 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         segmentedController.addTarget(self, action: #selector(segmentValueChanged(_:)), for: .valueChanged)
         stackView.addArrangedSubview(segmentedController)
         let appsLabel = UILabel()
-        appsLabel.setProperties(text: "505 заявок", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
+        let count = self.applications?.applications?.total ?? 0
+        appsLabel.setProperties(text: "\(count) заявок", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
         stackView.addArrangedSubview(appsLabel)
         c.addSubview(stackView)
         stackView.easy.layout(Edges())

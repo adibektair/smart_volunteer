@@ -11,39 +11,39 @@ import ObjectMapper
 
 
 class Applications : NSObject, NSCoding, Mappable{
-
+    
     var applications : Application?
     var success : Bool?
-
-
+    
+    
     class func newInstance(map: Map) -> Mappable?{
         return Applications()
     }
     required init?(map: Map){}
     private override init(){}
-
+    
     func mapping(map: Map)
     {
         applications <- map["applications"]
         success <- map["success"]
         
     }
-
+    
     /**
-    * NSCoding required initializer.
-    * Fills the data from the passed decoder
-    */
+     * NSCoding required initializer.
+     * Fills the data from the passed decoder
+     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         applications = aDecoder.decodeObject(forKey: "applications") as? Application
-         success = aDecoder.decodeObject(forKey: "success") as? Bool
-
+        applications = aDecoder.decodeObject(forKey: "applications") as? Application
+        success = aDecoder.decodeObject(forKey: "success") as? Bool
+        
     }
-
+    
     /**
-    * NSCoding required method.
-    * Encodes mode properties into the decoder
-    */
+     * NSCoding required method.
+     * Encodes mode properties into the decoder
+     */
     @objc func encode(with aCoder: NSCoder)
     {
         if applications != nil{
@@ -52,13 +52,14 @@ class Applications : NSObject, NSCoding, Mappable{
         if success != nil{
             aCoder.encode(success, forKey: "success")
         }
-
+        
     }
-
+    
 }
 
 class Application : NSObject, NSCoding, Mappable{
-
+    
+    var myApplication = false
     var currentPage : Int?
     var data : [Data]?
     var firstPageUrl : String?
@@ -71,14 +72,50 @@ class Application : NSObject, NSCoding, Mappable{
     var prevPageUrl : AnyObject?
     var to : Int?
     var total : Int?
-
-
+    var dataAll = [Data]()
+    var inprogress = false
+    var counter = 2
+    
+    
+    func resetList(){
+        self.dataAll.removeAll()
+        if let arr = data {
+            self.dataAll.append(contentsOf: arr)
+        }
+    }
+    func loadNextPage(filter:String,type:String = "",done:@escaping (()-> Void)){
+        if inprogress { return }
+        if counter <= lastPage ?? 1{
+            inprogress = true
+            Requests.shared().getApplications(page: counter, filter: filter, type: type) { (result) in
+                self.data?.append(contentsOf: result.applications?.data ?? [])
+                self.resetList()
+                self.counter += 1
+                self.inprogress = false
+                done()
+            }
+        }
+    }
+    func loadNextPageMyApplications(done:@escaping (()-> Void)){
+        if inprogress { return }
+        if counter <= lastPage ?? 1{
+            inprogress = true
+            Requests.shared().getMyApplications(page: counter) { (result) in
+                self.data?.append(contentsOf: result?.applications?.data ?? [])
+                self.resetList()
+                self.counter += 1
+                self.inprogress = false
+                done()
+            }
+        }
+    }
+    
     class func newInstance(map: Map) -> Mappable?{
         return Application()
     }
     required init?(map: Map){}
     private override init(){}
-
+    
     func mapping(map: Map)
     {
         currentPage <- map["current_page"]
@@ -95,32 +132,32 @@ class Application : NSObject, NSCoding, Mappable{
         total <- map["total"]
         
     }
-
+    
     /**
-    * NSCoding required initializer.
-    * Fills the data from the passed decoder
-    */
+     * NSCoding required initializer.
+     * Fills the data from the passed decoder
+     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         currentPage = aDecoder.decodeObject(forKey: "current_page") as? Int
-         data = aDecoder.decodeObject(forKey: "data") as? [Data]
-         firstPageUrl = aDecoder.decodeObject(forKey: "first_page_url") as? String
-         from = aDecoder.decodeObject(forKey: "from") as? Int
-         lastPage = aDecoder.decodeObject(forKey: "last_page") as? Int
-         lastPageUrl = aDecoder.decodeObject(forKey: "last_page_url") as? String
-         nextPageUrl = aDecoder.decodeObject(forKey: "next_page_url") as? AnyObject
-         path = aDecoder.decodeObject(forKey: "path") as? String
-         perPage = aDecoder.decodeObject(forKey: "per_page") as? Int
-         prevPageUrl = aDecoder.decodeObject(forKey: "prev_page_url") as? AnyObject
-         to = aDecoder.decodeObject(forKey: "to") as? Int
-         total = aDecoder.decodeObject(forKey: "total") as? Int
-
+        currentPage = aDecoder.decodeObject(forKey: "current_page") as? Int
+        data = aDecoder.decodeObject(forKey: "data") as? [Data]
+        firstPageUrl = aDecoder.decodeObject(forKey: "first_page_url") as? String
+        from = aDecoder.decodeObject(forKey: "from") as? Int
+        lastPage = aDecoder.decodeObject(forKey: "last_page") as? Int
+        lastPageUrl = aDecoder.decodeObject(forKey: "last_page_url") as? String
+        nextPageUrl = aDecoder.decodeObject(forKey: "next_page_url") as? AnyObject
+        path = aDecoder.decodeObject(forKey: "path") as? String
+        perPage = aDecoder.decodeObject(forKey: "per_page") as? Int
+        prevPageUrl = aDecoder.decodeObject(forKey: "prev_page_url") as? AnyObject
+        to = aDecoder.decodeObject(forKey: "to") as? Int
+        total = aDecoder.decodeObject(forKey: "total") as? Int
+        
     }
-
+    
     /**
-    * NSCoding required method.
-    * Encodes mode properties into the decoder
-    */
+     * NSCoding required method.
+     * Encodes mode properties into the decoder
+     */
     @objc func encode(with aCoder: NSCoder)
     {
         if currentPage != nil{
@@ -159,13 +196,13 @@ class Application : NSObject, NSCoding, Mappable{
         if total != nil{
             aCoder.encode(total, forKey: "total")
         }
-
+        
     }
-
+    
 }
 
 class Fund : NSObject, NSCoding, Mappable{
-
+    
     var cityId : Int?
     var createdAt : String?
     var descriptionField : String?
@@ -186,14 +223,14 @@ class Fund : NSObject, NSCoding, Mappable{
     var prevPageUrl : AnyObject?
     var to : Int?
     var total : Int?
-
-
+    
+    
     class func newInstance(map: Map) -> Mappable?{
         return Fund()
     }
     required init?(map: Map){}
     private override init(){}
-
+    
     func mapping(map: Map)
     {
         cityId <- map["city_id"]
@@ -217,28 +254,28 @@ class Fund : NSObject, NSCoding, Mappable{
         to <- map["to"]
         total <- map["total"]
     }
-
+    
     /**
-    * NSCoding required initializer.
-    * Fills the data from the passed decoder
-    */
+     * NSCoding required initializer.
+     * Fills the data from the passed decoder
+     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         cityId = aDecoder.decodeObject(forKey: "city_id") as? Int
-         createdAt = aDecoder.decodeObject(forKey: "created_at") as? String
-         descriptionField = aDecoder.decodeObject(forKey: "description") as? String
-         id = aDecoder.decodeObject(forKey: "id") as? Int
-         imgPath = aDecoder.decodeObject(forKey: "img_path") as? String
-         name = aDecoder.decodeObject(forKey: "name") as? String
-         updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? String
-         volunteerNumber = aDecoder.decodeObject(forKey: "volunteer_number") as? Int
-
+        cityId = aDecoder.decodeObject(forKey: "city_id") as? Int
+        createdAt = aDecoder.decodeObject(forKey: "created_at") as? String
+        descriptionField = aDecoder.decodeObject(forKey: "description") as? String
+        id = aDecoder.decodeObject(forKey: "id") as? Int
+        imgPath = aDecoder.decodeObject(forKey: "img_path") as? String
+        name = aDecoder.decodeObject(forKey: "name") as? String
+        updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? String
+        volunteerNumber = aDecoder.decodeObject(forKey: "volunteer_number") as? Int
+        
     }
-
+    
     /**
-    * NSCoding required method.
-    * Encodes mode properties into the decoder
-    */
+     * NSCoding required method.
+     * Encodes mode properties into the decoder
+     */
     @objc func encode(with aCoder: NSCoder)
     {
         if cityId != nil{
@@ -265,13 +302,13 @@ class Fund : NSObject, NSCoding, Mappable{
         if volunteerNumber != nil{
             aCoder.encode(volunteerNumber, forKey: "volunteer_number")
         }
-
+        
     }
-
+    
 }
 
 class Category : NSObject, NSCoding, Mappable{
-
+    
     var id : Int?
     var name : String?
     var currentPage : Int?
@@ -286,14 +323,14 @@ class Category : NSObject, NSCoding, Mappable{
     var prevPageUrl : AnyObject?
     var to : Int?
     var total : Int?
-
-
+    
+    
     class func newInstance(map: Map) -> Mappable?{
         return Category()
     }
     required init?(map: Map){}
     private override init(){}
-
+    
     func mapping(map: Map)
     {
         id <- map["id"]
@@ -311,22 +348,22 @@ class Category : NSObject, NSCoding, Mappable{
         to <- map["to"]
         total <- map["total"]
     }
-
+    
     /**
-    * NSCoding required initializer.
-    * Fills the data from the passed decoder
-    */
+     * NSCoding required initializer.
+     * Fills the data from the passed decoder
+     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         id = aDecoder.decodeObject(forKey: "id") as? Int
-         name = aDecoder.decodeObject(forKey: "name") as? String
-
+        id = aDecoder.decodeObject(forKey: "id") as? Int
+        name = aDecoder.decodeObject(forKey: "name") as? String
+        
     }
-
+    
     /**
-    * NSCoding required method.
-    * Encodes mode properties into the decoder
-    */
+     * NSCoding required method.
+     * Encodes mode properties into the decoder
+     */
     @objc func encode(with aCoder: NSCoder)
     {
         if id != nil{
@@ -335,45 +372,45 @@ class Category : NSObject, NSCoding, Mappable{
         if name != nil{
             aCoder.encode(name, forKey: "name")
         }
-
+        
     }
-
+    
 }
 
 class Categories : NSObject, NSCoding, Mappable{
-
+    
     var categories : Category?
     var success : Bool?
-
-
+    
+    
     class func newInstance(map: Map) -> Mappable?{
         return Categories()
     }
     required init?(map: Map){}
     private override init(){}
-
+    
     func mapping(map: Map)
     {
         categories <- map["categories"]
         success <- map["success"]
         
     }
-
+    
     /**
-    * NSCoding required initializer.
-    * Fills the data from the passed decoder
-    */
+     * NSCoding required initializer.
+     * Fills the data from the passed decoder
+     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         categories = aDecoder.decodeObject(forKey: "categories") as? Category
-         success = aDecoder.decodeObject(forKey: "success") as? Bool
-
+        categories = aDecoder.decodeObject(forKey: "categories") as? Category
+        success = aDecoder.decodeObject(forKey: "success") as? Bool
+        
     }
-
+    
     /**
-    * NSCoding required method.
-    * Encodes mode properties into the decoder
-    */
+     * NSCoding required method.
+     * Encodes mode properties into the decoder
+     */
     @objc func encode(with aCoder: NSCoder)
     {
         if categories != nil{
@@ -382,44 +419,44 @@ class Categories : NSObject, NSCoding, Mappable{
         if success != nil{
             aCoder.encode(success, forKey: "success")
         }
-
+        
     }
-
+    
 }
 
 class Types : NSObject, NSCoding, Mappable{
-
+    
     var success : Bool?
     var types : [Type]?
-
-
+    
+    
     class func newInstance(map: Map) -> Mappable?{
         return Types()
     }
     required init?(map: Map){}
     private override init(){}
-
+    
     func mapping(map: Map)
     {
         success <- map["success"]
         types <- map["types"]
         
     }
-
+    
     /**
-    * NSCoding required initializer.
-    * Fills the data from the passed decoder
-    */
+     * NSCoding required initializer.
+     * Fills the data from the passed decoder
+     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         success = aDecoder.decodeObject(forKey: "success") as? Bool
-         types = aDecoder.decodeObject(forKey: "types") as? [Type]
+        success = aDecoder.decodeObject(forKey: "success") as? Bool
+        types = aDecoder.decodeObject(forKey: "types") as? [Type]
     }
-
+    
     /**
-    * NSCoding required method.
-    * Encodes mode properties into the decoder
-    */
+     * NSCoding required method.
+     * Encodes mode properties into the decoder
+     */
     @objc func encode(with aCoder: NSCoder)
     {
         if success != nil{
@@ -428,26 +465,26 @@ class Types : NSObject, NSCoding, Mappable{
         if types != nil{
             aCoder.encode(types, forKey: "types")
         }
-
+        
     }
-
+    
 }
 
 class Type : NSObject, NSCoding, Mappable{
-
+    
     var createdAt : AnyObject?
     var deletedAt : AnyObject?
     var id : Int?
     var name : String?
     var updatedAt : AnyObject?
-
-
+    
+    
     class func newInstance(map: Map) -> Mappable?{
         return Type()
     }
     required init?(map: Map){}
     private override init(){}
-
+    
     func mapping(map: Map)
     {
         createdAt <- map["created_at"]
@@ -457,25 +494,25 @@ class Type : NSObject, NSCoding, Mappable{
         updatedAt <- map["updated_at"]
         
     }
-
+    
     /**
-    * NSCoding required initializer.
-    * Fills the data from the passed decoder
-    */
+     * NSCoding required initializer.
+     * Fills the data from the passed decoder
+     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         createdAt = aDecoder.decodeObject(forKey: "created_at") as? AnyObject
-         deletedAt = aDecoder.decodeObject(forKey: "deleted_at") as? AnyObject
-         id = aDecoder.decodeObject(forKey: "id") as? Int
-         name = aDecoder.decodeObject(forKey: "name") as? String
-         updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? AnyObject
-
+        createdAt = aDecoder.decodeObject(forKey: "created_at") as? AnyObject
+        deletedAt = aDecoder.decodeObject(forKey: "deleted_at") as? AnyObject
+        id = aDecoder.decodeObject(forKey: "id") as? Int
+        name = aDecoder.decodeObject(forKey: "name") as? String
+        updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? AnyObject
+        
     }
-
+    
     /**
-    * NSCoding required method.
-    * Encodes mode properties into the decoder
-    */
+     * NSCoding required method.
+     * Encodes mode properties into the decoder
+     */
     @objc func encode(with aCoder: NSCoder)
     {
         if createdAt != nil{
@@ -493,7 +530,7 @@ class Type : NSObject, NSCoding, Mappable{
         if updatedAt != nil{
             aCoder.encode(updatedAt, forKey: "updated_at")
         }
-
+        
     }
-
+    
 }

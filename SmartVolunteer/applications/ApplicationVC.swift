@@ -13,10 +13,14 @@ import SDWebImage
 class ApplicationVC: ScrollStackController {
     
     let headStack = UIStackView()
+    let proceedLabel = UILabel()
+    var nuzhd = false
     var data: Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Заявка"
+        setBackButton()
         setViews()
     }
     
@@ -46,24 +50,26 @@ class ApplicationVC: ScrollStackController {
         title.setProperties(text: data?.descriptionField ?? "", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 0)
         stackView.addArrangedSubview(title)
         
-        let proceedLabel = UILabel()
-        proceedLabel.setProperties(text: "Подать заявку", textColor: .white, font: .systemFont(ofSize: 18, weight: .bold), textAlignment: .center, numberLines: 1)
+        let proceedTitle = nuzhd ? "Посмотреть список желающих" : "Подать заявку"
+        proceedLabel.setProperties(text: proceedTitle, textColor: .white, font: .systemFont(ofSize: 18, weight: .bold), textAlignment: .center, numberLines: 1)
         if data?.volunteer == nil {
             self.scrollView.addSubview(proceedLabel)
         }
         proceedLabel.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         proceedLabel.easy.layout(Left(),Bottom(),Right(),Height(60))
         proceedLabel.addTapGestureRecognizer {
-            if let id = self.data?.id {
+            if let id = self.data?.id , !self.nuzhd{
                 self.startLoad()
                 Requests.shared().acceptApplication(id: id) { (result) in
                     self.stopLoading()
                     if result?.success ?? false {
                         let t = "\((self.data?.volunteerNumberAccessed ?? 0) + 1) из \(self.data?.volunteerNumber ?? 0) желающих"
                         counterLabel.text = t
-                        proceedLabel.isHidden = true
+                        self.proceedLabel.isHidden = true
                     }
                 }
+            } else if let id = self.data?.id, self.nuzhd {
+                VolunteerListVC.open(vc: self, id: id)
             }
         }
     }
@@ -105,21 +111,13 @@ class ApplicationVC: ScrollStackController {
     }
     
     
-    static func open(vc: UIViewController, data: Data){
+    static func open(vc: UIViewController, data: Data, nuzhd: Bool = false){
         let viewController = ApplicationVC()
         viewController.data = data
+        viewController.nuzhd = nuzhd
         if let nav = vc.navigationController {
             nav.pushViewController(viewController, animated: true)
         }
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
