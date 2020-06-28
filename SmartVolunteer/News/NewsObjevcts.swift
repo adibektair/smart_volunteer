@@ -83,11 +83,11 @@ class New : NSObject, NSCoding, Mappable{
             self.dataAll.append(contentsOf: arr)
         }
     }
-    func loadNextPage(done:@escaping (()-> Void)){
+    func loadNextPage(search: String,done:@escaping (()-> Void)){
         if inprogress { return }
         if counter <= lastPage ?? 1{
             inprogress = true
-            Requests.shared().getNews(page: counter) { (result) in
+            Requests.shared().getNews(page: counter,search: search) { (result) in
                 self.data?.append(contentsOf: result.news?.data ?? [])
                 self.resetList()
                 self.counter += 1

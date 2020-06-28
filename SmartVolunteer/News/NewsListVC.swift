@@ -9,12 +9,13 @@
 import UIKit
 import EasyPeasy
 
-class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewsListVC: UIViewController, UISearchBarDelegate,UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Variables
+    let search = UISearchController(searchResultsController: nil)
     let tableView = UITableView()
     var news : News?
-    
+    var searchText = ""
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +29,24 @@ class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        search.searchBar.delegate = self
     }
     func setUI(){
         self.view.addSubview(tableView)
         tableView.easy.layout(Edges())
         self.navigationItem.title = "Новости"
-        let search = UISearchController(searchResultsController: nil)
         search.searchBar.placeholder = "Название новости"
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
+    }
+      
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchText = ""
+        getData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchText = searchBar.text!
+        getData()
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -46,7 +56,7 @@ class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     func getData(){
         startLoad()
-        Requests.shared().getNews(page: 0) { (result) in
+        Requests.shared().getNews(page: 1,search: searchText) { (result) in
             self.stopLoad()
             self.news = result
             self.tableView.reloadData()
@@ -68,9 +78,9 @@ class NewsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             n.easy.layout(Top(5),Bottom(5),Left(20),Right(20))
         }
         if indexPath.row == (self.news?.news?.data?.count ?? 0) - 1 {
-            self.news!.news!.loadNextPage {
+            self.news!.news!.loadNextPage(search: self.searchText, done: {
                 self.tableView.reloadData()
-            }
+            })
         }
         return cell
     }

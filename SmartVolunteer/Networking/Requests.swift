@@ -60,9 +60,9 @@ class Requests: NSObject {
         }
     }
     
-    public func getNews(page: Int, callback: @escaping (News) -> ()){
+    public func getNews(page: Int,search: String = "", callback: @escaping (News) -> ()){
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "news?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl + "news?page=\(page)&title=\(search.encodeUrl)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<News>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
