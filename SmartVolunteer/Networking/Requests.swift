@@ -229,4 +229,14 @@ class Requests: NSObject {
                }
        }
 
+    func getFundRequests(id : Int, callback: @escaping (FundRequest?) -> ()) {
+        
+        Alamofire.request(Constants.shared().baseUrl + "fund/applications/\(id)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+               (response: DataResponse<FundRequest>) in
+               if let _ = response.response{
+                   let model = response.result
+                   callback(model.value ?? nil)
+                   }
+               }
+       }
 }

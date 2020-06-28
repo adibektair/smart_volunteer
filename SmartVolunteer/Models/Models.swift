@@ -711,3 +711,51 @@ class Volunteer : NSObject, NSCoding, Mappable{
     }
 
 }
+
+
+class FundRequest : NSObject, NSCoding, Mappable{
+
+    var applications : Application?
+    var success : Bool?
+
+
+    class func newInstance(map: Map) -> Mappable?{
+        return FundRequest()
+    }
+    required init?(map: Map){}
+    private override init(){}
+
+    func mapping(map: Map)
+    {
+        applications <- map["applications"]
+        success <- map["success"]
+        
+    }
+
+    /**
+    * NSCoding required initializer.
+    * Fills the data from the passed decoder
+    */
+    @objc required init(coder aDecoder: NSCoder)
+    {
+         applications = aDecoder.decodeObject(forKey: "applications") as? Application
+         success = aDecoder.decodeObject(forKey: "success") as? Bool
+
+    }
+
+    /**
+    * NSCoding required method.
+    * Encodes mode properties into the decoder
+    */
+    @objc func encode(with aCoder: NSCoder)
+    {
+        if applications != nil{
+            aCoder.encode(applications, forKey: "applications")
+        }
+        if success != nil{
+            aCoder.encode(success, forKey: "success")
+        }
+
+    }
+
+}
