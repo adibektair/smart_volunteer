@@ -61,7 +61,12 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         navigationItem.rightBarButtonItem?.tintColor = UIColor.black
     }
     @objc func filterPressed(_ sender:UIBarButtonItem) {
-        FilterVC.open(vc: self)
+        FilterVC.open(vc: self) { (result) in
+            if result != nil {
+                self.applications = result
+                self.tableView.reloadData()
+            }
+        }
     }
     
     // MARK: - TableView

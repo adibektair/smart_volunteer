@@ -363,3 +363,114 @@ class Categories : NSObject, NSCoding, Mappable{
     }
 
 }
+
+class Types : NSObject, NSCoding, Mappable{
+
+    var success : Bool?
+    var types : [Type]?
+
+
+    class func newInstance(map: Map) -> Mappable?{
+        return Types()
+    }
+    required init?(map: Map){}
+    private override init(){}
+
+    func mapping(map: Map)
+    {
+        success <- map["success"]
+        types <- map["types"]
+        
+    }
+
+    /**
+    * NSCoding required initializer.
+    * Fills the data from the passed decoder
+    */
+    @objc required init(coder aDecoder: NSCoder)
+    {
+         success = aDecoder.decodeObject(forKey: "success") as? Bool
+         types = aDecoder.decodeObject(forKey: "types") as? [Type]
+    }
+
+    /**
+    * NSCoding required method.
+    * Encodes mode properties into the decoder
+    */
+    @objc func encode(with aCoder: NSCoder)
+    {
+        if success != nil{
+            aCoder.encode(success, forKey: "success")
+        }
+        if types != nil{
+            aCoder.encode(types, forKey: "types")
+        }
+
+    }
+
+}
+
+class Type : NSObject, NSCoding, Mappable{
+
+    var createdAt : AnyObject?
+    var deletedAt : AnyObject?
+    var id : Int?
+    var name : String?
+    var updatedAt : AnyObject?
+
+
+    class func newInstance(map: Map) -> Mappable?{
+        return Type()
+    }
+    required init?(map: Map){}
+    private override init(){}
+
+    func mapping(map: Map)
+    {
+        createdAt <- map["created_at"]
+        deletedAt <- map["deleted_at"]
+        id <- map["id"]
+        name <- map["name"]
+        updatedAt <- map["updated_at"]
+        
+    }
+
+    /**
+    * NSCoding required initializer.
+    * Fills the data from the passed decoder
+    */
+    @objc required init(coder aDecoder: NSCoder)
+    {
+         createdAt = aDecoder.decodeObject(forKey: "created_at") as? AnyObject
+         deletedAt = aDecoder.decodeObject(forKey: "deleted_at") as? AnyObject
+         id = aDecoder.decodeObject(forKey: "id") as? Int
+         name = aDecoder.decodeObject(forKey: "name") as? String
+         updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? AnyObject
+
+    }
+
+    /**
+    * NSCoding required method.
+    * Encodes mode properties into the decoder
+    */
+    @objc func encode(with aCoder: NSCoder)
+    {
+        if createdAt != nil{
+            aCoder.encode(createdAt, forKey: "created_at")
+        }
+        if deletedAt != nil{
+            aCoder.encode(deletedAt, forKey: "deleted_at")
+        }
+        if id != nil{
+            aCoder.encode(id, forKey: "id")
+        }
+        if name != nil{
+            aCoder.encode(name, forKey: "name")
+        }
+        if updatedAt != nil{
+            aCoder.encode(updatedAt, forKey: "updated_at")
+        }
+
+    }
+
+}

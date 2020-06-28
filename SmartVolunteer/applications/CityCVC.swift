@@ -24,18 +24,20 @@ class CityCVC: UICollectionViewCell {
         stackView.setProperties(axis: .horizontal, alignment: .fill, spacing: 7, distribution: .fill)
         name.setProperties(text: "Ala", textColor: .white, font: .systemFont(ofSize: 14, weight: .medium), textAlignment: .center, numberLines: 1)
         icon.easy.layout(Width(12),Height(12))
+        icon.contentMode = .scaleAspectFit
         self.cornerRadius(radius: 18, width: 1,color: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1))
     }
     
     func city(){
+        name.textColor = .white
         backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1)
         stackView.addArrangedSubview(name)
         stackView.addArrangedSubview(icon)
-        icon.image = #imageLiteral(resourceName: "Almaty")
+        icon.image = #imageLiteral(resourceName: "closeWhite")
     }
     
     func addCity(){
-        icon.image = #imageLiteral(resourceName: "Shape")
+        icon.image = #imageLiteral(resourceName: "plus")
         name.text = "Добавить город"
         name.textColor = #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1)
         backgroundColor = .white
