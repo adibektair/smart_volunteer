@@ -223,7 +223,30 @@ class Fund : NSObject, NSCoding, Mappable{
     var prevPageUrl : AnyObject?
     var to : Int?
     var total : Int?
+    var dataAll = [Fond]()
+    var inprogress = false
+    var counter = 2
     
+    
+    func resetList(){
+        self.dataAll.removeAll()
+        if let arr = data {
+            self.dataAll.append(contentsOf: arr)
+        }
+    }
+    func loadNextPage(done:@escaping (()-> Void)){
+        if inprogress { return }
+        if counter <= lastPage ?? 1{
+            inprogress = true
+            Requests.shared().getFunds(page: counter) { (response) in
+                self.data?.append(contentsOf: response.funds?.data ?? [])
+                self.resetList()
+                self.counter += 1
+                self.inprogress = false
+                done()
+            }
+        }
+    }
     
     class func newInstance(map: Map) -> Mappable?{
         return Fund()
