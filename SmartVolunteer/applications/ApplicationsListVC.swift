@@ -14,7 +14,8 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
     // MARK: - Variables
     let tableView = UITableView()
     var applications : Applications?
-    
+    var selected = 0
+    let segmentedController = UISegmentedControl(items: ["Все","Фондовые", "В работе"])
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        segmentedController.selectedSegmentIndex = 0
     }
     func setUI(){
         self.view.addSubview(tableView)
@@ -47,13 +49,13 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         rightButton()
     }
     
-    func getData(){
+    func getData(type:String? = ""){
         startLoad()
-        Requests.shared().getApplications { (result) in
+        Requests.shared().getApplications(type: type, callback: { (result) in
             self.stopLoad()
             self.applications = result
             self.tableView.reloadData()
-        }
+        })
     }
     func rightButton(){
         let b = UIBarButtonItem(image: #imageLiteral(resourceName: "Filter 24px"), style: .plain, target: self, action: #selector(filterPressed(_:)))
@@ -63,6 +65,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
     @objc func filterPressed(_ sender:UIBarButtonItem) {
         FilterVC.open(vc: self) { (result) in
             if result != nil {
+                self.segmentedController.selectedSegmentIndex = 0
                 self.applications = result
                 self.tableView.reloadData()
             }
@@ -99,9 +102,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         stackView.setProperties(axis: .vertical, alignment: .fill, spacing: 25, distribution: .fill)
         stackView.setSpacing(top: 0, left: 20, right: 20, bottom: 0)
         c.backgroundColor = .white
-        let items = ["Все","Фондовые", "В работе"]
-        let segmentedController = UISegmentedControl(items: items)
-        segmentedController.selectedSegmentIndex = 0
+        segmentedController.addTarget(self, action: #selector(segmentValueChanged(_:)), for: .valueChanged)
         stackView.addArrangedSubview(segmentedController)
         let appsLabel = UILabel()
         appsLabel.setProperties(text: "505 заявок", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
@@ -109,6 +110,23 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         c.addSubview(stackView)
         stackView.easy.layout(Edges())
         return c
+    }
+    
+    @objc func segmentValueChanged(_ sender: UISegmentedControl) {
+        let i = sender.selectedSegmentIndex
+        switch i {
+        case 0:
+            self.getData()
+            break
+        case 1:
+            self.getData(type: "?type=2")
+            break
+        case 2:
+            self.getData(type: "?type=1")
+            break
+        default:
+            break
+        }
     }
     // MARK: - Navigation
     

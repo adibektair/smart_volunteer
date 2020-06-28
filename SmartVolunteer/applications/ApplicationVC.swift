@@ -48,9 +48,24 @@ class ApplicationVC: ScrollStackController {
         
         let proceedLabel = UILabel()
         proceedLabel.setProperties(text: "Подать заявку", textColor: .white, font: .systemFont(ofSize: 18, weight: .bold), textAlignment: .center, numberLines: 1)
-        self.scrollView.addSubview(proceedLabel)
+        if data?.volunteer == nil {
+            self.scrollView.addSubview(proceedLabel)
+        }
         proceedLabel.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         proceedLabel.easy.layout(Left(),Bottom(),Right(),Height(60))
+        proceedLabel.addTapGestureRecognizer {
+            if let id = self.data?.id {
+                self.startLoad()
+                Requests.shared().acceptApplication(id: id) { (result) in
+                    self.stopLoading()
+                    if result?.success ?? false {
+                        let t = "\((self.data?.volunteerNumberAccessed ?? 0) + 1) из \(self.data?.volunteerNumber ?? 0) желающих"
+                        counterLabel.text = t
+                        proceedLabel.isHidden = true
+                    }
+                }
+            }
+        }
     }
     
     func headViews(){

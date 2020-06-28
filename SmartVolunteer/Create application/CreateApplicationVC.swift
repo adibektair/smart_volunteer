@@ -35,7 +35,7 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
     
     func setView(){
         life()
-        stackView.setSpacing()
+        stackView.setSpacing( bottom: 30)
         setMyApps()
         mainInfo()
         lastInfo()

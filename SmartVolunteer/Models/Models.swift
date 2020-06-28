@@ -335,7 +335,7 @@ class Fond : NSObject, NSCoding, Mappable{
 }
 
 
-class Fund : NSObject, NSCoding, Mappable{
+class Fund1 : NSObject, NSCoding, Mappable {
 
     var currentPage : Int?
     var data : [Fond]?
@@ -352,7 +352,7 @@ class Fund : NSObject, NSCoding, Mappable{
 
 
     class func newInstance(map: Map) -> Mappable?{
-        return Fund()
+        return Fund1()
     }
     required init?(map: Map){}
     private override init(){}
@@ -544,6 +544,7 @@ class Volunteer : NSObject, NSCoding, Mappable{
     var id : Int?
     var updatedAt : String?
     var userId : Int?
+    var applicationId : Int?
 
 
     class func newInstance(map: Map) -> Mappable?{
@@ -554,6 +555,7 @@ class Volunteer : NSObject, NSCoding, Mappable{
 
     func mapping(map: Map)
     {
+        applicationId <- map["application_id"]
         createdAt <- map["created_at"]
         fundId <- map["fund_id"]
         id <- map["id"]

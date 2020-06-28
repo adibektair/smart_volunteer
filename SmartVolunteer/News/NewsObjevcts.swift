@@ -186,7 +186,7 @@ class Data : NSObject, NSCoding, Mappable{
     var fundId : Int?
     var user : User?
     var userId : AnyObject?
-    var volunteer : AnyObject?
+    var volunteer : Volunteer?
     var volunteerNumber : Int?
     var volunteerNumberAccessed : Int?
     var categoryTypeId : Int?

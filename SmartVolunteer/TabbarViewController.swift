@@ -31,11 +31,11 @@ class TabbarViewController: UITabBarController {
         fundNav.tabBarItem = icon2
         controllers.append(fundNav)
         
-        let icon2 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "Shape"))
+        let icon22 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "Shape"))
         
         let app = UINavigationController()
         app.addChild(ApplicationsListVC())
-        app.tabBarItem = icon2
+        app.tabBarItem = icon22
         controllers.append(app)
         
         let icon3 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "Shape"))

@@ -173,7 +173,19 @@ class Fund : NSObject, NSCoding, Mappable{
     var imgPath : String?
     var name : String?
     var updatedAt : String?
-    var volunteerNumber : Int?
+    var volunteerNumber : Int?    
+    var currentPage : Int?
+    var data : [Fond]?
+    var firstPageUrl : String?
+    var from : Int?
+    var lastPage : Int?
+    var lastPageUrl : String?
+    var nextPageUrl : AnyObject?
+    var path : String?
+    var perPage : Int?
+    var prevPageUrl : AnyObject?
+    var to : Int?
+    var total : Int?
 
 
     class func newInstance(map: Map) -> Mappable?{
@@ -192,7 +204,18 @@ class Fund : NSObject, NSCoding, Mappable{
         name <- map["name"]
         updatedAt <- map["updated_at"]
         volunteerNumber <- map["volunteer_number"]
-        
+        currentPage <- map["current_page"]
+        data <- map["data"]
+        firstPageUrl <- map["first_page_url"]
+        from <- map["from"]
+        lastPage <- map["last_page"]
+        lastPageUrl <- map["last_page_url"]
+        nextPageUrl <- map["next_page_url"]
+        path <- map["path"]
+        perPage <- map["per_page"]
+        prevPageUrl <- map["prev_page_url"]
+        to <- map["to"]
+        total <- map["total"]
     }
 
     /**

@@ -61,8 +61,7 @@ class Requests: NSObject {
     }
     
     public func getNews(page: Int, callback: @escaping (News) -> ()){
-        let header = ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvc3Vwcy5relwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1OTMyNDgyMzksImV4cCI6MTU5MzQ2NDIzOSwibmJmIjoxNTkzMjQ4MjM5LCJqdGkiOiJHbUNBRVJxSjlyd255UU9PIiwic3ViIjoxNSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.wv6FScJzlgmCxQz5-K1PN9XHMkpgDLFgoEJn64PANi4"]
-        
+        let header = Constants.shared().getHeaders()
         Alamofire.request(Constants.shared().baseUrl + "news?=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<News>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
@@ -79,10 +78,10 @@ class Requests: NSObject {
         }
     }
     
-    public func getApplications( callback: @escaping (Applications) -> ()){
-        let header = ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvc3Vwcy5relwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1OTMyNDgyMzksImV4cCI6MTU5MzQ2NDIzOSwibmJmIjoxNTkzMjQ4MjM5LCJqdGkiOiJHbUNBRVJxSjlyd255UU9PIiwic3ViIjoxNSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.wv6FScJzlgmCxQz5-K1PN9XHMkpgDLFgoEJn64PANi4"]
-
-        Alamofire.request(Constants.shared().baseUrl + "applications", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+    public func getApplications(type : String? = "",callback: @escaping (Applications) -> ()){
+        let header = Constants.shared().getHeaders()
+        let url = Constants.shared().baseUrl + "applications" + (type ?? "")
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<Applications>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
@@ -98,8 +97,7 @@ class Requests: NSObject {
         }
     }
     public func getApplicationsFiltered(url:String, callback: @escaping (Applications) -> ()){
-        let header = ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvc3Vwcy5relwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1OTMyNDgyMzksImV4cCI6MTU5MzQ2NDIzOSwibmJmIjoxNTkzMjQ4MjM5LCJqdGkiOiJHbUNBRVJxSjlyd255UU9PIiwic3ViIjoxNSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.wv6FScJzlgmCxQz5-K1PN9XHMkpgDLFgoEJn64PANi4"]
-
+        let header = Constants.shared().getHeaders()
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<Applications>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
@@ -117,8 +115,7 @@ class Requests: NSObject {
     }
     
     public func getCategories( callback: @escaping (Categories) -> ()){
-        let header = ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvc3Vwcy5relwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1OTMyNDgyMzksImV4cCI6MTU5MzQ2NDIzOSwibmJmIjoxNTkzMjQ4MjM5LCJqdGkiOiJHbUNBRVJxSjlyd255UU9PIiwic3ViIjoxNSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.wv6FScJzlgmCxQz5-K1PN9XHMkpgDLFgoEJn64PANi4"]
-        
+        let header = Constants.shared().getHeaders()
         Alamofire.request(Constants.shared().baseUrl + "categories/applications", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<Categories>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
@@ -135,7 +132,7 @@ class Requests: NSObject {
         }
     }
     func getTypes(callback: @escaping (Types?) -> ()) {
-        let header = ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvc3Vwcy5relwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1OTMyNDgyMzksImV4cCI6MTU5MzQ2NDIzOSwibmJmIjoxNTkzMjQ4MjM5LCJqdGkiOiJHbUNBRVJxSjlyd255UU9PIiwic3ViIjoxNSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.wv6FScJzlgmCxQz5-K1PN9XHMkpgDLFgoEJn64PANi4"]
+        let header = Constants.shared().getHeaders()
            Alamofire.request(Constants.shared().baseUrl + "application/types", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
                (response: DataResponse<Types>) in
                if let _ = response.response{
@@ -164,7 +161,7 @@ class Requests: NSObject {
        }
     
     func createApplicationReqs(params : [String: AnyObject], callback: @escaping (CheckLoginResponse?) -> ()) {
-          let header = ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvc3Vwcy5relwvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE1OTMyNDgyMzksImV4cCI6MTU5MzQ2NDIzOSwibmJmIjoxNTkzMjQ4MjM5LCJqdGkiOiJHbUNBRVJxSjlyd255UU9PIiwic3ViIjoxNSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.wv6FScJzlgmCxQz5-K1PN9XHMkpgDLFgoEJn64PANi4"]
+        let header = Constants.shared().getHeaders()
         Alamofire.request(Constants.shared().baseUrl + "application/create", method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<CheckLoginResponse>) in
             if let _ = response.response{
@@ -176,6 +173,17 @@ class Requests: NSObject {
     
     func subscribe(id : Int, callback: @escaping (StandartResponse?) -> ()) {
         Alamofire.request(Constants.shared().baseUrl + "fund/subscribe/\(id)", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+               (response: DataResponse<StandartResponse>) in
+               if let _ = response.response{
+                   let model = response.result
+                   callback(model.value ?? nil)
+                   }
+               }
+       }
+    
+    func acceptApplication(id : Int, callback: @escaping (StandartResponse?) -> ()) {
+        let param = ["application_id": id]
+        Alamofire.request(Constants.shared().baseUrl + "application/accept", method: .post, parameters: param, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
                (response: DataResponse<StandartResponse>) in
                if let _ = response.response{
                    let model = response.result
