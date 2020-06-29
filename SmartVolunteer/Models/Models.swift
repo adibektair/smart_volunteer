@@ -759,3 +759,141 @@ class FundRequest : NSObject, NSCoding, Mappable{
     }
 
 }
+
+
+class Profile : NSObject, NSCoding, Mappable{
+
+    var avatar : String?
+    var city : String?
+    var created : String?
+    var id : Int?
+    var iin : String?
+    var language : String?
+    var name : String?
+    var phone : String?
+    var surname : String?
+
+
+    class func newInstance(map: Map) -> Mappable?{
+        return Profile()
+    }
+    required init?(map: Map){}
+    private override init(){}
+
+    func mapping(map: Map)
+    {
+        avatar <- map["avatar"]
+        city <- map["city"]
+        created <- map["created"]
+        id <- map["id"]
+        iin <- map["iin"]
+        language <- map["language"]
+        name <- map["name"]
+        phone <- map["phone"]
+        surname <- map["surname"]
+        
+    }
+
+    /**
+    * NSCoding required initializer.
+    * Fills the data from the passed decoder
+    */
+    @objc required init(coder aDecoder: NSCoder)
+    {
+         avatar = aDecoder.decodeObject(forKey: "avatar") as? String
+         city = aDecoder.decodeObject(forKey: "city") as? String
+         created = aDecoder.decodeObject(forKey: "created") as? String
+         id = aDecoder.decodeObject(forKey: "id") as? Int
+         iin = aDecoder.decodeObject(forKey: "iin") as? String
+         language = aDecoder.decodeObject(forKey: "language") as? String
+         name = aDecoder.decodeObject(forKey: "name") as? String
+         phone = aDecoder.decodeObject(forKey: "phone") as? String
+         surname = aDecoder.decodeObject(forKey: "surname") as? String
+
+    }
+
+    /**
+    * NSCoding required method.
+    * Encodes mode properties into the decoder
+    */
+    @objc func encode(with aCoder: NSCoder)
+    {
+        if avatar != nil{
+            aCoder.encode(avatar, forKey: "avatar")
+        }
+        if city != nil{
+            aCoder.encode(city, forKey: "city")
+        }
+        if created != nil{
+            aCoder.encode(created, forKey: "created")
+        }
+        if id != nil{
+            aCoder.encode(id, forKey: "id")
+        }
+        if iin != nil{
+            aCoder.encode(iin, forKey: "iin")
+        }
+        if language != nil{
+            aCoder.encode(language, forKey: "language")
+        }
+        if name != nil{
+            aCoder.encode(name, forKey: "name")
+        }
+        if phone != nil{
+            aCoder.encode(phone, forKey: "phone")
+        }
+        if surname != nil{
+            aCoder.encode(surname, forKey: "surname")
+        }
+
+    }
+
+}
+
+
+class ProfileResponse : NSObject, NSCoding, Mappable{
+
+    var profile : Profile?
+    var success : Bool?
+
+
+    class func newInstance(map: Map) -> Mappable?{
+        return ProfileResponse()
+    }
+    required init?(map: Map){}
+    private override init(){}
+
+    func mapping(map: Map)
+    {
+        profile <- map["profile"]
+        success <- map["success"]
+        
+    }
+
+    /**
+    * NSCoding required initializer.
+    * Fills the data from the passed decoder
+    */
+    @objc required init(coder aDecoder: NSCoder)
+    {
+         profile = aDecoder.decodeObject(forKey: "profile") as? Profile
+         success = aDecoder.decodeObject(forKey: "success") as? Bool
+
+    }
+
+    /**
+    * NSCoding required method.
+    * Encodes mode properties into the decoder
+    */
+    @objc func encode(with aCoder: NSCoder)
+    {
+        if profile != nil{
+            aCoder.encode(profile, forKey: "profile")
+        }
+        if success != nil{
+            aCoder.encode(success, forKey: "success")
+        }
+
+    }
+
+}

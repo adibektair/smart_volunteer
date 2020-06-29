@@ -260,4 +260,16 @@ class Requests: NSObject {
                }
            }
        }
+    
+    func getProfile(callback: @escaping (ProfileResponse?) -> ()) {
+        let header = Constants.shared().getHeaders()
+           Alamofire.request(Constants.shared().baseUrl + "profile", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+               (response: DataResponse<ProfileResponse>) in
+               if let _ = response.response{
+                   let model = response.result
+                   callback(model.value ?? nil)
+               }
+           }
+       }
+    
 }
