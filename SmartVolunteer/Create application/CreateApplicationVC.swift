@@ -54,6 +54,7 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
         descTextView.delegate = self
     }
     func setMyApps() {
+        guard (Constants.shared().getToken() != nil) else {     return }
         let container = UIView()
         myApps.setProperties(axis: .horizontal, alignment: .fill, spacing: 12, distribution: .fill)
         myApps.setSpacing(top: 14, left: 20, right: 20, bottom: 14)
