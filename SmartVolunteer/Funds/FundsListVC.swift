@@ -9,7 +9,7 @@
 import UIKit
 import EasyPeasy
 
-class FundsListVC: ScrollStackController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     let searchBar = UISearchBar()
     var tableView = UITableView()
@@ -30,7 +30,7 @@ class FundsListVC: ScrollStackController, UITableViewDelegate, UITableViewDataSo
         tableView.register(UINib(nibName: "FuncTVC", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.title = "Фонды"
+        self.navigationItem.title = "Фонды"
         self.setViews()
         self.getData()
     }
@@ -47,13 +47,17 @@ class FundsListVC: ScrollStackController, UITableViewDelegate, UITableViewDataSo
     
 
     func setViews(){
-        self.stackView.setProperties(axis: .vertical, alignment: .fill, spacing: 0, distribution: .fill)
-        self.stackView.addArrangedSubview(searchBar)
+        self.rightButton()
+        self.view.backgroundColor = .white
         searchBar.placeholder = "Название фонда"
-        let tableViewHeight = UIScreen.main.bounds.size.height - ((self.navigationController?.navigationBar.bounds.size.height)! + self.searchBar.frame.size.height)
-        self.stackView.addArrangedSubview(tableView)
-        tableView.easy.layout(Height(tableViewHeight), Left(20), Right(20), Top(20))
+        self.view.addSubview(tableView)
+        tableView.easy.layout(Top(), Bottom(), Left(20), Right(20))
         
+    }
+    func rightButton(){
+        let b = UIBarButtonItem(image: #imageLiteral(resourceName: "Gridtortburyw"), style: .plain, target: self, action: #selector(myFundsPressed(_:)))
+        navigationItem.rightBarButtonItem = b
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.black
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.filtering{
@@ -114,7 +118,9 @@ class FundsListVC: ScrollStackController, UITableViewDelegate, UITableViewDataSo
          }
         self.tableView.reloadData()
     }
-    
+    @objc func myFundsPressed(_ sender:UIBarButtonItem) {
+        MyFundsVC.open(vc: self)
+    }
     @objc func subscribe(_ sender : UIButton){
         Requests.shared().subscribe(id: sender.tag) { (response) in
             if response?.success ?? false{
@@ -123,4 +129,11 @@ class FundsListVC: ScrollStackController, UITableViewDelegate, UITableViewDataSo
             }
         }
     }
+    static func open(vc: UIViewController){
+        let viewController = self.init()
+        if let nav = vc.navigationController {
+            nav.pushViewController(viewController, animated: true)
+        }
+    }
+    
 }

@@ -24,6 +24,12 @@
 		2FF6C17A24A8E09300E64505 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17924A8E09300E64505 /* SuccessView.swift */; };
 		2FF6C17C24AB556100E64505 /* AnonimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17B24AB555F00E64505 /* AnonimView.swift */; };
 		917714ACC9491D5F50AAB7B3 /* Pods_SmartVolunteer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */; };
+		F2156CE624A8F96000BFFDBD /* FundsRequestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2156CE524A8F96000BFFDBD /* FundsRequestsVC.swift */; };
+		F2156CE824A901FF00BFFDBD /* MyFundsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2156CE724A901FF00BFFDBD /* MyFundsVC.swift */; };
+		F2156CEA24A9125200BFFDBD /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2156CE924A9125200BFFDBD /* ProfileVC.swift */; };
+		F2156CEC24A9164400BFFDBD /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2156CEB24A9164400BFFDBD /* DataView.swift */; };
+		F2156CEF24A91B7700BFFDBD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2156CED24A91B7700BFFDBD /* ProfileViewController.swift */; };
+		F2156CF024A91B7700BFFDBD /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2156CEE24A91B7700BFFDBD /* ProfileViewController.xib */; };
 		F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */; };
 		F24B2D38249FC5CC0080C5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24B2D36249FC5CC0080C5B4 /* Main.storyboard */; };
 		F24B2D3A249FC5CF0080C5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24B2D39249FC5CF0080C5B4 /* Assets.xcassets */; };
@@ -40,6 +46,7 @@
 		F24B2D5B249FC72E0080C5B4 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D5A249FC72E0080C5B4 /* Requests.swift */; };
 		F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F262524A11EE800934874 /* CheckIINVC.swift */; };
 		F26F262824A11EE800934874 /* CheckIINVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F26F262624A11EE800934874 /* CheckIINVC.xib */; };
+		F296FB6024AAE9CA00450DE0 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296FB5F24AAE9CA00450DE0 /* EditProfileVC.swift */; };
 		F2B26A8A24A2246A001EAC0E /* PasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A8824A2246A001EAC0E /* PasswordVC.swift */; };
 		F2B26A8B24A2246A001EAC0E /* PasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B26A8924A2246A001EAC0E /* PasswordVC.xib */; };
 		F2B26A8D24A22A25001EAC0E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B26A8C24A22A25001EAC0E /* SignUpVC.swift */; };
@@ -74,6 +81,12 @@
 		4850EF2CF64FA1018328D9A9 /* Pods-SmartVolunteer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartVolunteer.debug.xcconfig"; path = "Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer.debug.xcconfig"; sourceTree = "<group>"; };
 		5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartVolunteer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD70581A056A715446020F8 /* Pods-SmartVolunteer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartVolunteer.release.xcconfig"; path = "Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer.release.xcconfig"; sourceTree = "<group>"; };
+		F2156CE524A8F96000BFFDBD /* FundsRequestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsRequestsVC.swift; sourceTree = "<group>"; };
+		F2156CE724A901FF00BFFDBD /* MyFundsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFundsVC.swift; sourceTree = "<group>"; };
+		F2156CE924A9125200BFFDBD /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		F2156CEB24A9164400BFFDBD /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		F2156CED24A91B7700BFFDBD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F2156CEE24A91B7700BFFDBD /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		F24B2D2D249FC5CC0080C5B4 /* SmartVolunteer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartVolunteer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F24B2D37249FC5CC0080C5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,6 +105,7 @@
 		F24B2D5A249FC72E0080C5B4 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		F26F262524A11EE800934874 /* CheckIINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIINVC.swift; sourceTree = "<group>"; };
 		F26F262624A11EE800934874 /* CheckIINVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckIINVC.xib; sourceTree = "<group>"; };
+		F296FB5F24AAE9CA00450DE0 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		F2B26A8824A2246A001EAC0E /* PasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVC.swift; sourceTree = "<group>"; };
 		F2B26A8924A2246A001EAC0E /* PasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordVC.xib; sourceTree = "<group>"; };
 		F2B26A8C24A22A25001EAC0E /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -255,6 +269,7 @@
 				F2B26A8F24A27755001EAC0E /* GeneralButton.swift */,
 				2FF6C17B24AB555F00E64505 /* AnonimView.swift */,
 				2FF6C17924A8E09300E64505 /* SuccessView.swift */,
+				F2156CEB24A9164400BFFDBD /* DataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -270,6 +285,10 @@
 		F2B26A9624A33B6B001EAC0E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F2156CE924A9125200BFFDBD /* ProfileVC.swift */,
+				F2156CED24A91B7700BFFDBD /* ProfileViewController.swift */,
+				F296FB5F24AAE9CA00450DE0 /* EditProfileVC.swift */,
+				F2156CEE24A91B7700BFFDBD /* ProfileViewController.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -278,7 +297,9 @@
 			isa = PBXGroup;
 			children = (
 				F2B26A9A24A34B08001EAC0E /* FundsListVC.swift */,
+				F2156CE724A901FF00BFFDBD /* MyFundsVC.swift */,
 				F2DB2CEC24A4BCC600940F1C /* FundVC.swift */,
+				F2156CE524A8F96000BFFDBD /* FundsRequestsVC.swift */,
 				F2DB2CED24A4BCC600940F1C /* FundVC.xib */,
 			);
 			path = Funds;
@@ -354,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2156CF024A91B7700BFFDBD /* ProfileViewController.xib in Resources */,
 				F24B2D3D249FC5CF0080C5B4 /* LaunchScreen.storyboard in Resources */,
 				F2B26AA024A34C33001EAC0E /* FuncTVC.xib in Resources */,
 				F24B2D3A249FC5CF0080C5B4 /* Assets.xcassets in Resources */,
@@ -437,9 +459,11 @@
 				F2B26A9F24A34C33001EAC0E /* FuncTVC.swift in Sources */,
 				F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */,
 				F24B2D59249FC6780080C5B4 /* Constants.swift in Sources */,
+				F2156CE824A901FF00BFFDBD /* MyFundsVC.swift in Sources */,
 				F24B2D55249FC6350080C5B4 /* Colors.swift in Sources */,
 				2F65437024A23C0A0080C445 /* NewsView.swift in Sources */,
 				2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */,
+				F2156CE624A8F96000BFFDBD /* FundsRequestsVC.swift in Sources */,
 				2F82279E24A605D000612BFF /* MyApplicationsVC.swift in Sources */,
 				2F07095924A3E5340023B1AB /* NewsPageVC.swift in Sources */,
 				F24B2D53249FC6350080C5B4 /* UIViewExtensions.swift in Sources */,
@@ -451,9 +475,13 @@
 				F24B2D52249FC6350080C5B4 /* LabelExtensions.swift in Sources */,
 				2F82279924A5C63E00612BFF /* ApplicationObjects.swift in Sources */,
 				F2B26A8A24A2246A001EAC0E /* PasswordVC.swift in Sources */,
+				F2156CEC24A9164400BFFDBD /* DataView.swift in Sources */,
+				F2156CEF24A91B7700BFFDBD /* ProfileViewController.swift in Sources */,
 				F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */,
+				F2156CEA24A9125200BFFDBD /* ProfileVC.swift in Sources */,
 				2F82279C24A5D3AC00612BFF /* CreateApplicationVC.swift in Sources */,
 				2FF6C17824A8B4EB00E64505 /* VolunteerListVC.swift in Sources */,
+				F296FB6024AAE9CA00450DE0 /* EditProfileVC.swift in Sources */,
 				2F2A137924A494F800E4A9DA /* FilterVC.swift in Sources */,
 				2F2A137E24A4A8FC00E4A9DA /* CityCVC.swift in Sources */,
 				F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */,

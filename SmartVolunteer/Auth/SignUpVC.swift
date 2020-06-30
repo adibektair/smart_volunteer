@@ -49,7 +49,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         Requests.shared().getCities { (response) in
             self.picker.cities = response?.cities ?? []
         }
-        picker.modalPresentationStyle = .overCurrentContext
+//        picker.modalPresentationStyle = .overCurrentContext
 //        picker.modalTransitionStyle = .
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -256,6 +256,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
             Requests.shared().register(params: json) { (response) in
                 self.stopLoad()
                 if response?.success ?? false{
+                    Constants.shared().setRole(isVolunteer: response?.isVolunteer ?? false)
                     Constants.shared().saveToken(token: response!.token!)
                 }else{
                     self.showError(text: "что то не то")

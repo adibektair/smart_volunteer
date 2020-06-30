@@ -5,7 +5,6 @@
 //  Created by Таир Адибек on 6/25/20.
 //  Copyright © 2020 Таир Адибек. All rights reserved.
 //
-
 import UIKit
 import EasyPeasy
 
@@ -67,7 +66,9 @@ class FundVC: UIViewController {
         self.requestsLabel.text = "Заявки фонда"
         self.infoLabel.text = self.fund?.descriptionField
         self.subscribeButton.addTarget(self, action: #selector(self.subscribe(_:)), for: .touchUpInside)
-        
+        self.requestsView.addTapGestureRecognizer {
+            FundsRequestsVC.open(vc: self, id: self.fund!.id!)
+        }
     }
     
     static func open(vc: UIViewController, fund : Fond){

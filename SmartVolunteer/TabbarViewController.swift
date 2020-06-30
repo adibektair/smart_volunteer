@@ -12,40 +12,108 @@ class TabbarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var controllers = [UIViewController]()
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
         
-        let icon1 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "GroupLogo"))
-        
+        if Constants.shared().getToken() != nil{
+            if Constants.shared().isVolunteer(){
+                self.volunteerTabBar()
+            }else{
+                self.baigusTabBar()
+            }
+        }else{
+            self.anonimTabBar()
+        }
+    }
+    func volunteerTabBar(){
+        var controllers = [UIViewController]()
+        let i = UITabBarItem(title: "", image: #imageLiteral(resourceName: "home"), tag: 0)
         let homeNav = UINavigationController()
         homeNav.addChild(NewsListVC())
-        homeNav.tabBarItem = icon1
+        homeNav.tabBarItem = i
         controllers.append(homeNav)
         
-        let icon2 = UITabBarItem(title: "Фонды", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "GroupLogo"))
-        
+        let icon2 = UITabBarItem(title: "", image: UIImage(named: "List.png"), tag: 1)
         let fundNav = UINavigationController()
         fundNav.addChild(FundsListVC())
         fundNav.tabBarItem = icon2
         controllers.append(fundNav)
+
         
-        let icon22 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "Shape"))
-        
+        let icon22 = UITabBarItem(title: "", image: UIImage(named: "Black copy.png"), tag: 2)
         let app = UINavigationController()
         app.addChild(ApplicationsListVC())
         app.tabBarItem = icon22
         controllers.append(app)
         
-        let icon3 = UITabBarItem(title: "Басты бет", image: UIImage(named: "home.png"), selectedImage: #imageLiteral(resourceName: "Shape"))
+        let icon4 = UITabBarItem(title: "", image: UIImage(named: "Profile.png"), tag: 4)
+        let prof = UINavigationController()
+        prof.addChild(ProfileViewController())
+        prof.tabBarItem = icon4
+        controllers.append(prof)
         
+        self.viewControllers = controllers
+                
+    }
+    func baigusTabBar(){
+        var controllers = [UIViewController]()
+        let i = UITabBarItem(title: "", image: #imageLiteral(resourceName: "home"), tag: 0)
+        let homeNav = UINavigationController()
+        homeNav.addChild(NewsListVC())
+        homeNav.tabBarItem = i
+        controllers.append(homeNav)
+        let icon3 = UITabBarItem(title: "", image: nil, tag: 3)
         let create = UINavigationController()
         create.addChild(CreateApplicationVC())
         create.tabBarItem = icon3
         controllers.append(create)
+        self.setupMiddleButton()
+        let icon4 = UITabBarItem(title: "", image: UIImage(named: "Profile.png"), tag: 4)
+        let prof = UINavigationController()
+        prof.addChild(ProfileViewController())
+        prof.tabBarItem = icon4
+        controllers.append(prof)
         self.viewControllers = controllers
         
     }
+    func anonimTabBar(){
+        var controllers = [UIViewController]()
+        let i = UITabBarItem(title: "", image: #imageLiteral(resourceName: "home"), tag: 0)
+        let homeNav = UINavigationController()
+        homeNav.addChild(NewsListVC())
+        homeNav.tabBarItem = i
+        controllers.append(homeNav)
+        let icon3 = UITabBarItem(title: "", image: nil, tag: 3)
+        let create = UINavigationController()
+        create.addChild(CreateApplicationVC())
+        create.tabBarItem = icon3
+        controllers.append(create)
+        self.setupMiddleButton()
+        let icon4 = UITabBarItem(title: "", image: UIImage(named: "Profile.png"), tag: 4)
+        let prof = UINavigationController()
+        prof.addChild(ProfileViewController())
+        prof.tabBarItem = icon4
+        controllers.append(prof)
+        self.viewControllers = controllers
+    }
     
+
+    // Plus Button View
+    func setupMiddleButton() {
+        let middleBtn = UIButton(frame: CGRect(x: (self.view.bounds.width / 2)-35, y: -10, width: 70, height: 70))
+        middleBtn.setImage(#imageLiteral(resourceName: "Component 4"), for: .normal)
+        middleBtn.layer.cornerRadius = middleBtn.frame.size.height / 2
+        middleBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        middleBtn.isUserInteractionEnabled = true
+        self.tabBar.addSubview(middleBtn)
+        middleBtn.addTarget(self, action: #selector(self.menuButtonAction), for: .touchUpInside)
+        self.view.layoutIfNeeded()
+    }
+    // Plus Button Action
+    @objc func menuButtonAction(sender: UIButton) {
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [CreateApplicationVC()]
+        self.present(navigationController, animated: true, completion: nil)
+    }
 }

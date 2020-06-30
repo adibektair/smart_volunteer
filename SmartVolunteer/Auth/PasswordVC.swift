@@ -22,6 +22,7 @@ class PasswordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.passwordTextField.becomeFirstResponder()
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
@@ -36,6 +37,7 @@ class PasswordVC: UIViewController {
             Requests.shared().logIn(params: json) { (response) in
                 self.stopLoad()
                 if response?.success ?? false{
+                    Constants.shared().setRole(isVolunteer: response?.isVolunteer ?? false)
                     Constants.shared().saveToken(token: response!.token!)
                     self.present(TabbarViewController(), animated: true, completion: nil)
                 }else{
