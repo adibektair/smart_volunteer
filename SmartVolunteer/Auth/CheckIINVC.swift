@@ -33,6 +33,10 @@ class CheckIINVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
+        if let t = iinTextField.text, t.count == 12, !check(iin:t) {
+            self.showAlert(title: "Внимание", message: "Неверный иин")
+            return
+        }
         self.startLoad()
         let json = ["iin" : self.iinTextField.text!] as [String : AnyObject]
         Requests.shared().checkLogin(params: json) { (response) in
@@ -73,5 +77,28 @@ class CheckIINVC: UIViewController, UITextFieldDelegate {
         let count = textFieldText.count - substringToReplace.count + string.count
         self.setButtonState(state: !(count <= 11))
         return count <= 12
+    }
+    func check(iin:String) -> Bool {
+        let b1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        let b2 = [3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 2]
+        var a = [Int]()
+        var controll = 0
+        for i in 0..<12 {
+            let start = iin.index(iin.startIndex, offsetBy: i)
+            let end = iin.index(iin.startIndex, offsetBy: i + 1)
+            let range = start..<end
+            let sub = iin[range]
+            let substr = String(sub)
+            a.append( Int(substr)!)
+            if (i < 11) { controll += a[i] * b1[i] }
+        }
+        controll = controll % 11;
+        if (controll == 10) {
+            controll = 0;
+            for i in 0..<11 { controll += a[i] * b2[i] }
+            controll = controll % 11;
+        }
+        if (controll != a[11]) { return false }
+        return true;
     }
 }
