@@ -203,7 +203,11 @@ class Requests: NSObject {
     
     func createApplicationReqs(params : [String: AnyObject], callback: @escaping (CheckLoginResponse?) -> ()) {
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "application/create", method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseObject{
+        var url = Constants.shared().baseUrl + "application/create"
+        if Constants.shared().getToken() == nil {
+            url += "/anonymous"
+        }
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<CheckLoginResponse>) in
             if let _ = response.response{
                 let model = response.result

@@ -96,6 +96,7 @@ class TabbarViewController: UITabBarController {
         prof.tabBarItem = icon4
         controllers.append(prof)
         self.viewControllers = controllers
+        self.selectedIndex = 1
     }
     
 

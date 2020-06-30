@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import EasyPeasy
 
 class ProfileViewController: UIViewController {
 
@@ -53,10 +54,15 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if Constants.shared().getToken() == nil {
+            let v = AnonimView()
+            self.view.addSubview(v)
+            v.easy.layout(Edges())
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        if Constants.shared().getToken() == nil { return }
         self.getData()
     }
     

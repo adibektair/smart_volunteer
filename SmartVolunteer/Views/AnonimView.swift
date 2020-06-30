@@ -19,9 +19,9 @@ class AnonimView: UIView {
         setView()
     }
     func setView(){
-        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2)
+        self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.4)
         stackview.setSpacing(top: 30, left: 30, right: 30, bottom: 30)
-        stackview.setProperties(axis: .vertical, alignment: .center, spacing: 25, distribution: .fill)
+        stackview.setProperties(axis: .vertical, alignment: .fill, spacing: 25, distribution: .fill)
         let c = UIView()
         c.backgroundColor = .white
         c.cornerRadius(radius: 20, width: 0)
@@ -43,18 +43,22 @@ class AnonimView: UIView {
         okButton.cornerRadius(radius: 10, width: 1, color: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1))
         okButton.setProperties(text: "Ok", textColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), font: .systemFont(ofSize: 14, weight: .medium), textAlignment: .center, numberLines: 1)
         okButton.addTapGestureRecognizer {
-            self.removeFromSuperview()
+            self.parentViewController?.tabBarController?.selectedIndex = 1
         }
+        okButton.easy.layout(Height(54),Width(58))
         buttonsStackview.addArrangedSubview(okButton)
         
         let goToAuth = UILabel()
         goToAuth.setProperties(text: "Перейти к авторизации", textColor: .white, font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .center, numberLines: 1)
         goToAuth.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+        goToAuth.cornerRadius(radius: 10, width: 0)
         buttonsStackview.addArrangedSubview(goToAuth)
         goToAuth.addTapGestureRecognizer {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
+            Constants.shared().clear()
+            self.parentViewController?.dismiss(animated: true, completion: nil)
             return
         }
+        goToAuth.easy.layout(Height(54))
         stackview.addArrangedSubview(buttonsStackview)
     }
 

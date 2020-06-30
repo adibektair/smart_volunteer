@@ -23,6 +23,17 @@ class NewsListVC: UIViewController, UISearchBarDelegate,UITableViewDelegate, UIT
         setUI()
         getData()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        if Constants.shared().getToken() == nil {
+            let v = AnonimView()
+            self.view.addSubview(v)
+            v.easy.layout(Edges())
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
     
     // MARK: - Functions
     func life() {
@@ -48,12 +59,7 @@ class NewsListVC: UIViewController, UISearchBarDelegate,UITableViewDelegate, UIT
         self.searchText = searchBar.text!
         getData()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-    }
+
     func getData(){
         startLoad()
         Requests.shared().getNews(page: 1,search: searchText) { (result) in
