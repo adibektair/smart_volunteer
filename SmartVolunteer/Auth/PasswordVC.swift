@@ -39,7 +39,9 @@ class PasswordVC: UIViewController {
                 if response?.success ?? false{
                     Constants.shared().setRole(isVolunteer: response?.isVolunteer ?? false)
                     Constants.shared().saveToken(token: response!.token!)
-                    self.present(TabbarViewController(), animated: true, completion: nil)
+                    let tabbar = TabbarViewController()
+                    tabbar.modalPresentationStyle = .fullScreen
+                    self.present(tabbar, animated: true, completion: nil)
                 }else{
                     self.showAlert(title: "Внимание", message: "что то не то")
                 }

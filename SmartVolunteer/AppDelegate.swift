@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = TabbarViewController()
         }else{
             let navigationController = UINavigationController()
+            if #available(iOS 13.0, *) {
+                navigationController.overrideUserInterfaceStyle = .light
+            }
             navigationController.addChild(CheckIINVC())
             window?.rootViewController = navigationController
         }

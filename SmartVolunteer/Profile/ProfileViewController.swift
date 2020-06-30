@@ -105,6 +105,9 @@ class ProfileViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { action in
                 Constants.shared().clear()
                 let navigationController = UINavigationController()
+                if #available(iOS 13.0, *) {
+                    navigationController.overrideUserInterfaceStyle = .light
+                }
                 navigationController.modalPresentationStyle = .fullScreen
                 navigationController.addChild(CheckIINVC())
                 self.present(navigationController, animated: true, completion: nil)
