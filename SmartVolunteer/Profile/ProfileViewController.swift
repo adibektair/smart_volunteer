@@ -56,7 +56,7 @@ class ProfileViewController: UIViewController {
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = true
         self.getData()
     }
     
@@ -89,8 +89,26 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func editPressed(_ sender: Any) {
+        EditProfileVC.open(vc: self, profile: self.profile)
     }
     @IBAction func logOutPressed(_ sender: Any) {
+        let navigationController = UINavigationController()
+        navigationController.addChild(CheckIINVC())
+        let alert = UIAlertController(title: "Выйти?", message: "", preferredStyle: UIAlertController.Style.alert)
+               
+            alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { action in
+                Constants.shared().clear()
+                let navigationController = UINavigationController()
+                navigationController.modalPresentationStyle = .fullScreen
+                navigationController.addChild(CheckIINVC())
+                self.present(navigationController, animated: true, completion: nil)
+            }))
+               
+        alert.addAction(UIAlertAction(title: "Нет", style: .destructive, handler: { action in
+                  
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
 }

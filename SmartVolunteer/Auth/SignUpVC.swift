@@ -49,7 +49,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         Requests.shared().getCities { (response) in
             self.picker.cities = response?.cities ?? []
         }
-        picker.modalPresentationStyle = .overCurrentContext
+//        picker.modalPresentationStyle = .overCurrentContext
 //        picker.modalTransitionStyle = .
     }
     override func viewWillAppear(_ animated: Bool) {

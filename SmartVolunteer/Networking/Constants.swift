@@ -33,9 +33,18 @@ class Constants: NSObject {
         return UserDefaults.standard.bool(forKey: "isVolunteer")
     }
     func getHeaders() -> [String : String]{
+        if self.getToken() == nil{
+            return [:]
+        }
         let headers = ["Authorization" : "Bearer " + self.getToken()!]
         return headers
     }
+    public func clear(){
+          let domain = Bundle.main.bundleIdentifier!
+          UserDefaults.standard.removePersistentDomain(forName: domain)
+          UserDefaults.standard.synchronize()
+          print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
+      }
     
     public let baseUrl = "https://sups.kz/api/v1/"
     

@@ -30,7 +30,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         tableView.register(UINib(nibName: "FuncTVC", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.title = "Фонды"
+        self.navigationItem.title = "Фонды"
         self.setViews()
         self.getData()
     }

@@ -49,6 +49,9 @@ class CheckIINVC: UIViewController, UITextFieldDelegate {
         SignUpVC.open(vc: self)
     }
     @IBAction func skipButtonPressed(_ sender: Any) {
+        let tabBar = TabbarViewController()
+        tabBar.modalPresentationStyle = .fullScreen
+        self.present(tabBar, animated: true, completion: nil)
     }
     
     private func setButtonState(state : Bool){
