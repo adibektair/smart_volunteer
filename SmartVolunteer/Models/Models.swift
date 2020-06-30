@@ -196,7 +196,7 @@ class RegisterResponse : NSObject, NSCoding, Mappable{
         success <- map["success"]
         surname <- map["surname"]
         token <- map["token"]
-        isVolunteer <- map["is_volunterr"]
+        isVolunteer <- map["is_volunteer"]
     }
 
     /**
