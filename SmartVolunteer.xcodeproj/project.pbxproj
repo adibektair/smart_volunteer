@@ -22,6 +22,7 @@
 		2F8227A024A61EE600612BFF /* ApplicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279F24A61EE600612BFF /* ApplicationVC.swift */; };
 		2FF6C17824A8B4EB00E64505 /* VolunteerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17724A8B4EA00E64505 /* VolunteerListVC.swift */; };
 		2FF6C17A24A8E09300E64505 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17924A8E09300E64505 /* SuccessView.swift */; };
+		2FF6C17C24AB556100E64505 /* AnonimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17B24AB555F00E64505 /* AnonimView.swift */; };
 		917714ACC9491D5F50AAB7B3 /* Pods_SmartVolunteer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */; };
 		F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */; };
 		F24B2D38249FC5CC0080C5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24B2D36249FC5CC0080C5B4 /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		2F82279F24A61EE600612BFF /* ApplicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationVC.swift; sourceTree = "<group>"; };
 		2FF6C17724A8B4EA00E64505 /* VolunteerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerListVC.swift; sourceTree = "<group>"; };
 		2FF6C17924A8E09300E64505 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		2FF6C17B24AB555F00E64505 /* AnonimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonimView.swift; sourceTree = "<group>"; };
 		4850EF2CF64FA1018328D9A9 /* Pods-SmartVolunteer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartVolunteer.debug.xcconfig"; path = "Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer.debug.xcconfig"; sourceTree = "<group>"; };
 		5CB688ED28AC0C3D03F7EA83 /* Pods_SmartVolunteer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartVolunteer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD70581A056A715446020F8 /* Pods-SmartVolunteer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartVolunteer.release.xcconfig"; path = "Target Support Files/Pods-SmartVolunteer/Pods-SmartVolunteer.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				F2B26A8F24A27755001EAC0E /* GeneralButton.swift */,
+				2FF6C17B24AB555F00E64505 /* AnonimView.swift */,
 				2FF6C17924A8E09300E64505 /* SuccessView.swift */,
 			);
 			path = Views;
@@ -444,6 +447,7 @@
 				F2B26A9824A33B9C001EAC0E /* TabbarViewController.swift in Sources */,
 				F2B26A9024A27755001EAC0E /* GeneralButton.swift in Sources */,
 				F2DB2CEE24A4BCC600940F1C /* FundVC.swift in Sources */,
+				2FF6C17C24AB556100E64505 /* AnonimView.swift in Sources */,
 				F24B2D52249FC6350080C5B4 /* LabelExtensions.swift in Sources */,
 				2F82279924A5C63E00612BFF /* ApplicationObjects.swift in Sources */,
 				F2B26A8A24A2246A001EAC0E /* PasswordVC.swift in Sources */,
