@@ -46,7 +46,7 @@ class Constants: NSObject {
           print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
       }
     
-    public let baseUrl = "https://sups.kz/api/v1/"
+    public let baseUrl = "https://tdk.smartvolunteer.kz/"
     
     
 }
