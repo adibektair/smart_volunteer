@@ -38,6 +38,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var langDataLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var cityDataLabel: UILabel!
+    @IBOutlet weak var worksCountLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!{
         didSet{
             self.editButton.setTitle("Редактировать профиль", for: .normal)
@@ -50,6 +51,14 @@ class ProfileViewController: UIViewController {
             self.logOutButton.cornerRadius(radius: 10, width: 1, color: #colorLiteral(red: 0.9989094138, green: 0.2617629766, blue: 0.262750864, alpha: 1))
         }
     }
+    @IBOutlet weak var finishedWorks: UIButton! {
+          didSet {
+            self.finishedWorks.setTitle("Выполненные работы", for: .normal)
+          }
+      }
+    @IBOutlet weak var finishedView: UIView! {
+        didSet { self.finishedView.cornerRadius(radius: 10, width: 1, color: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1)) }
+    }
     
     
     override func viewDidLoad() {
@@ -59,6 +68,7 @@ class ProfileViewController: UIViewController {
             self.view.addSubview(v)
             v.easy.layout(Edges())
         }
+        setBackButton()
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -94,6 +104,9 @@ class ProfileViewController: UIViewController {
         cityDataLabel.text = profile?.city ?? ""
     }
     
+    @IBAction func finishedWorksPressed(_ sender: UIButton) {
+        FinishedWorksVC.open(vc: self)
+    }
     @IBAction func editPressed(_ sender: Any) {
         EditProfileVC.open(vc: self, profile: self.profile)
     }

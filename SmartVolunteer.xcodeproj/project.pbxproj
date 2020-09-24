@@ -20,6 +20,8 @@
 		2F82279C24A5D3AC00612BFF /* CreateApplicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279B24A5D3AC00612BFF /* CreateApplicationVC.swift */; };
 		2F82279E24A605D000612BFF /* MyApplicationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279D24A605D000612BFF /* MyApplicationsVC.swift */; };
 		2F8227A024A61EE600612BFF /* ApplicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279F24A61EE600612BFF /* ApplicationVC.swift */; };
+		2FC4A5EA251CBE8400421BC2 /* FinishedWorksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */; };
+		2FC4A5EC251CBFA000421BC2 /* FinishedWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4A5EB251CBFA000421BC2 /* FinishedWorkCell.swift */; };
 		2FF6C17824A8B4EB00E64505 /* VolunteerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17724A8B4EA00E64505 /* VolunteerListVC.swift */; };
 		2FF6C17A24A8E09300E64505 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17924A8E09300E64505 /* SuccessView.swift */; };
 		2FF6C17C24AB556100E64505 /* AnonimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17B24AB555F00E64505 /* AnonimView.swift */; };
@@ -75,6 +77,8 @@
 		2F82279B24A5D3AC00612BFF /* CreateApplicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateApplicationVC.swift; sourceTree = "<group>"; };
 		2F82279D24A605D000612BFF /* MyApplicationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplicationsVC.swift; sourceTree = "<group>"; };
 		2F82279F24A61EE600612BFF /* ApplicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationVC.swift; sourceTree = "<group>"; };
+		2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorksVC.swift; sourceTree = "<group>"; };
+		2FC4A5EB251CBFA000421BC2 /* FinishedWorkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorkCell.swift; sourceTree = "<group>"; };
 		2FF6C17724A8B4EA00E64505 /* VolunteerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerListVC.swift; sourceTree = "<group>"; };
 		2FF6C17924A8E09300E64505 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		2FF6C17B24AB555F00E64505 /* AnonimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonimView.swift; sourceTree = "<group>"; };
@@ -288,6 +292,8 @@
 				F2156CE924A9125200BFFDBD /* ProfileVC.swift */,
 				F2156CED24A91B7700BFFDBD /* ProfileViewController.swift */,
 				F296FB5F24AAE9CA00450DE0 /* EditProfileVC.swift */,
+				2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */,
+				2FC4A5EB251CBFA000421BC2 /* FinishedWorkCell.swift */,
 				F2156CEE24A91B7700BFFDBD /* ProfileViewController.xib */,
 			);
 			path = Profile;
@@ -455,6 +461,7 @@
 			files = (
 				F2B26A9224A279F4001EAC0E /* ChooseCityVC.swift in Sources */,
 				F2B26A9524A28330001EAC0E /* Models.swift in Sources */,
+				2FC4A5EC251CBFA000421BC2 /* FinishedWorkCell.swift in Sources */,
 				F2B26A8D24A22A25001EAC0E /* SignUpVC.swift in Sources */,
 				F2B26A9F24A34C33001EAC0E /* FuncTVC.swift in Sources */,
 				F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */,
@@ -468,6 +475,7 @@
 				2F07095924A3E5340023B1AB /* NewsPageVC.swift in Sources */,
 				F24B2D53249FC6350080C5B4 /* UIViewExtensions.swift in Sources */,
 				F24B2D4F249FC6350080C5B4 /* StackViewExtensions.swift in Sources */,
+				2FC4A5EA251CBE8400421BC2 /* FinishedWorksVC.swift in Sources */,
 				F2B26A9824A33B9C001EAC0E /* TabbarViewController.swift in Sources */,
 				F2B26A9024A27755001EAC0E /* GeneralButton.swift in Sources */,
 				F2DB2CEE24A4BCC600940F1C /* FundVC.swift in Sources */,
