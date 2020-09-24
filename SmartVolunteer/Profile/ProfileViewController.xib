@@ -26,6 +26,7 @@
                 <outlet property="nameLabel" destination="16c-8Q-Fra" id="d4t-CG-rAo"/>
                 <outlet property="phoneDataLabel" destination="hTL-2M-3qP" id="Yrn-0P-ssb"/>
                 <outlet property="phoneLabel" destination="tTD-Kj-hIe" id="otN-8L-rd2"/>
+                <outlet property="rateView" destination="s9r-v1-bRf" id="mYS-Qb-sa8"/>
                 <outlet property="surnameDataLabel" destination="GN5-rX-eY3" id="NKA-bC-UhR"/>
                 <outlet property="surnameLabel" destination="BLd-Q3-gwB" id="q6Y-nd-hUG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -45,7 +46,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9r-v1-bRf" customClass="CosmosView" customModule="Cosmos">
-                    <rect key="frame" x="147" y="190" width="120" height="20"/>
+                    <rect key="frame" x="147" y="190" width="120" height="0.0"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="eth-v5-TXD"/>
@@ -60,10 +61,16 @@
                         <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
                             <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1q-Ng-Hx3">
-                    <rect key="frame" x="20" y="302" width="374" height="213"/>
+                    <rect key="frame" x="20" y="282" width="374" height="213"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx4-bN-SFB">
                             <rect key="frame" x="15" y="15" width="0.0" height="0.0"/>
@@ -168,7 +175,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpp-WR-tnd">
-                    <rect key="frame" x="20" y="607" width="374" height="52"/>
+                    <rect key="frame" x="20" y="587" width="374" height="52"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="52" id="d2x-hO-yXj"/>
                     </constraints>
@@ -180,7 +187,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itt-00-KbB">
-                    <rect key="frame" x="20" y="230" width="374" height="52"/>
+                    <rect key="frame" x="20" y="210" width="374" height="52"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgy-Mi-U8Q">
                             <rect key="frame" x="20" y="0.0" width="322" height="52"/>
@@ -216,7 +223,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgJ-sk-mkz">
-                    <rect key="frame" x="20" y="535" width="374" height="52"/>
+                    <rect key="frame" x="20" y="515" width="374" height="52"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="52" id="oMb-fL-hk3"/>
                     </constraints>
@@ -229,6 +236,7 @@
             <constraints>
                 <constraint firstItem="xpp-WR-tnd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="086-Pj-Mnz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KgJ-sk-mkz" secondAttribute="trailing" constant="20" id="5W6-k3-QVI"/>
+                <constraint firstItem="I1q-Ng-Hx3" firstAttribute="top" secondItem="EN7-gx-zBB" secondAttribute="bottom" priority="800" constant="20" id="8sJ-Xg-anD"/>
                 <constraint firstItem="I1q-Ng-Hx3" firstAttribute="top" secondItem="itt-00-KbB" secondAttribute="bottom" constant="20" id="Ony-nw-pys"/>
                 <constraint firstItem="EN7-gx-zBB" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Ph6-9u-qN0"/>
                 <constraint firstItem="itt-00-KbB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Vcm-gb-kLK"/>

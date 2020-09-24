@@ -42,7 +42,7 @@ class FinishedWorksVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let c = FinishedWorkCell()
         cell.contentView.addSubview(c)
         c.easy.layout(Edges())
-        
+        cell.selectionStyle = .none
         return cell
     }
     

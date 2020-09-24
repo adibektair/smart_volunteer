@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 import EasyPeasy
+import Cosmos
 
 class ProfileViewController: UIViewController {
 
@@ -39,6 +40,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var cityDataLabel: UILabel!
     @IBOutlet weak var worksCountLabel: UILabel!
+    @IBOutlet weak var rateView: CosmosView!
     @IBOutlet weak var editButton: UIButton!{
         didSet{
             self.editButton.setTitle("Редактировать профиль", for: .normal)
@@ -102,6 +104,10 @@ class ProfileViewController: UIViewController {
         langDataLabel.text = profile?.language ?? ""
         cityLabel.text = "Город"
         cityDataLabel.text = profile?.city ?? ""
+        if let tabbarCount = self.tabBarController?.viewControllers?.count, tabbarCount == 3, finishedView != nil, rateView != nil {
+            self.finishedView.removeFromSuperview()
+            self.rateView.removeFromSuperview()
+        }
     }
     
     @IBAction func finishedWorksPressed(_ sender: UIButton) {
