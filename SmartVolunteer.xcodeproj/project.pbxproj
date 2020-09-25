@@ -22,6 +22,8 @@
 		2F8227A024A61EE600612BFF /* ApplicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279F24A61EE600612BFF /* ApplicationVC.swift */; };
 		2FC4A5EA251CBE8400421BC2 /* FinishedWorksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */; };
 		2FC4A5EC251CBFA000421BC2 /* FinishedWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4A5EB251CBFA000421BC2 /* FinishedWorkCell.swift */; };
+		2FC4A5EE251E202E00421BC2 /* FeedbackInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4A5ED251E202E00421BC2 /* FeedbackInfoVC.swift */; };
+		2FC4A5F0251E20EA00421BC2 /* HeadUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4A5EF251E20EA00421BC2 /* HeadUserInfoView.swift */; };
 		2FF6C17824A8B4EB00E64505 /* VolunteerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17724A8B4EA00E64505 /* VolunteerListVC.swift */; };
 		2FF6C17A24A8E09300E64505 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17924A8E09300E64505 /* SuccessView.swift */; };
 		2FF6C17C24AB556100E64505 /* AnonimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6C17B24AB555F00E64505 /* AnonimView.swift */; };
@@ -79,6 +81,8 @@
 		2F82279F24A61EE600612BFF /* ApplicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationVC.swift; sourceTree = "<group>"; };
 		2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorksVC.swift; sourceTree = "<group>"; };
 		2FC4A5EB251CBFA000421BC2 /* FinishedWorkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorkCell.swift; sourceTree = "<group>"; };
+		2FC4A5ED251E202E00421BC2 /* FeedbackInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackInfoVC.swift; sourceTree = "<group>"; };
+		2FC4A5EF251E20EA00421BC2 /* HeadUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadUserInfoView.swift; sourceTree = "<group>"; };
 		2FF6C17724A8B4EA00E64505 /* VolunteerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerListVC.swift; sourceTree = "<group>"; };
 		2FF6C17924A8E09300E64505 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		2FF6C17B24AB555F00E64505 /* AnonimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonimView.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 			children = (
 				F2B26A8F24A27755001EAC0E /* GeneralButton.swift */,
 				2FF6C17B24AB555F00E64505 /* AnonimView.swift */,
+				2FC4A5EF251E20EA00421BC2 /* HeadUserInfoView.swift */,
 				2FF6C17924A8E09300E64505 /* SuccessView.swift */,
 				F2156CEB24A9164400BFFDBD /* DataView.swift */,
 			);
@@ -291,6 +296,7 @@
 			children = (
 				F2156CE924A9125200BFFDBD /* ProfileVC.swift */,
 				F2156CED24A91B7700BFFDBD /* ProfileViewController.swift */,
+				2FC4A5ED251E202E00421BC2 /* FeedbackInfoVC.swift */,
 				F296FB5F24AAE9CA00450DE0 /* EditProfileVC.swift */,
 				2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */,
 				2FC4A5EB251CBFA000421BC2 /* FinishedWorkCell.swift */,
@@ -486,10 +492,12 @@
 				F2156CEC24A9164400BFFDBD /* DataView.swift in Sources */,
 				F2156CEF24A91B7700BFFDBD /* ProfileViewController.swift in Sources */,
 				F26F262724A11EE800934874 /* CheckIINVC.swift in Sources */,
+				2FC4A5F0251E20EA00421BC2 /* HeadUserInfoView.swift in Sources */,
 				F2156CEA24A9125200BFFDBD /* ProfileVC.swift in Sources */,
 				2F82279C24A5D3AC00612BFF /* CreateApplicationVC.swift in Sources */,
 				2FF6C17824A8B4EB00E64505 /* VolunteerListVC.swift in Sources */,
 				F296FB6024AAE9CA00450DE0 /* EditProfileVC.swift in Sources */,
+				2FC4A5EE251E202E00421BC2 /* FeedbackInfoVC.swift in Sources */,
 				2F2A137924A494F800E4A9DA /* FilterVC.swift in Sources */,
 				2F2A137E24A4A8FC00E4A9DA /* CityCVC.swift in Sources */,
 				F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */,

@@ -18,7 +18,30 @@ class FinishedWorksVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         life()
+        
     }
+    override func viewDidAppear(_ animated: Bool) {
+        addBottomSheetView()
+    }
+    @objc func panGesture(recognizer: UIPanGestureRecognizer) {
+          let translation = recognizer.translation(in: self.view)
+          let y = self.view.frame.minY
+          self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
+          recognizer.setTranslation(.zero, in: self.view)
+    }
+    
+    func addBottomSheetView(scrollable: Bool? = true) {
+          let bottomSheetVC =  FeedbackInfoVC()
+          
+        self.addChild(bottomSheetVC)
+          self.view.addSubview(bottomSheetVC.view)
+        bottomSheetVC.didMove(toParent: self)
+
+          let height = view.frame.height
+          let width  = view.frame.width
+          bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+      }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
     }
