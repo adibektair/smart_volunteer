@@ -10,37 +10,34 @@ import UIKit
 import EasyPeasy
 
 class FinishedWorksVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     // MARK: - Variables
     let tableView = UITableView()
-    
+    var feedBacks: Feedbacks?
+    var profile: Profile?
+    var ava = UIImage()
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         life()
-        
+        getData()
     }
     override func viewDidAppear(_ animated: Bool) {
-        addBottomSheetView()
+//        addBottomSheetView()
     }
     @objc func panGesture(recognizer: UIPanGestureRecognizer) {
-          let translation = recognizer.translation(in: self.view)
-          let y = self.view.frame.minY
-          self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
-          recognizer.setTranslation(.zero, in: self.view)
+        let translation = recognizer.translation(in: self.view)
+        let y = self.view.frame.minY
+        self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
+        recognizer.setTranslation(.zero, in: self.view)
     }
     
-    func addBottomSheetView(scrollable: Bool? = true) {
-          let bottomSheetVC =  FeedbackInfoVC()
-          
-        self.addChild(bottomSheetVC)
-          self.view.addSubview(bottomSheetVC.view)
-        bottomSheetVC.didMove(toParent: self)
-
-          let height = view.frame.height
-          let width  = view.frame.width
-          bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
-      }
+    func getData(){
+        Requests.shared().getFeedback { (result) in
+            self.feedBacks = result
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
@@ -52,25 +49,38 @@ class FinishedWorksVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.view.addSubview(tableView)
         tableView.easy.layout(Edges())
         navigationController?.navigationItem.title = "Выполненные работы"
+        userInfo()
     }
-    
+    func userInfo(){
+        let image = UIImageView()
+        if profile?.avatar != nil{
+                 image.sd_setImage(with: URL(string: self.profile!.avatar!.encodeUrl), completed: nil)
+             }else{
+                 image.image = #imageLiteral(resourceName: "photo user")
+             }
+        self.ava = image.image!
+        self.tableView.reloadData()
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return feedBacks?.feedbacks?.data?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let c = FinishedWorkCell()
+        guard let data = feedBacks?.feedbacks?.data?[indexPath.row] else { return cell }
+        let c = FinishedWorkCell(data: data,profile: self.profile!)
+        
         cell.contentView.addSubview(c)
         c.easy.layout(Edges())
         cell.selectionStyle = .none
         return cell
     }
     
-    static func open(vc: UIViewController){
+    static func open(vc: UIViewController,profile: Profile){
         let viewController = FinishedWorksVC()
+        viewController.profile = profile
         if let nav = vc.navigationController {
             nav.pushViewController(viewController, animated: true)
         }

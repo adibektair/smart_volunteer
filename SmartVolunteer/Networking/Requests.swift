@@ -275,6 +275,16 @@ class Requests: NSObject {
                }
            }
        }
+    func getFeedback(callback: @escaping (Feedbacks?) -> ()) {
+           let header = Constants.shared().getHeaders()
+              Alamofire.request(Constants.shared().baseUrl + "feedbacks", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+                  (response: DataResponse<Feedbacks>) in
+                  if let _ = response.response{
+                      let model = response.result
+                      callback(model.value ?? nil)
+                  }
+              }
+          }
     func editProfile(params : [String: AnyObject], callback: @escaping (StandartResponse?) -> ()) {
           let header = Constants.shared().getHeaders()
           Alamofire.request(Constants.shared().baseUrl + "profile/update", method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseObject{

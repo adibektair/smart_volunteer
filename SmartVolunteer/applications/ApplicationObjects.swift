@@ -75,7 +75,22 @@ class Application : NSObject, NSCoding, Mappable{
     var dataAll = [Data]()
     var inprogress = false
     var counter = 2
-    
+    var applicationTypeId : Int?
+    var category : Category?
+    var categoryId : Int?
+    var cityId : Int?
+    var createdAt : String?
+    var descriptionField : String?
+    var fundId : AnyObject?
+    var id : Int?
+    var isCompleted : Int?
+    var title : String?
+    var updatedAt : String?
+    var userId : Int?
+    var volunteerNumber : Int?
+    var volunteerNumberAccessed : Int?
+    var user : User?
+
     
     func resetList(){
         self.dataAll.removeAll()
@@ -130,7 +145,21 @@ class Application : NSObject, NSCoding, Mappable{
         prevPageUrl <- map["prev_page_url"]
         to <- map["to"]
         total <- map["total"]
-        
+        user <- map["user"]
+        applicationTypeId <- map["application_type_id"]
+        category <- map["category"]
+        categoryId <- map["category_id"]
+        cityId <- map["city_id"]
+        createdAt <- map["created_at"]
+        descriptionField <- map["description"]
+        fundId <- map["fund_id"]
+        id <- map["id"]
+        isCompleted <- map["is_completed"]
+        title <- map["title"]
+        updatedAt <- map["updated_at"]
+        userId <- map["user_id"]
+        volunteerNumber <- map["volunteer_number"]
+        volunteerNumberAccessed <- map["volunteer_number_accessed"]
     }
     
     /**

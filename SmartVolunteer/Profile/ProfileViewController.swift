@@ -111,7 +111,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func finishedWorksPressed(_ sender: UIButton) {
-        FinishedWorksVC.open(vc: self)
+        FinishedWorksVC.open(vc: self, profile: self.profile!)
     }
     @IBAction func editPressed(_ sender: Any) {
         EditProfileVC.open(vc: self, profile: self.profile)

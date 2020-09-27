@@ -221,6 +221,10 @@ class Data : NSObject, NSCoding, Mappable{
     var role : Role?
     var roleId : Int?
     var surname : String?
+    var application : Application?
+    var applicationId : Int?
+    var mark : Int?
+    var text : String?
     
     class func newInstance(map: Map) -> Mappable?{
         return Data()
@@ -230,6 +234,10 @@ class Data : NSObject, NSCoding, Mappable{
     
     func mapping(map: Map)
     {
+        application <- map["application"]
+        applicationId <- map["application_id"]
+        mark <- map["mark"]
+        text <- map["text"]
         categoryId <- map["category_id"]
         createdAt <- map["created_at"]
         fullText <- map["full_text"]
