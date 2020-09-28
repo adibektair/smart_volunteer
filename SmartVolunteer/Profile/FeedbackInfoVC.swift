@@ -119,8 +119,8 @@ class FeedbackInfoVC: ScrollStackController {
         let geoIcon = UIImageView(image: #imageLiteral(resourceName: "VectorGeo"))
         geoIcon.easy.layout(Width(13),Height(13))
         let cityLabel = UILabel()
-        let cityText = profile?.city ?? ""
-        cityLabel.setProperties(text: cityText ?? "", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
+        let cityText = data?.application?.city?.name ?? ""
+        cityLabel.setProperties(text: cityText, textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
         
         placeStack.addArrangedSubview(geoIcon)
         placeStack.addArrangedSubview(cityLabel)

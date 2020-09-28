@@ -32,7 +32,8 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
     let surnameTextField = UITextField()
     let phoneTextField = AKMaskField()
     let cityTextField = UITextField()
-
+    let passwordTextField = UITextField()
+    let oldPasswordTextField = UITextField()
     let continueButton = GeneralButton()
 
     override func viewDidLoad() {
@@ -194,7 +195,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         }else{
             self.mainLanguage = .russian
         }
-        
+        password()
         // Button
         self.continueButton.title = "Сохранить"
         self.continueButton.isAccessible = true
@@ -202,8 +203,56 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         self.stackView.addArrangedSubview(continueButton)
         
     }
-    
+    func password(){
+        let oldPasswordLabel = UILabel()
+        oldPasswordLabel.setProperties(text: "Пароль", font: .systemFont(ofSize: 15))
+        self.stackView.addArrangedSubview(oldPasswordLabel)
+        
+        oldPasswordTextField.isSecureTextEntry = true
+        oldPasswordTextField.placeholder = "**********"
+        oldPasswordTextField.borderStyle = .roundedRect
+        oldPasswordTextField.font = surnameTextField.font?.withSize(15)
+        
+        passwordTextField.autocapitalizationType = .words
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.placeholder = "**********"
+        passwordTextField.borderStyle = .roundedRect
+        passwordTextField.font = surnameTextField.font?.withSize(15)
+        passwordTextField.addTarget(self, action: #selector(passwordChanged(_:)), for: .editingChanged)
+        
+        self.stackView.addArrangedSubview(oldPasswordTextField)
+        let passwordLabel = UILabel()
+        passwordLabel.setProperties(text: "Новый пароль", font: .systemFont(ofSize: 15))
+        self.stackView.addArrangedSubview(passwordLabel)
+        self.stackView.addArrangedSubview(passwordTextField)
+        oldPasswordTextField.easy.layout(Height(44))
+        passwordTextField.easy.layout(Left(24), Right(24), Height(44))
+    }
+    @objc func passwordChanged(_ textField: UITextField){
+        if textField.text!.count > 6 {
+            
+        }
+    }
+    func passwordChangeReq(){
+        guard let count = self.passwordTextField.text?.count else { return }
+        if count == 0  { return }
+        guard  let oldPass = oldPasswordTextField.text else {
+            return
+        }
+        let param = ["password": oldPass,
+        "new_password": self.passwordTextField.text!] as [String:AnyObject]
+        Requests.shared().chagePassWord(params: param) { (result) in
+            if result?.success ?? false {
+                self.showAlert(title: "Успешно", message: "Данные успешно сохранены")
+            } else if let errors = result?.errors, let error = errors.first {
+                self.showError(text: error)
+            } else {
+                self.showError(text: "Произошла ошибка, попробуйте позже")
+            }
+        }
+    }
     @objc func editUser(){
+        passwordChangeReq()
         if cityId == 0{
             cityId = profile!.cityId!
         }

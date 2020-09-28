@@ -14,7 +14,7 @@ import Cosmos
 class ProfileViewController: UIViewController {
 
     var profile : Profile?
-
+    var feedBacks: Feedbacks?
     
     @IBOutlet weak var avatarImageView: UIImageView!{
         didSet{
@@ -76,6 +76,7 @@ class ProfileViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         if Constants.shared().getToken() == nil { return }
         self.getData()
+        self.getFeedbacks()
     }
     
     func getData(){
@@ -84,6 +85,13 @@ class ProfileViewController: UIViewController {
             self.stopLoad()
             self.profile = response?.profile
             self.setViews()
+        }
+    }
+    func getFeedbacks(){
+        Requests.shared().getFeedback { (result) in
+            self.feedBacks = result
+            self.worksCountLabel.text = "\(result?.feedbacks?.data?.count ?? 0)"
+            
         }
     }
     func setViews(){
@@ -111,7 +119,9 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func finishedWorksPressed(_ sender: UIButton) {
-        FinishedWorksVC.open(vc: self, profile: self.profile!)
+        if self.feedBacks != nil {
+            FinishedWorksVC.open(vc: self,feedBacks: self.feedBacks! )
+        }
     }
     @IBAction func editPressed(_ sender: Any) {
         EditProfileVC.open(vc: self, profile: self.profile)

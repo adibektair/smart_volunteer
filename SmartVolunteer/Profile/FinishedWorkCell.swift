@@ -16,10 +16,10 @@ class FinishedWorkCell: UIView {
     var data : Data?
     var profile: Profile?
     let icon = UIImageView(image: #imageLiteral(resourceName: "anonymous"))
-    init(data: Data,profile: Profile) {
+    init(data: Data){//},profile: Profile) {
         super.init(frame: .zero)
         self.data = data
-        self.profile = profile
+//        self.profile = profile
         life()
         setViews()
     }
@@ -71,7 +71,7 @@ class FinishedWorkCell: UIView {
         let geoIcon = UIImageView(image: #imageLiteral(resourceName: "VectorGeo"))
         geoIcon.easy.layout(Width(13),Height(13))
         let cityLabel = UILabel()
-        let cityText = profile?.city ?? ""
+        let cityText = data?.application?.city?.name ?? ""
         cityLabel.setProperties(text: cityText , textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
                   
         let cosmosView = CosmosView()

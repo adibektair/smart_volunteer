@@ -33,9 +33,11 @@ class FinishedWorksVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func getData(){
-        Requests.shared().getFeedback { (result) in
-            self.feedBacks = result
-            self.tableView.reloadData()
+        if self.feedBacks == nil {
+            Requests.shared().getFeedback { (result) in
+                       self.feedBacks = result
+                       self.tableView.reloadData()
+                   }
         }
     }
     
@@ -70,7 +72,7 @@ class FinishedWorksVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         guard let data = feedBacks?.feedbacks?.data?[indexPath.row] else { return cell }
-        let c = FinishedWorkCell(data: data,profile: self.profile!)
+        let c = FinishedWorkCell(data: data)
         
         cell.contentView.addSubview(c)
         c.easy.layout(Edges())
@@ -78,9 +80,9 @@ class FinishedWorksVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
-    static func open(vc: UIViewController,profile: Profile){
+    static func open(vc: UIViewController, feedBacks: Feedbacks){
         let viewController = FinishedWorksVC()
-        viewController.profile = profile
+        viewController.feedBacks = feedBacks
         if let nav = vc.navigationController {
             nav.pushViewController(viewController, animated: true)
         }

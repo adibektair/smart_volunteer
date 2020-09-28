@@ -494,7 +494,8 @@ class StandartResponse : NSObject, NSCoding, Mappable{
 
     var message : String?
     var success : Bool?
-
+    var errorCode : Int?
+    var errors : [String]?
 
     class func newInstance(map: Map) -> Mappable?{
         return StandartResponse()
@@ -506,7 +507,8 @@ class StandartResponse : NSObject, NSCoding, Mappable{
     {
         message <- map["message"]
         success <- map["success"]
-        
+        errorCode <- map["errorCode"]
+        errors <- map["errors"]
     }
 
     /**

@@ -73,6 +73,7 @@ class Application : NSObject, NSCoding, Mappable{
     var to : Int?
     var total : Int?
     var dataAll = [Data]()
+    var city : City?
     var inprogress = false
     var counter = 2
     var applicationTypeId : Int?
@@ -149,6 +150,7 @@ class Application : NSObject, NSCoding, Mappable{
         applicationTypeId <- map["application_type_id"]
         category <- map["category"]
         categoryId <- map["category_id"]
+        city <- map["city"]
         cityId <- map["city_id"]
         createdAt <- map["created_at"]
         descriptionField <- map["description"]
