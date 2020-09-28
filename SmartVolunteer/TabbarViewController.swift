@@ -15,7 +15,11 @@ class TabbarViewController: UITabBarController {
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
-        
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(logout(_:)),
+        name: NSNotification.Name(rawValue: "unauthorized"),
+        object: nil)
         if Constants.shared().getToken() != nil{
             if Constants.shared().isVolunteer(){
                 self.volunteerTabBar()
@@ -99,7 +103,16 @@ class TabbarViewController: UITabBarController {
         self.selectedIndex = 1
     }
     
-
+    @objc fileprivate func logout(_ notification: Notification) {
+        Constants.shared().clear()
+        let navigationController = UINavigationController()
+        if #available(iOS 13.0, *) {
+            navigationController.overrideUserInterfaceStyle = .light
+        }
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.addChild(CheckIINVC())
+        self.present(navigationController, animated: true, completion: nil)
+    }
     // Plus Button View
     func setupMiddleButton() {
         let middleBtn = UIButton(frame: CGRect(x: (self.view.bounds.width / 2)-35, y: -10, width: 70, height: 70))
