@@ -275,9 +275,9 @@ class Requests: NSObject {
                }
            }
        }
-    func getFeedback(callback: @escaping (Feedbacks?) -> ()) {
+    func getFeedback(page: Int,callback: @escaping (Feedbacks?) -> ()) {
            let header = Constants.shared().getHeaders()
-              Alamofire.request(Constants.shared().baseUrl + "feedbacks", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+              Alamofire.request(Constants.shared().baseUrl + "feedbacks?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
                   (response: DataResponse<Feedbacks>) in
                   if let _ = response.response{
                       let model = response.result

@@ -88,7 +88,7 @@ class ProfileViewController: UIViewController {
         }
     }
     func getFeedbacks(){
-        Requests.shared().getFeedback { (result) in
+        Requests.shared().getFeedback(page: 1) { (result) in
             self.feedBacks = result
             self.worksCountLabel.text = "\(result?.feedbacks?.data?.count ?? 0)"
             

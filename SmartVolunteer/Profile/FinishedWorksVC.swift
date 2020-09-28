@@ -34,10 +34,10 @@ class FinishedWorksVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func getData(){
         if self.feedBacks == nil {
-            Requests.shared().getFeedback { (result) in
-                       self.feedBacks = result
-                       self.tableView.reloadData()
-                   }
+            Requests.shared().getFeedback(page: 1) { (result) in
+                self.feedBacks = result
+                self.tableView.reloadData()
+            }
         }
     }
     
