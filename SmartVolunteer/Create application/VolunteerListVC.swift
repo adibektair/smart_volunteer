@@ -110,7 +110,7 @@ class VolunteerListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let v = UIView()
         mainStack.addArrangedSubview(headStack)
         let bottomStack = UIStackView()
-        bottomStack.setProperties(axis: .horizontal, alignment: .fill, spacing: 15, distribution: .fill)
+        bottomStack.setProperties(axis: .horizontal, alignment: .fill, spacing: 15, distribution: .fillEqually)
         let accept = UILabel()
         let decline = UILabel()
         accept.setProperties(text: "Принять", textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .center)
@@ -119,14 +119,18 @@ class VolunteerListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         accept.addTapGestureRecognizer {
             self.volunteerAccept(isAccepted: true, volunteerId: data.id ?? 0) { (status) in
                 accept.text = "Успешно принят"
-                decline.isHidden = true
+                UIView.animate(withDuration: 0.2) {
+                    decline.isHidden = true
+                }
             }
         }
         decline.addTapGestureRecognizer {
             self.volunteerAccept(isAccepted: false, volunteerId: data.id ?? 0) { (status) in
                 if status! {
-                    accept.isHidden = true
                     decline.text = "Отклонен"
+                    UIView.animate(withDuration: 0.2) {
+                        accept.isHidden = true
+                    }
                 }
             }
         }
@@ -136,7 +140,7 @@ class VolunteerListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         bottomStack.addArrangedSubview(accept)
         bottomStack.addArrangedSubview(decline)
 //        bottomStack.addArrangedSubview(UIView())
-        if let status = data.status, status != 0 {
+        if let status = data.status, status != 0 { //⁉️ не забудь
             mainStack.addArrangedSubview(bottomStack)
         }
         v.addSubview(mainStack)
