@@ -22,9 +22,7 @@ class FinishedWorksVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         life()
         getData()
     }
-    override func viewDidAppear(_ animated: Bool) {
-//        addBottomSheetView()
-    }
+    
     @objc func panGesture(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: self.view)
         let y = self.view.frame.minY

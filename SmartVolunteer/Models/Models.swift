@@ -968,7 +968,16 @@ class Feedback : NSObject, NSCoding, Mappable{
     var total : Int?
     var inprogress = false
     var counter = 2
-
+    
+    var application : Application?
+    var applicationId : Int?
+    var createdAt : String?
+    var id : Int?
+    var mark : Int?
+    var text : String?
+    var updatedAt : String?
+    var userId : Int?
+    
     class func newInstance(map: Map) -> Mappable?{
         return Feedback()
     }
@@ -1009,6 +1018,14 @@ class Feedback : NSObject, NSCoding, Mappable{
         prevPageUrl <- map["prev_page_url"]
         to <- map["to"]
         total <- map["total"]
+        application <- map["application"]
+        applicationId <- map["application_id"]
+        createdAt <- map["created_at"]
+        id <- map["id"]
+        mark <- map["mark"]
+        text <- map["text"]
+        updatedAt <- map["updated_at"]
+        userId <- map["user_id"]
         
     }
 

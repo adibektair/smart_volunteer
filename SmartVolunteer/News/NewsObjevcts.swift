@@ -225,7 +225,10 @@ class Data : NSObject, NSCoding, Mappable{
     var applicationId : Int?
     var mark : Int?
     var text : String?
-    
+    var ratingScore: Double?
+    var feedbacks : [Feedback]?
+    var status: Int?
+
     class func newInstance(map: Map) -> Mappable?{
         return Data()
     }
@@ -252,6 +255,7 @@ class Data : NSObject, NSCoding, Mappable{
         city <- map["city"]
         cityId <- map["city_id"]
         descriptionField <- map["description"]
+        feedbacks <- map["feedbacks"]
         fund <- map["fund"]
         fundId <- map["fund_id"]
         user <- map["user"]
@@ -265,9 +269,11 @@ class Data : NSObject, NSCoding, Mappable{
         name <- map["name"]
         isVolunteer <- map["is_volunteer"]
         phone <- map["phone"]
+        ratingScore <- map["rating_score"]
         role <- map["role"]
         roleId <- map["role_id"]
         surname <- map["surname"]
+        status <- map["status"]
     }
     
     /**

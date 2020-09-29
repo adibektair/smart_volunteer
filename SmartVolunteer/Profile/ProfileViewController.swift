@@ -88,10 +88,12 @@ class ProfileViewController: UIViewController {
         }
     }
     func getFeedbacks(){
-        Requests.shared().getFeedback(page: 1) { (result) in
-            self.feedBacks = result
-            self.worksCountLabel.text = "\(result?.feedbacks?.data?.count ?? 0)"
-            
+        if let tabbarCount = self.tabBarController?.viewControllers?.count, tabbarCount != 3, finishedView != nil, rateView != nil {
+            Requests.shared().getFeedback(page: 1) { (result) in
+                     self.feedBacks = result
+                     self.worksCountLabel.text = "\(result?.feedbacks?.data?.count ?? 0)"
+                     
+                 }
         }
     }
     func setViews(){

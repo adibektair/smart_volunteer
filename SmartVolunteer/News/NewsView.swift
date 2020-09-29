@@ -64,23 +64,26 @@ class NewsView: UIView {
         
         stackView.addArrangedSubview(titleStackView)
     }
-    func dateFormat(date: String) -> String{
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
-        let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "dd MM yyyy"
-
-        if let date = dateFormatterGet.date(from: date) {
-            print(dateFormatterPrint.string(from: date))
-            return dateFormatterPrint.string(from: date)
-        } else {
-           print("There was an error decoding the string")
-            return ""
-        }
-    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+extension UIView {
+    func dateFormat(date: String) -> String{
+          let dateFormatterGet = DateFormatter()
+          dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+          let dateFormatterPrint = DateFormatter()
+          dateFormatterPrint.dateFormat = "dd MM yyyy"
+
+          if let date = dateFormatterGet.date(from: date) {
+              print(dateFormatterPrint.string(from: date))
+              return dateFormatterPrint.string(from: date)
+          } else {
+             print("There was an error decoding the string")
+              return ""
+          }
+      }
 }

@@ -3,4 +3,102 @@
    uuid = "A09DE517-6CC3-4CAF-81E3-F410DD48A84B"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5771133-B47F-49D6-973B-8D2DA6246726"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartVolunteer/Networking/Requests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "getApplications(page:filter:type:callback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D5771133-B47F-49D6-973B-8D2DA6246726 - 76c54a2f1fa6111"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmartVolunteer_Taraz.Requests.getApplications(page: Swift.Int, filter: Swift.String, type: Swift.Optional&lt;Swift.String&gt;, callback: (SmartVolunteer_Taraz.Applications) -&gt; ()) -&gt; ()"
+                  moduleName = "SmartVolunteer Taraz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sultan/Desktop/IOS%20Projects/smart_volunteer/SmartVolunteer/Networking/Requests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "1588">
+               </Location>
+               <Location
+                  uuid = "D5771133-B47F-49D6-973B-8D2DA6246726 - 870f86d619715d6f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;SmartVolunteer_Taraz.Applications&gt;) -&gt; () in SmartVolunteer_Taraz.Requests.getApplications(page: Swift.Int, filter: Swift.String, type: Swift.Optional&lt;Swift.String&gt;, callback: (SmartVolunteer_Taraz.Applications) -&gt; ()) -&gt; ()"
+                  moduleName = "SmartVolunteer Taraz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sultan/Desktop/IOS%20Projects/smart_volunteer/SmartVolunteer/Networking/Requests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C211360E-C7AE-41EA-9A6E-26B01D09BFE4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartVolunteer/applications/ApplicationsListVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "getData(type:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C211360E-C7AE-41EA-9A6E-26B01D09BFE4 - d21bccc226a676a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmartVolunteer_Taraz.ApplicationsListVC.getData(type: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "SmartVolunteer Taraz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sultan/Desktop/IOS%20Projects/smart_volunteer/SmartVolunteer/applications/ApplicationsListVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "C211360E-C7AE-41EA-9A6E-26B01D09BFE4 - e851db4a0109cc8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SmartVolunteer_Taraz.Applications) -&gt; () in SmartVolunteer_Taraz.ApplicationsListVC.getData(type: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "SmartVolunteer Taraz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sultan/Desktop/IOS%20Projects/smart_volunteer/SmartVolunteer/applications/ApplicationsListVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
