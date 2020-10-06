@@ -22,6 +22,7 @@ class VolunteerListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Список желающих"
+        setBackButton()
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
@@ -54,7 +55,13 @@ class VolunteerListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             cell.addSubview(h)
             h.easy.layout(Edges(20))
         }
+        if indexPath.row == (self.volunteers?.volunteers?.data?.count ?? 0) - 1 {
+            self.volunteers?.volunteers?.loadNextPage {
+                self.tableView.reloadData()
+            }
+        }
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -149,8 +156,8 @@ class VolunteerListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func volunteerAccept(isAccepted: Bool,volunteerId: Int,success: @escaping (Bool?) -> ()){
         
         let param = ["is_accepted": isAccepted,
-        "volunteer_id": volunteerId,
-        "application_id":self.id] as [String: AnyObject]
+                     "volunteer_id": volunteerId,
+                     "application_id":self.id] as [String: AnyObject]
         Requests.shared().acceptDecline(params: param, callback: { (result) in
             success(result?.success ?? false)
         })

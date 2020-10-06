@@ -10,10 +10,10 @@ import UIKit
 import EasyPeasy
 
 class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
-
+    
     // MARK: - Variables
     let tableView = UITableView()
-    var volunteers : [Data]?
+    var volunteers : Volunteers?
     var id = 0
     var params = [:] as [String:Any]
     // MARK: - LifeCycle
@@ -31,14 +31,16 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
         tableView.delegate = self
         tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
+        self.navigationItem.title = "Оценка волонтеров"
     }
     func getData(){
-         Requests.shared().getVolunteersList(id: id, page: 1) { (r) in
+        Requests.shared().getVolunteersList(id: id, page: 1) { (r) in
             let v = r.volunteers?.data?.filter({$0.status != 0 })
-            self.volunteers = v
-             self.tableView.reloadData()
-         }
-     }
+            self.volunteers = r
+            self.volunteers?.volunteers?.data = v
+            self.tableView.reloadData()
+        }
+    }
     func bottomView(){
         let label = UILabel()
         label.setProperties(text: "Отправить оценки и завершить", textColor: .white, font: .systemFont(ofSize: 18), textAlignment: .center, numberLines: 1)
@@ -55,7 +57,7 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
         
         var objList : [[String:Any]] = []
         
-        let list = self.volunteers?.filter({$0.mark != nil && $0.mark! > 0 })
+        let list = self.volunteers?.volunteers?.data?.filter({$0.mark != nil && $0.mark! > 0 })
         if let d = list {
             for i in d {
                 let p = ["user_id": i.id!,
@@ -77,22 +79,27 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
             }
         }
     }
-
+    
     // MARK: - TableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return volunteers?.count ?? 0
+        return volunteers?.volunteers?.data?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = UITableViewCell()
-        if let d = self.volunteers?[indexPath.row] {
-           let v = RateVolunteerView(data: d)
+        if let d = self.volunteers?.volunteers?.data?[indexPath.row] {
+            let v = RateVolunteerView(data: d)
             cell.addSubview(v)
             v.easy.layout(Edges(20))
         }
         cell.selectionStyle = .none
+        if indexPath.row == (self.volunteers?.volunteers?.data?.count ?? 0) - 1 {
+            self.volunteers?.volunteers?.loadNextPage {
+                self.tableView.reloadData()
+            }
+        }
         
         return cell
     }
@@ -106,12 +113,12 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
         return 60
     }
     static func open(vc: UIViewController,id:Int){
-         let viewController = RateForCloseVC()
-         viewController.id = id
-         if let nav = vc.navigationController {
-             nav.pushViewController(viewController, animated: true)
-         }
-     }
+        let viewController = RateForCloseVC()
+        viewController.id = id
+        if let nav = vc.navigationController {
+            nav.pushViewController(viewController, animated: true)
+        }
+    }
 }
 
 class FeedbackObj: NSObject {

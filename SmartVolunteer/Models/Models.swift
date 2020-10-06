@@ -620,25 +620,25 @@ class Volunteer : NSObject, NSCoding, Mappable{
     var counter = 2
 
       
-      func resetList(){
-              self.dataAll.removeAll()
-              if let arr = data {
-                  self.dataAll.append(contentsOf: arr)
-              }
-          }
-         func loadNextPage(done:@escaping (()-> Void)){
-             if inprogress { return }
-             if counter <= lastPage ?? 1{
-                 inprogress = true
-                Requests.shared().getVolunteersList(id: outId, page: counter) { (result) in
-                    self.data?.append(contentsOf: result.volunteers?.data ?? [])
-                    self.resetList()
-                    self.counter += 1
-                    self.inprogress = false
-                    done()
-                }
-             }
-         }
+    func resetList(){
+        self.dataAll.removeAll()
+        if let arr = data {
+            self.dataAll.append(contentsOf: arr)
+        }
+    }
+    func loadNextPage(done:@escaping (()-> Void)){
+        if inprogress { return }
+        if counter <= lastPage ?? 1{
+            inprogress = true
+            Requests.shared().getVolunteersList(id: outId, page: counter) { (result) in
+                self.data?.append(contentsOf: result.volunteers?.data ?? [])
+                self.resetList()
+                self.counter += 1
+                self.inprogress = false
+                done()
+            }
+        }
+    }
     class func newInstance(map: Map) -> Mappable?{
         return Volunteer()
     }
