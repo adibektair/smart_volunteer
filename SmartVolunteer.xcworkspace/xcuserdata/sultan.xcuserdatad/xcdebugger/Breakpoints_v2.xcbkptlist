@@ -32,7 +32,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "88"
                   endingLineNumber = "88"
-                  offsetFromSymbolStart = "1588">
+                  offsetFromSymbolStart = "2105">
                </Location>
                <Location
                   uuid = "D5771133-B47F-49D6-973B-8D2DA6246726 - 870f86d619715d6f"
@@ -47,7 +47,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "90"
                   endingLineNumber = "90"
-                  offsetFromSymbolStart = "180">
+                  offsetFromSymbolStart = "178">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -80,7 +80,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
                   endingLineNumber = "55"
-                  offsetFromSymbolStart = "120">
+                  offsetFromSymbolStart = "58">
                </Location>
                <Location
                   uuid = "C211360E-C7AE-41EA-9A6E-26B01D09BFE4 - e851db4a0109cc8d"
@@ -95,9 +95,25 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "56"
                   endingLineNumber = "56"
-                  offsetFromSymbolStart = "104">
+                  offsetFromSymbolStart = "34">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47CA1233-C638-4BEE-A85D-39BEA4FDD319"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartVolunteer/applications/ApplicationVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "setViews()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

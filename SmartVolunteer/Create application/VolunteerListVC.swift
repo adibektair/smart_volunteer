@@ -139,8 +139,7 @@ class VolunteerListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         decline.easy.layout(Height(50))
         bottomStack.addArrangedSubview(accept)
         bottomStack.addArrangedSubview(decline)
-//        bottomStack.addArrangedSubview(UIView())
-        if let status = data.status, status != 0 { //⁉️ не забудь
+        if let status = data.status, status == 0 {
             mainStack.addArrangedSubview(bottomStack)
         }
         v.addSubview(mainStack)

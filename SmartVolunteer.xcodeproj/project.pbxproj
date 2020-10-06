@@ -13,6 +13,8 @@
 		2F2A137924A494F800E4A9DA /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2A137824A494F800E4A9DA /* FilterVC.swift */; };
 		2F2A137E24A4A8FC00E4A9DA /* CityCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2A137C24A4A8FC00E4A9DA /* CityCVC.swift */; };
 		2F2A137F24A4A8FC00E4A9DA /* CityCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A137D24A4A8FC00E4A9DA /* CityCVC.xib */; };
+		2F331161252C9D4800D49D85 /* RateForCloseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F331160252C9D4800D49D85 /* RateForCloseVC.swift */; };
+		2F331163252C9E8200D49D85 /* RateVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F331162252C9E8200D49D85 /* RateVolunteerView.swift */; };
 		2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436D24A23AF00080C445 /* NewsListVC.swift */; };
 		2F65437024A23C0A0080C445 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436F24A23C0A0080C445 /* NewsView.swift */; };
 		2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65437124A249F00080C445 /* NewsObjevcts.swift */; };
@@ -73,6 +75,8 @@
 		2F2A137824A494F800E4A9DA /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		2F2A137C24A4A8FC00E4A9DA /* CityCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCVC.swift; sourceTree = "<group>"; };
 		2F2A137D24A4A8FC00E4A9DA /* CityCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCVC.xib; sourceTree = "<group>"; };
+		2F331160252C9D4800D49D85 /* RateForCloseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateForCloseVC.swift; sourceTree = "<group>"; };
+		2F331162252C9E8200D49D85 /* RateVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateVolunteerView.swift; sourceTree = "<group>"; };
 		2F65436D24A23AF00080C445 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
 		2F65436F24A23C0A0080C445 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		2F65437124A249F00080C445 /* NewsObjevcts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsObjevcts.swift; sourceTree = "<group>"; };
@@ -156,6 +160,15 @@
 			path = applications;
 			sourceTree = "<group>";
 		};
+		2F33115F252C9D1100D49D85 /* Close application */ = {
+			isa = PBXGroup;
+			children = (
+				2F331160252C9D4800D49D85 /* RateForCloseVC.swift */,
+				2F331162252C9E8200D49D85 /* RateVolunteerView.swift */,
+			);
+			path = "Close application";
+			sourceTree = "<group>";
+		};
 		2F65436C24A23A8D0080C445 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +238,7 @@
 				F24B2D46249FC6280080C5B4 /* Other */,
 				2F65436C24A23A8D0080C445 /* News */,
 				2F07095A24A46FA90023B1AB /* applications */,
+				2F33115F252C9D1100D49D85 /* Close application */,
 				2F82279A24A5D35500612BFF /* Create application */,
 				F26F262424A11DE000934874 /* Auth */,
 				F24B2D30249FC5CC0080C5B4 /* AppDelegate.swift */,
@@ -469,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2B26A9224A279F4001EAC0E /* ChooseCityVC.swift in Sources */,
+				2F331161252C9D4800D49D85 /* RateForCloseVC.swift in Sources */,
 				F2B26A9524A28330001EAC0E /* Models.swift in Sources */,
 				2FC4A5EC251CBFA000421BC2 /* FinishedWorkCell.swift in Sources */,
 				F2B26A8D24A22A25001EAC0E /* SignUpVC.swift in Sources */,
@@ -477,6 +492,7 @@
 				F24B2D59249FC6780080C5B4 /* Constants.swift in Sources */,
 				F2156CE824A901FF00BFFDBD /* MyFundsVC.swift in Sources */,
 				F24B2D55249FC6350080C5B4 /* Colors.swift in Sources */,
+				2F331163252C9E8200D49D85 /* RateVolunteerView.swift in Sources */,
 				2F65437024A23C0A0080C445 /* NewsView.swift in Sources */,
 				2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */,
 				F2156CE624A8F96000BFFDBD /* FundsRequestsVC.swift in Sources */,

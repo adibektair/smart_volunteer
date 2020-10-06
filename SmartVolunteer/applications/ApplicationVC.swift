@@ -46,17 +46,31 @@ class ApplicationVC: ScrollStackController {
         categoryLabel.setProperties(text: cText, textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
         stackView.addArrangedSubview(categoryLabel)
         
+        let finishLabel = UILabel()
+        finishLabel.setProperties(text: "Завершить заявку", textColor: .white, font: .systemFont(ofSize: 18, weight: .bold), textAlignment: .center, numberLines: 1)
+        finishLabel.backgroundColor = #colorLiteral(red: 0, green: 0.7764705882, blue: 0.4039215686, alpha: 1)
+        finishLabel.addTapGestureRecognizer {
+             if let id = self.data?.id, self.nuzhd {
+                           RateForCloseVC.open(vc: self, id: id)
+            }
+        }
         let title = UILabel()
         title.setProperties(text: data?.descriptionField ?? "", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 0)
         stackView.addArrangedSubview(title)
-        
+        let buttonsStack = UIStackView()
+        buttonsStack.setProperties(axis: .vertical, alignment: .fill, spacing: 0, distribution: .fill)
         let proceedTitle = nuzhd ? "Посмотреть список желающих" : "Подать заявку"
         proceedLabel.setProperties(text: proceedTitle, textColor: .white, font: .systemFont(ofSize: 18, weight: .bold), textAlignment: .center, numberLines: 1)
+        buttonsStack.addArrangedSubview(proceedLabel)
         if data?.volunteer == nil {
-            self.scrollView.addSubview(proceedLabel)
+            buttonsStack.addArrangedSubview(finishLabel)
+            self.view.addSubview(buttonsStack)
         }
         proceedLabel.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-        proceedLabel.easy.layout(Left(),Bottom(),Right(),Height(60))
+        buttonsStack.easy.layout(Left(),Right(),Height(120))
+        buttonsStack.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        proceedLabel.easy.layout(Height(60))
+        finishLabel.easy.layout(Height(60))
         proceedLabel.addTapGestureRecognizer {
             if let id = self.data?.id , !self.nuzhd{
                 self.startLoad()
