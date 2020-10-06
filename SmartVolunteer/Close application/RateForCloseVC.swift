@@ -15,7 +15,7 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
     let tableView = UITableView()
     var volunteers : [Data]?
     var id = 0
-    
+    var params = [:] as [String:Any]
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +46,36 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
         self.view.addSubview(label)
         label.easy.layout(Left(),Right(),Height(60))
         label.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        label.addTapGestureRecognizer {
+            self.closeApploicationPressed()
+        }
+    }
+    
+    func closeApploicationPressed(){
+        
+        var objList : [[String:Any]] = []
+        
+        let list = self.volunteers?.filter({$0.mark != nil && $0.mark! > 0 })
+        if let d = list {
+            for i in d {
+                let p = ["user_id": i.id!,
+                         "text": i.title ?? "",
+                         "mark": i.mark ?? 0] as [String : Any]
+                objList.append(p)
+            }
+        }
+        let param = [
+            "application_id":self.id,
+            "feedbacks": objList as Any
+            ] as [String : Any]
+        self.params = param
+        Requests.shared().complete(param: param) { (result) in
+            if let s = result.success, let m = result.message {
+                if s {
+                    self.showAlert(title: "Внимание", message: m, popToRoot: true)
+                }
+            }
+        }
     }
 
     // MARK: - TableView
@@ -82,4 +112,15 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
              nav.pushViewController(viewController, animated: true)
          }
      }
+}
+
+class FeedbackObj: NSObject {
+    var user_id: Int = 0
+    var text: String = ""
+    var mark:Int = 0
+    init(id:Int,text:String,mark:Int) {
+        self.user_id = id
+        self.text = text
+        self.mark = mark
+    }
 }

@@ -73,4 +73,7 @@ class RateVolunteerView: UIView, UITextViewDelegate {
     @objc func textViewDidEndEditing(_ textView: UITextView) {
         self.data?.title = textView.text
     }
+    func textViewDidChange(_ textView: UITextView) {
+        self.data?.title = textView.text
+    }
 }

@@ -37,7 +37,7 @@ class HeadUserInfoView: UIView {
         titleStackView.setProperties(axis: .vertical, alignment: .fill, spacing: 5, distribution: .fill)
         let name = UILabel()
         let user = data?.application?.user
-        let nameText = (user?.name ?? "") + "" + (user?.surname ?? "")
+        let nameText = (user?.name ?? "") + " " + (user?.surname ?? "")
         name.setProperties(text: nameText, textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 16, weight: .bold))
         
         let dateLabel = UILabel()

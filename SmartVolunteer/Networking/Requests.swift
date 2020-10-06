@@ -183,6 +183,24 @@ class Requests: NSObject {
         }
     }
     
+    public func complete(param:[String:Any], callback: @escaping (StandartResponse) -> ()){
+        Alamofire.request(Constants.shared().baseUrl + "application/complete", method: .post, parameters: param, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+            (response: DataResponse<StandartResponse>) in
+            if let statusCode = response.response?.statusCode, statusCode == 401 {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
+                return
+            }
+            
+            if let _ = response.response{
+                let model  = response.result
+                print("get funds \(model.value!)")
+                if model.value != nil {
+                    callback(model.value!)
+                }
+            }
+        }
+    }
+
     
     public func getFunds(page: Int, callback: @escaping (FundsResponse) -> ()){
         Alamofire.request(Constants.shared().baseUrl + "funds?=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
