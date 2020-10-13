@@ -776,6 +776,8 @@ class Profile : NSObject, NSCoding, Mappable{
     var surname : String?
     var cityId : Int?
     var langId : Int?
+    var workDoneCount : Int?
+    var ratingScore : Double?
 
     class func newInstance(map: Map) -> Mappable?{
         return Profile()
@@ -796,6 +798,8 @@ class Profile : NSObject, NSCoding, Mappable{
         surname <- map["surname"]
         cityId <- map["city_id"]
         langId <- map["language_id"]
+        workDoneCount <- map["work_done_count"]
+        ratingScore <- map["rating_score"]
 
     }
 

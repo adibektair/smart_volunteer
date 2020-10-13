@@ -102,6 +102,8 @@ class ProfileViewController: UIViewController {
         }else{
             avatarImageView.image = #imageLiteral(resourceName: "photo user")
         }
+        rateView.settings.updateOnTouch = false
+        rateView.rating = self.profile?.ratingScore ?? 0.0
         iinLabel.text = "ИИН"
         iinDataLabel.text = profile?.iin ?? ""
         nameLabel.text = "Имя"
