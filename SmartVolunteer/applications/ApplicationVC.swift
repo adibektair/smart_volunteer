@@ -63,12 +63,12 @@ class ApplicationVC: ScrollStackController {
         proceedLabel.setProperties(text: proceedTitle, textColor: .white, font: .systemFont(ofSize: 18, weight: .bold), textAlignment: .center, numberLines: 1)
         buttonsStack.addArrangedSubview(proceedLabel)
         if data?.volunteer == nil {
-            buttonsStack.addArrangedSubview(finishLabel)
+            if nuzhd { buttonsStack.addArrangedSubview(finishLabel)}
             self.view.addSubview(buttonsStack)
+            buttonsStack.easy.layout(Left(),Right(),Height(nuzhd ? 120 : 60))
+            buttonsStack.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         }
         proceedLabel.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-        buttonsStack.easy.layout(Left(),Right(),Height(120))
-        buttonsStack.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         proceedLabel.easy.layout(Height(60))
         finishLabel.easy.layout(Height(60))
         proceedLabel.addTapGestureRecognizer {
@@ -80,6 +80,7 @@ class ApplicationVC: ScrollStackController {
                         let t = "\((self.data?.volunteerNumberAccessed ?? 0) + 1) из \(self.data?.volunteerNumber ?? 0) желающих"
                         counterLabel.text = t
                         self.proceedLabel.isHidden = true
+                        self.data?.volunteer = Volunteer.init(JSON: ["name" : "name"])
                         self.succceedAction()
                     }
                 }
