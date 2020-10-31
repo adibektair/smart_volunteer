@@ -40,7 +40,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var cityDataLabel: UILabel!
     @IBOutlet weak var worksCountLabel: UILabel!
+    @IBOutlet weak var heightConst: NSLayoutConstraint!
     @IBOutlet weak var rateView: CosmosView!
+    @IBOutlet weak var additionInfo: UIButton! {
+        didSet{
+            self.additionInfo.setTitle("Доп. информация", for: .normal)
+        }
+    }
     @IBOutlet weak var editButton: UIButton!{
         didSet{
             self.editButton.setTitle("Редактировать профиль", for: .normal)
@@ -80,11 +86,21 @@ class ProfileViewController: UIViewController {
     }
     
     func getData(){
+        getLinks()
         self.startLoad()
         Requests.shared().getProfile { (response) in
             self.stopLoad()
             self.profile = response?.profile
             self.setViews()
+        }
+    }
+    func getLinks(){
+        let url = Constants.shared().baseUrl
+        if url.contains("taraz") {
+            self.additionInfo.addTarget(self, action: #selector(addInfoPressed(_:)), for: .touchUpInside)
+        } else {
+            self.additionInfo.isHidden = true
+            heightConst.constant = 20
         }
     }
     func getFeedbacks(){
@@ -121,7 +137,9 @@ class ProfileViewController: UIViewController {
             self.rateView.removeFromSuperview()
         }
     }
-    
+    @objc func addInfoPressed(_ sender: UIButton){
+        LinksVC.open(vc: self)
+    }
     @IBAction func finishedWorksPressed(_ sender: UIButton) {
         if self.feedBacks != nil {
             FinishedWorksVC.open(vc: self,feedBacks: self.feedBacks! )

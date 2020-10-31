@@ -46,9 +46,17 @@ class Constants: NSObject {
           print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
       }
     
-//    public let baseUrl = "https://tdk.smartvolunteer.kz/api/v1/"
-    public let baseUrl = "https://taraz.smartvolunteer.kz/api/v1/"
+    let isTaraz = true
     
-    
+    public var baseUrl : String = "https://taraz.smartvolunteer.kz/api/v1/" {
+//        public var baseUrl : String = "https://tdk.smartvolunteer.kz/api/v1/" {
+        didSet {
+            if isTaraz {
+//                self.baseUrl = "https://taraz.smartvolunteer.kz/api/v1/"
+            } else {
+//                self.baseUrl = "https://tdk.smartvolunteer.kz/api/v1/"
+            }
+        }
+    }
     
 }

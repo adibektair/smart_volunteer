@@ -48,7 +48,7 @@ class FinishedWorksVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.dataSource = self
         self.view.addSubview(tableView)
         tableView.easy.layout(Edges())
-        navigationController?.navigationItem.title = "Выполненные работы"
+        title = "Выполненные работы"
         userInfo()
     }
     func userInfo(){

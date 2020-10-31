@@ -294,6 +294,15 @@ class Requests: NSObject {
             }
         }
     }
+    func getLinks(callback: @escaping (StandartResponse?) -> ()) {
+          Alamofire.request("https://taraz.smartvolunteer.kz/api/v1/links", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseObject{
+              (response: DataResponse<StandartResponse>) in
+              if let _ = response.response{
+                  let model = response.result
+                  callback(model.value ?? nil)
+              }
+          }
+      }
     func getFeedback(page: Int,callback: @escaping (Feedbacks?) -> ()) {
         let header = Constants.shared().getHeaders()
         Alamofire.request(Constants.shared().baseUrl + "feedbacks?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{

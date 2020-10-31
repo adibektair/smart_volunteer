@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="SmartVolunteer_Taraz" customModuleProvider="target">
             <connections>
+                <outlet property="additionInfo" destination="Nlz-5W-Q1l" id="hlk-1s-3fk"/>
                 <outlet property="avatarImageView" destination="EN7-gx-zBB" id="0YN-vf-1NE"/>
                 <outlet property="cityDataLabel" destination="agc-7r-7eu" id="7Xj-v4-hne"/>
                 <outlet property="cityLabel" destination="saE-FU-ZKy" id="TMc-Qe-CXI"/>
@@ -17,6 +18,7 @@
                 <outlet property="editButton" destination="KgJ-sk-mkz" id="H9t-Dg-vB4"/>
                 <outlet property="finishedView" destination="itt-00-KbB" id="Eaa-oY-nTL"/>
                 <outlet property="finishedWorks" destination="Lgy-Mi-U8Q" id="QP4-JF-HbL"/>
+                <outlet property="heightConst" destination="p9A-d6-TOb" id="Mjm-wh-iGL"/>
                 <outlet property="iinDataLabel" destination="wVr-5y-b5I" id="uX1-uR-WhC"/>
                 <outlet property="iinLabel" destination="dx4-bN-SFB" id="ghL-4H-Dmx"/>
                 <outlet property="langDataLabel" destination="Mrn-xh-NMp" id="bWL-QG-js0"/>
@@ -175,7 +177,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpp-WR-tnd">
-                    <rect key="frame" x="20" y="587" width="374" height="52"/>
+                    <rect key="frame" x="20" y="627" width="374" height="52"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="52" id="d2x-hO-yXj"/>
                     </constraints>
@@ -223,7 +225,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgJ-sk-mkz">
-                    <rect key="frame" x="20" y="515" width="374" height="52"/>
+                    <rect key="frame" x="20" y="555" width="374" height="52"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="52" id="oMb-fL-hk3"/>
                     </constraints>
@@ -231,24 +233,35 @@
                         <action selector="editPressed:" destination="-1" eventType="touchUpInside" id="3Pw-XM-J1Y"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nlz-5W-Q1l">
+                    <rect key="frame" x="20" y="510" width="374" height="30"/>
+                    <state key="normal" title="Button"/>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="xpp-WR-tnd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="086-Pj-Mnz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KgJ-sk-mkz" secondAttribute="trailing" constant="20" id="5W6-k3-QVI"/>
                 <constraint firstItem="I1q-Ng-Hx3" firstAttribute="top" secondItem="EN7-gx-zBB" secondAttribute="bottom" priority="800" constant="20" id="8sJ-Xg-anD"/>
+                <constraint firstItem="Nlz-5W-Q1l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="B4F-Me-Sha"/>
+                <constraint firstItem="KgJ-sk-mkz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="BJi-Ai-LKm"/>
+                <constraint firstItem="KgJ-sk-mkz" firstAttribute="top" secondItem="Nlz-5W-Q1l" secondAttribute="bottom" constant="15" id="Eph-Ip-8fl"/>
                 <constraint firstItem="I1q-Ng-Hx3" firstAttribute="top" secondItem="itt-00-KbB" secondAttribute="bottom" constant="20" id="Ony-nw-pys"/>
                 <constraint firstItem="EN7-gx-zBB" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Ph6-9u-qN0"/>
                 <constraint firstItem="itt-00-KbB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Vcm-gb-kLK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="I1q-Ng-Hx3" secondAttribute="trailing" constant="20" id="Vlx-qe-NLX"/>
                 <constraint firstItem="s9r-v1-bRf" firstAttribute="top" secondItem="EN7-gx-zBB" secondAttribute="bottom" constant="16" id="XiS-SB-ayd"/>
+                <constraint firstItem="xpp-WR-tnd" firstAttribute="top" secondItem="KgJ-sk-mkz" secondAttribute="bottom" constant="20" id="YcI-qg-M9W"/>
                 <constraint firstItem="KgJ-sk-mkz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Zte-Rs-yZi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KgJ-sk-mkz" secondAttribute="trailing" constant="20" id="aIs-ir-pEp"/>
                 <constraint firstItem="EN7-gx-zBB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="cpU-Hx-DV4"/>
                 <constraint firstItem="I1q-Ng-Hx3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dY2-C9-V8Q"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xpp-WR-tnd" secondAttribute="trailing" constant="20" id="fZg-6I-YAT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="itt-00-KbB" secondAttribute="trailing" constant="20" id="hQ2-zl-KSo"/>
                 <constraint firstItem="s9r-v1-bRf" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="iGT-D7-3Mq"/>
-                <constraint firstItem="KgJ-sk-mkz" firstAttribute="top" secondItem="I1q-Ng-Hx3" secondAttribute="bottom" constant="20" id="p9A-d6-TOb"/>
+                <constraint firstItem="KgJ-sk-mkz" firstAttribute="top" secondItem="I1q-Ng-Hx3" secondAttribute="bottom" constant="60" id="p9A-d6-TOb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Nlz-5W-Q1l" secondAttribute="trailing" constant="20" id="qDB-wM-40k"/>
+                <constraint firstItem="Nlz-5W-Q1l" firstAttribute="top" secondItem="I1q-Ng-Hx3" secondAttribute="bottom" constant="15" id="sfO-fJ-9Xv"/>
                 <constraint firstItem="itt-00-KbB" firstAttribute="top" secondItem="s9r-v1-bRf" secondAttribute="bottom" constant="20" id="tUl-ba-lcS"/>
                 <constraint firstItem="xpp-WR-tnd" firstAttribute="top" secondItem="KgJ-sk-mkz" secondAttribute="bottom" constant="20" id="vci-Ux-lH1"/>
             </constraints>

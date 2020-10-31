@@ -22,6 +22,8 @@
 		2F82279C24A5D3AC00612BFF /* CreateApplicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279B24A5D3AC00612BFF /* CreateApplicationVC.swift */; };
 		2F82279E24A605D000612BFF /* MyApplicationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279D24A605D000612BFF /* MyApplicationsVC.swift */; };
 		2F8227A024A61EE600612BFF /* ApplicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279F24A61EE600612BFF /* ApplicationVC.swift */; };
+		2FB93AE9254DB1E7005C1348 /* LinksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB93AE8254DB1E7005C1348 /* LinksVC.swift */; };
+		2FB93AED254DBD79005C1348 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB93AEC254DBD79005C1348 /* WebVC.swift */; };
 		2FC4A5EA251CBE8400421BC2 /* FinishedWorksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */; };
 		2FC4A5EC251CBFA000421BC2 /* FinishedWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4A5EB251CBFA000421BC2 /* FinishedWorkCell.swift */; };
 		2FC4A5EE251E202E00421BC2 /* FeedbackInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4A5ED251E202E00421BC2 /* FeedbackInfoVC.swift */; };
@@ -84,6 +86,8 @@
 		2F82279B24A5D3AC00612BFF /* CreateApplicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateApplicationVC.swift; sourceTree = "<group>"; };
 		2F82279D24A605D000612BFF /* MyApplicationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplicationsVC.swift; sourceTree = "<group>"; };
 		2F82279F24A61EE600612BFF /* ApplicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationVC.swift; sourceTree = "<group>"; };
+		2FB93AE8254DB1E7005C1348 /* LinksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksVC.swift; sourceTree = "<group>"; };
+		2FB93AEC254DBD79005C1348 /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorksVC.swift; sourceTree = "<group>"; };
 		2FC4A5EB251CBFA000421BC2 /* FinishedWorkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorkCell.swift; sourceTree = "<group>"; };
 		2FC4A5ED251E202E00421BC2 /* FeedbackInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackInfoVC.swift; sourceTree = "<group>"; };
@@ -313,6 +317,8 @@
 			children = (
 				F2156CE924A9125200BFFDBD /* ProfileVC.swift */,
 				F2156CED24A91B7700BFFDBD /* ProfileViewController.swift */,
+				2FB93AE8254DB1E7005C1348 /* LinksVC.swift */,
+				2FB93AEC254DBD79005C1348 /* WebVC.swift */,
 				2FC4A5ED251E202E00421BC2 /* FeedbackInfoVC.swift */,
 				F296FB5F24AAE9CA00450DE0 /* EditProfileVC.swift */,
 				2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */,
@@ -524,6 +530,8 @@
 				2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */,
 				F24B2D50249FC6350080C5B4 /* ViewExtensions.swift in Sources */,
 				2FF6C17A24A8E09300E64505 /* SuccessView.swift in Sources */,
+				2FB93AE9254DB1E7005C1348 /* LinksVC.swift in Sources */,
+				2FB93AED254DBD79005C1348 /* WebVC.swift in Sources */,
 				2F07095C24A46FE20023B1AB /* ApplicationsListVC.swift in Sources */,
 				2F8227A024A61EE600612BFF /* ApplicationVC.swift in Sources */,
 				F24B2D5B249FC72E0080C5B4 /* Requests.swift in Sources */,
@@ -677,7 +685,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = F9R52PYR5A;
 				INFOPLIST_FILE = SmartVolunteer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -700,7 +708,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = F9R52PYR5A;
 				INFOPLIST_FILE = SmartVolunteer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
