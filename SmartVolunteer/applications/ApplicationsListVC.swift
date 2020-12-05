@@ -28,7 +28,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         getData()
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        setNavForTaraz()
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = false
@@ -42,9 +42,16 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         tableView.dataSource = self
         tableView.separatorStyle = .none
         segmentedController.selectedSegmentIndex = 0
+        segmentedController.tintColor = #colorLiteral(red: 0, green: 0.3960784314, blue: 0.4274509804, alpha: 1)
+        sideBarButton()
     }
     func setUI(){
         self.view.addSubview(tableView)
+        if #available(iOS 11.0, *) {
+            tableView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0)
+        } else {
+            tableView.layoutMargins = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+        }
         tableView.easy.layout(Edges())
         self.navigationItem.title = "Заявки"
         rightButton()
@@ -61,7 +68,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
     func rightButton(){
         let b = UIBarButtonItem(image: #imageLiteral(resourceName: "Filter 24px"), style: .plain, target: self, action: #selector(filterPressed(_:)))
         navigationItem.rightBarButtonItem = b
-        navigationItem.rightBarButtonItem?.tintColor = UIColor.black
+        navigationItem.rightBarButtonItem?.tintColor = Constants.shared().isTaraz ? UIColor.white : UIColor.black
     }
     @objc func filterPressed(_ sender:UIBarButtonItem) {
         FilterVC.open(vc: self) { (result,filter) in

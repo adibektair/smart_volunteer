@@ -80,6 +80,7 @@ class ProfileViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        setNavForTaraz()
         if Constants.shared().getToken() == nil { return }
         self.getData()
         self.getFeedbacks()

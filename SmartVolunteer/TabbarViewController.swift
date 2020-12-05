@@ -67,17 +67,20 @@ class TabbarViewController: UITabBarController {
         homeNav.addChild(NewsListVC())
         homeNav.tabBarItem = i
         controllers.append(homeNav)
+        
         let icon3 = UITabBarItem(title: "", image: nil, tag: 3)
         let create = UINavigationController()
         create.addChild(CreateApplicationVC())
         create.tabBarItem = icon3
         controllers.append(create)
+
         self.setupMiddleButton()
         let icon4 = UITabBarItem(title: "", image: UIImage(named: "Profile.png"), tag: 4)
         let prof = UINavigationController()
         prof.addChild(ProfileViewController())
         prof.tabBarItem = icon4
         controllers.append(prof)
+        
         self.viewControllers = controllers
         
     }

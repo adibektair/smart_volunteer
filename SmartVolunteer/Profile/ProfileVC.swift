@@ -16,6 +16,7 @@ class ProfileVC: ScrollStackController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavForTaraz()
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false

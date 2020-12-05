@@ -40,6 +40,7 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
         mainInfo()
         lastInfo()
         createButtonSetting()
+        setNavForTaraz()
     }
     
     // MARK: - Functions

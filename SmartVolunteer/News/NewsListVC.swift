@@ -22,9 +22,9 @@ class NewsListVC: UIViewController, UISearchBarDelegate,UITableViewDelegate, UIT
         life()
         setUI()
         getData()
+        sideBarButton()
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         if Constants.shared().getToken() == nil {
             let v = AnonimView()
             self.view.addSubview(v)
@@ -34,7 +34,6 @@ class NewsListVC: UIViewController, UISearchBarDelegate,UITableViewDelegate, UIT
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
-    
     // MARK: - Functions
     func life() {
         tableView.delegate = self
@@ -49,6 +48,7 @@ class NewsListVC: UIViewController, UISearchBarDelegate,UITableViewDelegate, UIT
         search.searchBar.placeholder = "Название новости"
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
+        setNavForTaraz()
     }
       
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

@@ -20,8 +20,8 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.searchBar.delegate = self
+        sideBarButton()
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.delegate = self
@@ -29,7 +29,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "FuncTVC", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.setNavForTaraz()
         self.navigationItem.title = "Фонды"
         self.setViews()
         self.getData()
@@ -47,6 +47,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
 
     func setViews(){
+        setBackButton()
         self.rightButton()
         self.view.backgroundColor = .white
         searchBar.placeholder = "Название фонда"
@@ -57,7 +58,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func rightButton(){
         let b = UIBarButtonItem(image: #imageLiteral(resourceName: "Gridtortburyw"), style: .plain, target: self, action: #selector(myFundsPressed(_:)))
         navigationItem.rightBarButtonItem = b
-        navigationItem.rightBarButtonItem?.tintColor = UIColor.black
+        navigationItem.rightBarButtonItem?.tintColor = Constants.shared().isTaraz ? UIColor.white : UIColor.black
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.filtering{

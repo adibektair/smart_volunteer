@@ -39,4 +39,35 @@ extension UIViewController {
         let impact = UIImpactFeedbackGenerator()
         impact.impactOccurred()
     }
+    func setNavForTaraz(){
+        if let nav = self.navigationController?.navigationBar,Constants.shared().isTaraz {
+            nav.isTranslucent = false
+            nav.barTintColor = #colorLiteral(red: 0, green: 0.3960784314, blue: 0.4274509804, alpha: 1)
+            nav.tintColor = .white
+            nav.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            nav.prefersLargeTitles = false
+            if let tabBar = self.tabBarController?.tabBar {
+                tabBar.selectedImageTintColor = #colorLiteral(red: 0, green: 0.3960784314, blue: 0.4274509804, alpha: 1)
+            }
+        } else if !Constants.shared().isTaraz {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
+    }
+    @objc func sideBarPressed(_ sender:UIBarButtonItem) {
+        let v = SideBarView()
+        if let view = (self.view.subviews.last as? SideBarView) {
+            view.removeView()
+        } else {
+            self.view.addSubview(v)
+        }
+        v.easy.layout(Edges())
+    }
+    func sideBarButton(){
+        if Constants.shared().isTaraz {
+            let b = UIBarButtonItem(image: #imageLiteral(resourceName: "menu"), style: .plain, target: self, action: #selector(sideBarPressed(_:)))
+            navigationItem.leftBarButtonItem = b
+            navigationItem.leftBarButtonItem?.tintColor = Constants.shared().isTaraz ? UIColor.white : UIColor.black
+        }
+    }
+    
 }
