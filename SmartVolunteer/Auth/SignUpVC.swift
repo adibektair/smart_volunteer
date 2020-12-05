@@ -244,7 +244,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
             }
             let json = [
                 "iin" : iinTextField.text!,
-                "phone" : phoneTextField.text!,
+                "phone" : phoneTextField.text!.digits,
                 "name" : firstNameTextField.text!,
                 "surname" : lastNameTextField.text!,
                 "language_id" : langId,
@@ -271,4 +271,9 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         }
     }
     
+}
+extension String {
+    var digits: String {
+        return components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+    }
 }

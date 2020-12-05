@@ -109,6 +109,7 @@ class FeedbackInfoVC: ScrollStackController {
         if let url = URL(string: data?.user?.imgPath ?? data?.fund?.imgPath ?? "") {
             icon.sd_setImage(with: url, completed: nil)
         }
+        let profile = self.data?.application?.user
         let nameLabel = UILabel()
         let nameText = "\(profile?.name ?? "Анонимно") \(profile?.surname ?? "")"
         let name = nameText

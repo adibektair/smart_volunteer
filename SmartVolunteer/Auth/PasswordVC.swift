@@ -43,7 +43,7 @@ class PasswordVC: UIViewController {
                     tabbar.modalPresentationStyle = .fullScreen
                     self.present(tabbar, animated: true, completion: nil)
                 }else{
-                    self.showAlert(title: "Внимание", message: "что то не то")
+                    self.showAlert(title: "Внимание", message: "Неверный пароль")
                 }
             }
         }else{
