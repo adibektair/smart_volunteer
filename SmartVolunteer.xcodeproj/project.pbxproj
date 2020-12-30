@@ -15,6 +15,7 @@
 		2F2A137F24A4A8FC00E4A9DA /* CityCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A137D24A4A8FC00E4A9DA /* CityCVC.xib */; };
 		2F331161252C9D4800D49D85 /* RateForCloseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F331160252C9D4800D49D85 /* RateForCloseVC.swift */; };
 		2F331163252C9E8200D49D85 /* RateVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F331162252C9E8200D49D85 /* RateVolunteerView.swift */; };
+		2F45D417259D2BB20038F028 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F45D416259D2BB20038F028 /* MapVC.swift */; };
 		2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436D24A23AF00080C445 /* NewsListVC.swift */; };
 		2F65437024A23C0A0080C445 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436F24A23C0A0080C445 /* NewsView.swift */; };
 		2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65437124A249F00080C445 /* NewsObjevcts.swift */; };
@@ -80,6 +81,7 @@
 		2F2A137D24A4A8FC00E4A9DA /* CityCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCVC.xib; sourceTree = "<group>"; };
 		2F331160252C9D4800D49D85 /* RateForCloseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateForCloseVC.swift; sourceTree = "<group>"; };
 		2F331162252C9E8200D49D85 /* RateVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateVolunteerView.swift; sourceTree = "<group>"; };
+		2F45D416259D2BB20038F028 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		2F65436D24A23AF00080C445 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
 		2F65436F24A23C0A0080C445 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		2F65437124A249F00080C445 /* NewsObjevcts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsObjevcts.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				2F07095B24A46FE20023B1AB /* ApplicationsListVC.swift */,
 				2F82279F24A61EE600612BFF /* ApplicationVC.swift */,
+				2F45D416259D2BB20038F028 /* MapVC.swift */,
 				2F07095D24A476250023B1AB /* ApplicationView.swift */,
 				2F82279824A5C63E00612BFF /* ApplicationObjects.swift */,
 				2F2A137824A494F800E4A9DA /* FilterVC.swift */,
@@ -529,6 +532,7 @@
 				2FC4A5EE251E202E00421BC2 /* FeedbackInfoVC.swift in Sources */,
 				2F2A137924A494F800E4A9DA /* FilterVC.swift in Sources */,
 				2F2A137E24A4A8FC00E4A9DA /* CityCVC.swift in Sources */,
+				2F45D417259D2BB20038F028 /* MapVC.swift in Sources */,
 				F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */,
 				2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */,
 				F24B2D50249FC6350080C5B4 /* ViewExtensions.swift in Sources */,

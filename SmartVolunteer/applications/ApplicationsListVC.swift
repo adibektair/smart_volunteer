@@ -69,6 +69,14 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         let b = UIBarButtonItem(image: #imageLiteral(resourceName: "Filter 24px"), style: .plain, target: self, action: #selector(filterPressed(_:)))
         navigationItem.rightBarButtonItem = b
         navigationItem.rightBarButtonItem?.tintColor = Constants.shared().isTaraz ? UIColor.white : UIColor.black
+        rightButtonMap()
+    }
+    func rightButtonMap(){
+        let b = UIBarButtonItem(image: #imageLiteral(resourceName: "map"), style: .plain, target: self, action: #selector(mapPressed(_:)))
+        navigationItem.rightBarButtonItems?.append(b)
+      }
+    @objc func mapPressed(_ sender:UIBarButtonItem) {
+        MapVC.open(vc: self,data: self.applications?.applications?.data ?? [])
     }
     @objc func filterPressed(_ sender:UIBarButtonItem) {
         FilterVC.open(vc: self) { (result,filter) in

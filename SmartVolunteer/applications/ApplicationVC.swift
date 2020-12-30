@@ -124,7 +124,9 @@ class ApplicationVC: ScrollStackController {
         placeStack.addArrangedSubview(geoIcon)
         placeStack.addArrangedSubview(cityLabel)
         placeStack.addArrangedSubview(UIView())
-        
+        placeStack.addTapGestureRecognizer {
+            MapVC.open(vc: self,data: [self.data!])
+        }
         titleStack.addArrangedSubview(nameLabel)
         titleStack.addArrangedSubview(placeStack)
         titleStack.addArrangedSubview(UIView())
