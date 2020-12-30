@@ -697,7 +697,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = qaz.SmartVolunteer.taraz;
 				PRODUCT_NAME = "SmartVolunteer Taraz";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -720,7 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = qaz.SmartVolunteer.taraz;
 				PRODUCT_NAME = "SmartVolunteer Taraz";
 				SWIFT_VERSION = 5.0;

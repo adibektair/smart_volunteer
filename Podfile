@@ -15,5 +15,5 @@ pod 'IQKeyboardManagerSwift'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'Localize-Swift', '~> 2.0'
-
+#pod 'SmileLock'
 end
