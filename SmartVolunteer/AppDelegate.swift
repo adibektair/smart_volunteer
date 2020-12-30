@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if Constants.shared().getToken() != nil{
+        if Constants.shared().getToken() != nil && !UserDefaults.standard.bool(forKey: "secure"){
             window?.rootViewController = TabbarViewController()
         }else{
             let navigationController = UINavigationController()

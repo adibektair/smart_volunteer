@@ -67,6 +67,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var finishedView: UIView! {
         didSet { self.finishedView.cornerRadius(radius: 10, width: 1, color: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1)) }
     }
+    @IBOutlet weak var switcher: UISwitch!
     
     
     override func viewDidLoad() {
@@ -76,6 +77,9 @@ class ProfileViewController: UIViewController {
             self.view.addSubview(v)
             v.easy.layout(Edges())
         }
+        self.switcher.isOn = UserDefaults.standard.bool(forKey: "secure")
+
+        switcher.addTarget(self, action: #selector(switchSate(_:)), for: .valueChanged)
         setBackButton()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -173,5 +177,11 @@ class ProfileViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
-    
+    @objc func switchSate(_ sender:UISwitch){
+        if sender.isOn {
+            UserDefaults.standard.set(true, forKey: "secure")
+        } else {
+            UserDefaults.standard.set(false, forKey: "secure")
+        }
+    }
 }

@@ -46,6 +46,8 @@ class Constants: NSObject {
           print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
       }
     
+    public var secure = false
+    
     public let isTaraz = true
     
     public var baseUrl : String = "https://taraz.smartvolunteer.kz/api/v1/" {

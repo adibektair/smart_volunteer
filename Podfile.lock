@@ -4,6 +4,8 @@ PODS:
   - AlamofireObjectMapper (5.2.1):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
+  - BiometricAuth (2.0.0)
+  - BiometricAuthentication (3.1.3)
   - Cosmos (21.0.0)
   - DropDown (2.3.13)
   - EasyPeasy (1.9.0)
@@ -28,6 +30,8 @@ DEPENDENCIES:
   - AKMaskField
   - Alamofire
   - AlamofireObjectMapper (~> 5.0)
+  - BiometricAuth
+  - BiometricAuthentication
   - Cosmos (~> 21.0)
   - DropDown
   - EasyPeasy
@@ -43,6 +47,8 @@ SPEC REPOS:
     - AKMaskField
     - Alamofire
     - AlamofireObjectMapper
+    - BiometricAuth
+    - BiometricAuthentication
     - Cosmos
     - DropDown
     - EasyPeasy
@@ -58,6 +64,8 @@ SPEC CHECKSUMS:
   AKMaskField: b6d147524813e62cd3f15475fa2200ce7a3d2620
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
+  BiometricAuth: 918d48b26eaa610876cebd8163aede05611729ec
+  BiometricAuthentication: b63d51be9260ba94165e032829ae78f074b129df
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   EasyPeasy: 19a84ef8f8bbcf925b9fecc29d1d78b7dab96718
@@ -69,6 +77,6 @@ SPEC CHECKSUMS:
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
 
-PODFILE CHECKSUM: 69dea97ab3d243f9b36ec0e13b630c9c64cb8b84
+PODFILE CHECKSUM: 5be70307cac01081442d4e92c6b2aefee267fe88
 
 COCOAPODS: 1.9.3

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import BiometricAuth
+import BiometricAuthentication
 
 class CheckIINVC: UIViewController, UITextFieldDelegate {
 
@@ -17,16 +19,32 @@ class CheckIINVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var becomeVolunteerButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.iinTextField.delegate = self
         self.setViews()
+        if Constants.shared().getToken() != nil && UserDefaults.standard.bool(forKey: "secure") {
+            self.showPasscodeAuthentication(message: "SmartVolunteer")
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
-
+    func showPasscodeAuthentication(message: String) {
+        BioMetricAuthenticator.authenticateWithPasscode(reason: message) { [weak self] (result) in
+            switch result {
+            case .success( _):
+                let tabbar = TabbarViewController()
+                tabbar.modalPresentationStyle = .fullScreen
+                self?.present(tabbar, animated: true, completion: nil)
+                break
+            case .failure(let error):
+                
+                print(error.message())
+            }
+        }
+    }
     func setViews(){
         self.setButtonState(state: false)
         self.nextButton.cornerRadius(radius: 10, width: 0)

@@ -15,5 +15,8 @@ pod 'IQKeyboardManagerSwift'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'Localize-Swift', '~> 2.0'
+pod 'BiometricAuth'
 #pod 'SmileLock'
+pod 'BiometricAuthentication'
+
 end
