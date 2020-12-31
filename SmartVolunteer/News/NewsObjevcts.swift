@@ -342,14 +342,17 @@ class Data : NSObject, NSCoding, Mappable{
 
 class User : NSObject, NSCoding, Mappable{
     
+    
     var id : Int?
+    var iin : String?
     var imgPath : String?
     var isVolunteer : Bool?
     var name : String?
+    var ratingScore : Int?
     var role : Role?
     var roleId : Int?
     var surname : String?
-    
+    var phone: String?
     
     class func newInstance(map: Map) -> Mappable?{
         return User()
@@ -360,13 +363,15 @@ class User : NSObject, NSCoding, Mappable{
     func mapping(map: Map)
     {
         id <- map["id"]
+        iin <- map["iin"]
         imgPath <- map["img_path"]
         isVolunteer <- map["is_volunteer"]
         name <- map["name"]
+        ratingScore <- map["rating_score"]
         role <- map["role"]
         roleId <- map["role_id"]
         surname <- map["surname"]
-        
+        phone <- map["phone"]
     }
     
     /**

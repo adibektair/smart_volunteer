@@ -262,7 +262,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
                     tabbar.modalPresentationStyle = .fullScreen
                     self.present(tabbar, animated: true, completion: nil)
                 }else{
-                    self.showError(text: "что то не то")
+                    self.showError(text: "Такой ИИН уже существует")
                 }
             }
         }

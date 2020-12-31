@@ -9,6 +9,7 @@
 import UIKit
 import EasyPeasy
 import Cosmos
+import SDWebImage
 
 class UserProfileVC: ScrollStackController {
 
@@ -16,11 +17,11 @@ class UserProfileVC: ScrollStackController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUI()
     }
     
     func setUI(){
+        stackView.setSpacing(top: 16, left: 16, right: 16, bottom: 16)
         setAva()
         setCosmos()
         userInfo()
@@ -30,12 +31,16 @@ class UserProfileVC: ScrollStackController {
         let ava = UIImageView()
         ava.layer.cornerRadius = 25
         c.addSubview(ava)
-        ava.easy.layout(Width(50),Height(50),CenterX(),Top(),Bottom())
+        if let img = profile?.imgPath {
+            let url = URL(string: img.encodeUrl)
+            ava.sd_setImage(with: url, completed: nil)
+        }
+        ava.easy.layout(Width(100),Height(100),CenterX(),Top(),Bottom())
         stackView.addArrangedSubview(c)
     }
     func setCosmos() {
         let cosmosStack = UIStackView()
-        cosmosStack.setProperties(axis: .vertical, alignment: .center, spacing: 10, distribution: .fill)
+        cosmosStack.setProperties(axis: .vertical, alignment: .fill, spacing: 10, distribution: .equalCentering)
         let cosmosView = CosmosView()
         cosmosView.settings.starMargin = 2
         cosmosView.settings.filledImage = #imageLiteral(resourceName: "Star")
@@ -48,11 +53,14 @@ class UserProfileVC: ScrollStackController {
         cosmosView.settings.updateOnTouch = false
         cosmosStack.setProperties(axis: .vertical, alignment: .fill, spacing: 10, distribution: .fill)
         cosmosStack.addArrangedSubview(cosmosView)
-//        cosmosStack.addArrangedSubview(UIView())
-        stackView.addArrangedSubview(cosmosStack)
+        let c = UIView()
+        c.addSubview(cosmosView)
+        cosmosView.easy.layout(Width(100),Height(15),CenterX(),Top(),Bottom())
+        stackView.addArrangedSubview(c)
     }
     func userInfo(){
         let c = UIView()
+        c.backgroundColor = .white
         let st = UIStackView()
         st.setProperties(axis: .vertical, alignment: .fill, spacing: 10, distribution: .fill)
         c.cornerRadius(radius: 10, width: 0)
