@@ -133,6 +133,11 @@ class ApplicationVC: ScrollStackController {
         
         headStack.addArrangedSubview(icon)
         headStack.addArrangedSubview(titleStack)
+        headStack.addTapGestureRecognizer {
+            if let user = self.data?.user {
+                UserProfileVC.open(vc: self, profile: user)
+            }
+        }
         stackView.addArrangedSubview(headStack)
     }
     
