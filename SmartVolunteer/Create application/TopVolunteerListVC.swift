@@ -41,12 +41,12 @@ class TopVolunteerListVC: UIViewController, UITableViewDelegate, UITableViewData
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return volunteers?.volunteers?.data?.count ?? 0
+        return volunteers?.data?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
-        if let v = volunteers?.volunteers?.data?[indexPath.row] {
+        if let v = volunteers?.data?[indexPath.row] {
             let h = headViews(data: v)
             cell.addSubview(h)
             h.easy.layout(Edges(20))
@@ -54,7 +54,12 @@ class TopVolunteerListVC: UIViewController, UITableViewDelegate, UITableViewData
         return cell
         
     }
-    func headViews(data : Data) -> UIView {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let user = volunteers?.data?[indexPath.row] {
+            UserProfileVC.open(vc: self, profile: user)
+        }
+    }
+    func headViews(data : User) -> UIView {
         let mainStack = UIStackView()
         let headStack = UIStackView()
         let titleStack = UIStackView()
@@ -86,7 +91,7 @@ class TopVolunteerListVC: UIViewController, UITableViewDelegate, UITableViewData
         rating.settings.updateOnTouch = false
         rating.settings.filledImage = #imageLiteral(resourceName: "Star")
         rating.settings.emptyImage = #imageLiteral(resourceName: "StarEmpty")
-        rating.rating = data.ratingScore ?? 0.0
+        rating.rating = Double(data.ratingScore ?? 0)
         rating.easy.layout(Height(14),Width(120))
         titleStack.addArrangedSubview(nameLabel)
         titleStack.addArrangedSubview(phoneText)

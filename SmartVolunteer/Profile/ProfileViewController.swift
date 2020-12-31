@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
 
     var profile : Profile?
     var feedBacks: Feedbacks?
+    var imagePicker = UIImagePickerController()
     
     @IBOutlet weak var avatarImageView: UIImageView!{
         didSet{
@@ -83,6 +84,7 @@ class ProfileViewController: UIViewController {
         switcher.addTarget(self, action: #selector(switchSate(_:)), for: .valueChanged)
         setBackButton()
         avatarImageView.addTapGestureRecognizer {
+//            self.ph()
             self.thisIsTheFunctionWeAreCalling()
         }
     }
@@ -209,33 +211,62 @@ extension ProfileViewController : UINavigationControllerDelegate, UIImagePickerC
             optionMenu.addAction(cancelAction)
             self.present(optionMenu, animated: true, completion: nil)
         }
+    func ph(){
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+                    print("Button capture")
+            
 
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        let image = info[UIImagePickerController.InfoKey.editedImage.rawValue] as! UIImage
-        
-        // image is our desired image
-        self.upload(image: image)
+                    imagePicker.delegate = self
+                    imagePicker.sourceType = .savedPhotosAlbum
+                    imagePicker.allowsEditing = false
+
+                    present(imagePicker, animated: true, completion: nil)
+                }
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.editedImage.rawValue)] as! UIImage
         picker.dismiss(animated: true, completion: nil)
+        uploadImage(image: image)
     }
+    func uploadImage(image: UIImage) {
+        
+        let url = URL(string: Constants.shared().baseUrl + "profile/avatar")
+        
+        let session = URLSession.shared
+        
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.httpMethod = "POST"
+            
+         
+            urlRequest.setValue("multipart/form-data; boundary=avatar", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Bearer " + Constants.shared().getToken()!, forHTTPHeaderField: "Authorization")
     
-    func upload(image:UIImage){
-        let url = Constants.shared().baseUrl + "profile/avatar"
-        guard let data = image.jpegData(compressionQuality: 0.5) else {
-            return
-          }
+        let imgData = image.jpegData(compressionQuality: 0.5)!
+                var iData = imgData
+                // Add the image data to the raw http request data
+        iData.append("\r\n--avatar\r\n".data(using: .utf8)!)
+        iData.append("Content-Disposition: form-data; name=\"avatar\"; filename=\"filename\"\r\n".data(using: .utf8)!)
+        iData.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
+        iData.append(image.pngData()!)
+        
+        iData.append("\r\n--avatar--\r\n".data(using: .utf8)!)
+        
+            // Send a POST request to the URL, with the data we created earlier
+            session.uploadTask(with: urlRequest, from: imgData, completionHandler: { responseData, response, error in
+                if error == nil {
+                    let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
+                    if let json = jsonData as? [String: Any] {
+                        print(json)
+                    }
+                    DispatchQueue.main.async {
+                        self.avatarImageView.image = image
+                    }
+                }else{
+                    self.showAlert(title: "Қате", message: "Бір-екі миніттан кейін қайталаңыз")
+                }
+            }).resume()
+        }
 
-          Alamofire.upload(multipartFormData: { (form) in
-            form.append(data, withName: "file", fileName: "file.jpg", mimeType: "image/jpg")
-          }, to: url, encodingCompletion: { result in
-            switch result {
-            case .success(let upload, _, _):
-              upload.responseString { response in
-                print(response.value)
-              }
-            case .failure(let encodingError):
-              print(encodingError)
-            }
-          })
-    }
+
 }

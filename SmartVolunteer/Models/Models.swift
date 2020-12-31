@@ -547,7 +547,7 @@ class Volunteers : NSObject, NSCoding, Mappable{
 
     var success : Bool?
     var volunteers : Volunteer?
-    var users : [User]?
+    var data : [User]?
 
 
     class func newInstance(map: Map) -> Mappable?{
@@ -560,7 +560,7 @@ class Volunteers : NSObject, NSCoding, Mappable{
     {
         success <- map["success"]
         volunteers <- map["volunteers"]
-        users <- map["users"]
+        data <- map["data"]
     }
 
     /**
