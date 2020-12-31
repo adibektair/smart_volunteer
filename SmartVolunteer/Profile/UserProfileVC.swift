@@ -29,7 +29,8 @@ class UserProfileVC: ScrollStackController {
     func setAva() {
         let c = UIView()
         let ava = UIImageView()
-        ava.layer.cornerRadius = 25
+        ava.layer.cornerRadius = 50
+        ava.layer.masksToBounds = true
         c.addSubview(ava)
         if let img = profile?.imgPath {
             let url = URL(string: img.encodeUrl)

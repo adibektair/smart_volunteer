@@ -25,6 +25,7 @@ class MyApplicationsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         self.view.addSubview(tableView)
         tableView.easy.layout(Edges())
         getData()
+        rightButton()
     }
     
     
@@ -35,8 +36,15 @@ class MyApplicationsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             self.tableView.reloadData()
         }
     }
+    func rightButton(){
+           let b = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(topPressed(_:)))
+           navigationItem.rightBarButtonItem = b
+           navigationItem.rightBarButtonItem?.tintColor = Constants.shared().isTaraz ? UIColor.white : UIColor.black
+       }
     // MARK: - Navigation
-    
+    @objc func topPressed(_ sender:UIBarButtonItem) {
+           TopVolunteerListVC.open(vc: self)
+       }
     // MARK: - Navigation
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
