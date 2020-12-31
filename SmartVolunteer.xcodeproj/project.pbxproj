@@ -21,6 +21,7 @@
 		2F65437024A23C0A0080C445 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436F24A23C0A0080C445 /* NewsView.swift */; };
 		2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65437124A249F00080C445 /* NewsObjevcts.swift */; };
 		2F770F69259D546200DCD7FD /* TopVolunteerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F770F68259D546200DCD7FD /* TopVolunteerListVC.swift */; };
+		2F770F6B259D59F100DCD7FD /* DSCameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F770F6A259D59F100DCD7FD /* DSCameraHandler.swift */; };
 		2F82279924A5C63E00612BFF /* ApplicationObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279824A5C63E00612BFF /* ApplicationObjects.swift */; };
 		2F82279C24A5D3AC00612BFF /* CreateApplicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279B24A5D3AC00612BFF /* CreateApplicationVC.swift */; };
 		2F82279E24A605D000612BFF /* MyApplicationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279D24A605D000612BFF /* MyApplicationsVC.swift */; };
@@ -89,6 +90,7 @@
 		2F65436F24A23C0A0080C445 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		2F65437124A249F00080C445 /* NewsObjevcts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsObjevcts.swift; sourceTree = "<group>"; };
 		2F770F68259D546200DCD7FD /* TopVolunteerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVolunteerListVC.swift; sourceTree = "<group>"; };
+		2F770F6A259D59F100DCD7FD /* DSCameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCameraHandler.swift; sourceTree = "<group>"; };
 		2F82279824A5C63E00612BFF /* ApplicationObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationObjects.swift; sourceTree = "<group>"; };
 		2F82279B24A5D3AC00612BFF /* CreateApplicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateApplicationVC.swift; sourceTree = "<group>"; };
 		2F82279D24A605D000612BFF /* MyApplicationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplicationsVC.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				2F82279D24A605D000612BFF /* MyApplicationsVC.swift */,
 				2FF6C17724A8B4EA00E64505 /* VolunteerListVC.swift */,
 				2F770F68259D546200DCD7FD /* TopVolunteerListVC.swift */,
+				2F770F6A259D59F100DCD7FD /* DSCameraHandler.swift */,
 				2FC4A5F12523530300421BC2 /* FeedBacksListVC.swift */,
 			);
 			path = "Create application";
@@ -506,6 +509,7 @@
 				2FC4A5EC251CBFA000421BC2 /* FinishedWorkCell.swift in Sources */,
 				F2B26A8D24A22A25001EAC0E /* SignUpVC.swift in Sources */,
 				F2B26A9F24A34C33001EAC0E /* FuncTVC.swift in Sources */,
+				2F770F6B259D59F100DCD7FD /* DSCameraHandler.swift in Sources */,
 				F24B2D31249FC5CC0080C5B4 /* AppDelegate.swift in Sources */,
 				F24B2D59249FC6780080C5B4 /* Constants.swift in Sources */,
 				F2156CE824A901FF00BFFDBD /* MyFundsVC.swift in Sources */,

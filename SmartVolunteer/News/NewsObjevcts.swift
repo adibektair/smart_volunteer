@@ -353,6 +353,10 @@ class User : NSObject, NSCoding, Mappable{
     var roleId : Int?
     var surname : String?
     var phone: String?
+    var avgMark : String?
+    var doneWorks : Int?
+    var email : String?
+
     
     class func newInstance(map: Map) -> Mappable?{
         return User()
