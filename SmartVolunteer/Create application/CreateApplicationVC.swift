@@ -20,6 +20,7 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
     let descTextView = UITextView()
     let city = UITextField()
     let category = UITextField()
+    let address = UITextField()
     let volCount = UITextField()
     var selectedCity : City?
     var selectedCategory : Data?
@@ -103,6 +104,18 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
         }
         downIcon.easy.layout(CenterY(),Right(20))
         
+        let downIcon1 = UIImageView(image: #imageLiteral(resourceName: "Line"))
+        
+        address.textColor = #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1)
+        address.easy.layout(Height(46))
+        address.cornerRadius(radius: 10, width: 1,color: #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1))
+        address.setLeftPaddingPoints(20)
+        address.addSubview(downIcon1)
+        address.addTapGestureRecognizer {
+            self.selectAddress()
+        }
+        downIcon1.easy.layout(CenterY(),Right(20),Height(8),Width(15))
+        
         let downIcon2 = UIImageView(image: #imageLiteral(resourceName: "Line"))
         
         category.textColor = #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1)
@@ -122,17 +135,22 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
         volCount.setLeftPaddingPoints(20)
         
         city.placeholder = "Город"
+        address.placeholder = "Адрес"
         category.placeholder = "Категория"
         volCount.placeholder = "Количество волонтеров"
         
+        
         textFieldsStackView.addArrangedSubview(city)
+        textFieldsStackView.addArrangedSubview(address)
         textFieldsStackView.addArrangedSubview(category)
         textFieldsStackView.addArrangedSubview(volCount)
         
         stackView.addArrangedSubview(c)
         
     }
-    
+    func selectAddress(){
+        MapApplication.open(vc: self)
+    }
     func lastInfo(){
         lastStackview.setProperties(axis: .vertical, alignment: .fill, spacing: 15, distribution: .fill)
         titleLabel.setProperties(text: "Заголовок", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .left, numberLines: 1)

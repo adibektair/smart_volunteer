@@ -16,6 +16,8 @@
 		2F331161252C9D4800D49D85 /* RateForCloseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F331160252C9D4800D49D85 /* RateForCloseVC.swift */; };
 		2F331163252C9E8200D49D85 /* RateVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F331162252C9E8200D49D85 /* RateVolunteerView.swift */; };
 		2F3826F725B37A4C00F71BD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F3826F625B37A4C00F71BD1 /* GoogleService-Info.plist */; };
+		2F38274B25B382AE00F71BD1 /* SMSCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F38274A25B382AE00F71BD1 /* SMSCodeVC.swift */; };
+		2F38274E25B396AE00F71BD1 /* MapApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F38274D25B396AE00F71BD1 /* MapApplication.swift */; };
 		2F45D417259D2BB20038F028 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F45D416259D2BB20038F028 /* MapVC.swift */; };
 		2F45D419259D432B0038F028 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F45D418259D432B0038F028 /* UserProfileVC.swift */; };
 		2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436D24A23AF00080C445 /* NewsListVC.swift */; };
@@ -86,6 +88,8 @@
 		2F331160252C9D4800D49D85 /* RateForCloseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateForCloseVC.swift; sourceTree = "<group>"; };
 		2F331162252C9E8200D49D85 /* RateVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateVolunteerView.swift; sourceTree = "<group>"; };
 		2F3826F625B37A4C00F71BD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F38274A25B382AE00F71BD1 /* SMSCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCodeVC.swift; sourceTree = "<group>"; };
+		2F38274D25B396AE00F71BD1 /* MapApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapApplication.swift; sourceTree = "<group>"; };
 		2F45D416259D2BB20038F028 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		2F45D418259D432B0038F028 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		2F65436D24A23AF00080C445 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 				2F770F68259D546200DCD7FD /* TopVolunteerListVC.swift */,
 				2F770F6A259D59F100DCD7FD /* DSCameraHandler.swift */,
 				2FC4A5F12523530300421BC2 /* FeedBacksListVC.swift */,
+				2F38274D25B396AE00F71BD1 /* MapApplication.swift */,
 			);
 			path = "Create application";
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				F26F262524A11EE800934874 /* CheckIINVC.swift */,
+				2F38274A25B382AE00F71BD1 /* SMSCodeVC.swift */,
 				F26F262624A11EE800934874 /* CheckIINVC.xib */,
 				F2B26A8824A2246A001EAC0E /* PasswordVC.swift */,
 				F2B26A8924A2246A001EAC0E /* PasswordVC.xib */,
@@ -528,6 +534,7 @@
 				F24B2D4F249FC6350080C5B4 /* StackViewExtensions.swift in Sources */,
 				2FC4A5EA251CBE8400421BC2 /* FinishedWorksVC.swift in Sources */,
 				F2B26A9824A33B9C001EAC0E /* TabbarViewController.swift in Sources */,
+				2F38274B25B382AE00F71BD1 /* SMSCodeVC.swift in Sources */,
 				F2B26A9024A27755001EAC0E /* GeneralButton.swift in Sources */,
 				F2DB2CEE24A4BCC600940F1C /* FundVC.swift in Sources */,
 				2FF6C17C24AB556100E64505 /* AnonimView.swift in Sources */,
@@ -549,6 +556,7 @@
 				2F2A137E24A4A8FC00E4A9DA /* CityCVC.swift in Sources */,
 				2F45D417259D2BB20038F028 /* MapVC.swift in Sources */,
 				F24B2D51249FC6350080C5B4 /* StringExtension.swift in Sources */,
+				2F38274E25B396AE00F71BD1 /* MapApplication.swift in Sources */,
 				2F65437224A249F00080C445 /* NewsObjevcts.swift in Sources */,
 				2F770F69259D546200DCD7FD /* TopVolunteerListVC.swift in Sources */,
 				F24B2D50249FC6350080C5B4 /* ViewExtensions.swift in Sources */,

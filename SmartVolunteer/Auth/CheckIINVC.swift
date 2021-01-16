@@ -62,13 +62,15 @@ class CheckIINVC: UIViewController, UITextFieldDelegate {
             if response?.isExists ?? false{
                 PasswordVC.open(vc: self, iin: self.iinTextField.text!)
             }else{
-                SignUpVC.open(vc: self)
+                SMSCodeVC.open(vc: self,iin: self.iinTextField.text!)
+//                SignUpVC.open(vc: self)
             }
         }
         
     }
     @IBAction func becomeVolunteerButtonPressed(_ sender: Any) {
-        SignUpVC.open(vc: self)
+//        SignUpVC.open(vc: self)
+        SMSCodeVC.open(vc: self,iin: self.iinTextField.text!)
     }
     @IBAction func skipButtonPressed(_ sender: Any) {
         let tabBar = TabbarViewController()

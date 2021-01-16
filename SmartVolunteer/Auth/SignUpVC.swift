@@ -38,6 +38,9 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
     let cityTextField = UITextField()
     let passwordTextField = UITextField()
     let russianCheckBox = UIImageView()
+    let volunteerCheckBox = UIImageView()
+    var isVolunteer = true
+    var code = ""
     let qazaqCheckBox = UIImageView()
     let continueButton = GeneralButton()
     
@@ -49,8 +52,6 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         Requests.shared().getCities { (response) in
             self.picker.cities = response?.cities ?? []
         }
-//        picker.modalPresentationStyle = .overCurrentContext
-//        picker.modalTransitionStyle = .
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
@@ -109,9 +110,10 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         
         
         phoneTextField.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9764705882, alpha: 1)
+        let p = phoneTextField.text
         phoneTextField.placeholder = "Номер телефона"
         phoneTextField.maskExpression = "+7 ({ddd}) {ddd} {dd} {dd}"
-
+        phoneTextField.text = p
         phoneTextField.keyboardType = .numberPad
         phoneTextField.borderStyle = .roundedRect
         
@@ -187,12 +189,43 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
             self.setLang(lang: .russian)
         }
         
+        //is volunteer
+        role()
         // Button
         self.continueButton.title = "Зарегистрироваться"
         self.continueButton.isAccessible = true
         self.continueButton.addTarget(self, action: #selector(self.register), for: .touchUpInside)
         self.stackView.addArrangedSubview(continueButton)
         
+    }
+    func role(){
+        let horizontalStackView = UIStackView()
+        horizontalStackView.setProperties(axis: .horizontal, alignment: .fill, spacing: 11, distribution: .equalSpacing)
+        let volunteer = UIView()
+        volunteer.cornerRadius(radius: 8, width: 0.5, color: #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1))
+        
+        let volunteerLabel = UILabel()
+        volunteerLabel.text = "Волонтер"
+        volunteerLabel.textColor = #colorLiteral(red: 0.1907444894, green: 0.4766811728, blue: 0.96295017, alpha: 1)
+        volunteerLabel.font = volunteerLabel.font.withSize(14)
+        volunteer.addSubview(volunteerLabel)
+        
+        volunteerCheckBox.cornerRadius(radius: 8, width: 2, color: #colorLiteral(red: 0.6575629115, green: 0.7900038362, blue: 0.9882785678, alpha: 1))
+        volunteer.addSubview(volunteerCheckBox)
+        
+        horizontalStackView.addArrangedSubview(volunteer)
+        let viewWidth = (UIScreen.main.bounds.size.width - 83) / 2
+        volunteer.easy.layout(Height(44), Width(viewWidth))
+        volunteerLabel.easy.layout(CenterY(), Left(10))
+        volunteerCheckBox.easy.layout(CenterY(), Right(10), Width(16), Height(16))
+        
+        qazaqCheckBox.easy.layout(CenterY(), Right(10), Width(16), Height(16))
+        self.stackView.addArrangedSubview(horizontalStackView)
+        self.volunteerCheckBox.image = self.isVolunteer  ? #imageLiteral(resourceName: "Shape") : nil
+        volunteer.addTapGestureRecognizer {
+            self.isVolunteer = !self.isVolunteer
+            self.volunteerCheckBox.image = self.isVolunteer  ? #imageLiteral(resourceName: "Shape") : nil
+        }
     }
     
     private func setLang(lang: AppLanguage){
@@ -220,8 +253,11 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         return count <= 12
     }
     
-    static func open(vc: UIViewController){
-        let viewController = self.init()
+    static func open(vc: UIViewController,iin :String = "", phone: String = "",code:String){
+        let viewController = SignUpVC()
+        viewController.code = code
+        viewController.iinTextField.text = iin
+        viewController.phoneTextField.text = phone
         if let nav = vc.navigationController {
             nav.pushViewController(viewController, animated: true)
         }
@@ -237,7 +273,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         {
             self.startLoad()
             var langId = 0
-            if self.mainLanguage == .qazaq{
+            if self.mainLanguage == .qazaq {
                 langId = 1
             }else{
                 langId = 2
@@ -251,7 +287,9 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
                 "city_id" : self.cityId,
                 "password" : passwordTextField.text!,
                 "platform" : "IOS",
-                "device_token" : "wws"
+                "code": code,
+                "is_volunteer" : isVolunteer,
+                "device_token" : "fireBaseToken" //fireBaseToken
             ] as [String : AnyObject]
             Requests.shared().register(params: json) { (response) in
                 self.stopLoad()

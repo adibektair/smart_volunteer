@@ -61,4 +61,8 @@ class Constants: NSObject {
         }
     }
     
+    public func baseUrl(version : Int = 1) -> String{
+        return "https://taraz.smartvolunteer.kz/api/v\(version)/"
+    }
+
 }

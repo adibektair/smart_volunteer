@@ -23,7 +23,7 @@ class Requests: NSObject {
     }
     
     func checkLogin(params : [String: AnyObject], callback: @escaping (CheckLoginResponse?) -> ()) {
-        Alamofire.request(Constants.shared().baseUrl + "login/check", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "login/check", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseObject{
             (response: DataResponse<CheckLoginResponse>) in
             if let _ = response.response{
                 let model = response.result
@@ -32,7 +32,7 @@ class Requests: NSObject {
         }
     }
     func getCities(callback: @escaping (CitiesResponse?) -> ()) {
-        Alamofire.request(Constants.shared().baseUrl + "cities", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "cities", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseObject{
             (response: DataResponse<CitiesResponse>) in
             if let _ = response.response{
                 let model = response.result
@@ -41,7 +41,7 @@ class Requests: NSObject {
         }
     }
     func register(params : [String: AnyObject], callback: @escaping (RegisterResponse?) -> ()) {
-        Alamofire.request(Constants.shared().baseUrl + "register", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "register", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseObject{
             (response: DataResponse<RegisterResponse>) in
             if let _ = response.response{
                 let model = response.result
@@ -51,7 +51,7 @@ class Requests: NSObject {
     }
     
     func logIn(params : [String: AnyObject], callback: @escaping (RegisterResponse?) -> ()) {
-        Alamofire.request(Constants.shared().baseUrl + "login", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "login", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseObject{
             (response: DataResponse<RegisterResponse>) in
             if let _ = response.response{
                 let model = response.result
@@ -59,10 +59,30 @@ class Requests: NSObject {
             }
         }
     }
+    func sendCode(params : [String: AnyObject], callback: @escaping (StandartResponse?) -> ()) {
+        Alamofire.request(Constants.shared().baseUrl(version: 2) + "send/code", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseObject{
+            (response: DataResponse<StandartResponse>) in
+            if let _ = response.response{
+                let model = response.result
+                callback(model.value ?? nil)
+            }
+        }
+    }
+    func checkCode(params : [String: AnyObject], callback: @escaping (StandartResponse?) -> ()) {
+        Alamofire.request(Constants.shared().baseUrl(version: 2) + "check/code", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseObject{
+            (response: DataResponse<StandartResponse>) in
+            if let _ = response.response{
+                let model = response.result
+                callback(model.value ?? nil)
+            }
+        }
+    }
+    
+    
     
     public func getNews(page: Int,search: String = "", callback: @escaping (News) -> ()){
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "news?page=\(page)&title=\(search.encodeUrl)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "news?page=\(page)&title=\(search.encodeUrl)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<News>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
@@ -84,7 +104,7 @@ class Requests: NSObject {
         if filter != "" || type != "" {
             and = "&"
         }
-        let url = Constants.shared().baseUrl + "applications" + (type ?? "") + filter + "\(and)page=\(page)"
+        let url = Constants.shared().baseUrl() + "applications" + (type ?? "") + filter + "\(and)page=\(page)"
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<Applications>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
@@ -120,7 +140,7 @@ class Requests: NSObject {
     
     public func getCategories( callback: @escaping (Categories) -> ()){
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "categories/applications", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "categories/applications", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<Categories>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
@@ -137,7 +157,7 @@ class Requests: NSObject {
     }
     func getTypes(callback: @escaping (Types?) -> ()) {
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "application/types", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "application/types", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<Types>) in
             if let _ = response.response{
                 let model = response.result
@@ -147,7 +167,7 @@ class Requests: NSObject {
     }
     func getMyApplications(page: Int,callback: @escaping (Applications?) -> ()) {
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "my/applications?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "my/applications?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<Applications>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
@@ -166,7 +186,7 @@ class Requests: NSObject {
     
     
     public func getVolunteersList(id: Int, page : Int, callback: @escaping (Volunteers) -> ()){
-        Alamofire.request(Constants.shared().baseUrl + "application/volunteers/\(id)?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "application/volunteers/\(id)?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
             (response: DataResponse<Volunteers>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
@@ -184,7 +204,7 @@ class Requests: NSObject {
     }
     
     public func getTopVolunteersList( callback: @escaping (Volunteers) -> ()){
-        Alamofire.request(Constants.shared().baseUrl + "volunteers-top", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "volunteers-top", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
             (response: DataResponse<Volunteers>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
@@ -203,7 +223,7 @@ class Requests: NSObject {
     
     
     public func complete(param:[String:Any], callback: @escaping (StandartResponse) -> ()){
-        Alamofire.request(Constants.shared().baseUrl + "application/complete", method: .post, parameters: param, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "application/complete", method: .post, parameters: param, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
             (response: DataResponse<StandartResponse>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
@@ -222,7 +242,7 @@ class Requests: NSObject {
 
     
     public func getFunds(page: Int, callback: @escaping (FundsResponse) -> ()){
-        Alamofire.request(Constants.shared().baseUrl + "funds?=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "funds?=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
             (response: DataResponse<FundsResponse>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
@@ -241,7 +261,7 @@ class Requests: NSObject {
     
     func createApplicationReqs(params : [String: AnyObject], callback: @escaping (CheckLoginResponse?) -> ()) {
         let header = Constants.shared().getHeaders()
-        var url = Constants.shared().baseUrl + "application/create"
+        var url = Constants.shared().baseUrl() + "application/create"
         if Constants.shared().getToken() == nil {
             url += "/anonymous"
         }
@@ -255,7 +275,7 @@ class Requests: NSObject {
     }
     
     func subscribe(id : Int, callback: @escaping (StandartResponse?) -> ()) {
-        Alamofire.request(Constants.shared().baseUrl + "fund/subscribe/\(id)", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "fund/subscribe/\(id)", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
             (response: DataResponse<StandartResponse>) in
             if let _ = response.response{
                 let model = response.result
@@ -266,7 +286,7 @@ class Requests: NSObject {
     
     func acceptApplication(id : Int, callback: @escaping (StandartResponse?) -> ()) {
         let param = ["application_id": id]
-        Alamofire.request(Constants.shared().baseUrl + "application/accept", method: .post, parameters: param, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "application/accept", method: .post, parameters: param, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
             (response: DataResponse<StandartResponse>) in
             if let _ = response.response{
                 let model = response.result
@@ -277,7 +297,7 @@ class Requests: NSObject {
     
     func getFundRequests(id : Int, callback: @escaping (FundRequest?) -> ()) {
         
-        Alamofire.request(Constants.shared().baseUrl + "fund/applications/\(id)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "fund/applications/\(id)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
             (response: DataResponse<FundRequest>) in
             if let _ = response.response{
                 let model = response.result
@@ -287,7 +307,7 @@ class Requests: NSObject {
     }
     
     public func getMyFunds(page: Int, callback: @escaping (FundsResponse) -> ()){
-        Alamofire.request(Constants.shared().baseUrl + "my/subscribed/funds?=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "my/subscribed/funds?=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: Constants.shared().getHeaders()).responseObject{
             (response: DataResponse<FundsResponse>) in
             if let statusCode = response.response?.statusCode, statusCode == 401 {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "unauthorized"), object: nil)
@@ -305,7 +325,7 @@ class Requests: NSObject {
     
     func getProfile(callback: @escaping (ProfileResponse?) -> ()) {
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "profile", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "profile", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<ProfileResponse>) in
             if let _ = response.response{
                 let model = response.result
@@ -324,7 +344,7 @@ class Requests: NSObject {
       }
     func getFeedback(page: Int,callback: @escaping (Feedbacks?) -> ()) {
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "feedbacks?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "feedbacks?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<Feedbacks>) in
             if let _ = response.response{
                 let model = response.result
@@ -334,7 +354,7 @@ class Requests: NSObject {
     }
     func editProfile(params : [String: AnyObject], callback: @escaping (StandartResponse?) -> ()) {
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "profile/update", method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "profile/update", method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<StandartResponse>) in
             if let _ = response.response{
                 let model = response.result
@@ -344,7 +364,7 @@ class Requests: NSObject {
     }
     func chagePassWord(params : [String: AnyObject], callback: @escaping (StandartResponse?) -> ()) {
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "reset/password", method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "reset/password", method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<StandartResponse>) in
             if let _ = response.response{
                 let model = response.result
@@ -354,7 +374,7 @@ class Requests: NSObject {
     }
     func getUserFeedback(id:Int,page: Int,callback: @escaping (Feedbacks?) -> ()) {
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "user/feedbacks/\(id)?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "user/feedbacks/\(id)?page=\(page)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<Feedbacks>) in
             if let _ = response.response{
                 let model = response.result
@@ -364,7 +384,7 @@ class Requests: NSObject {
     }
     func acceptDecline(params : [String: AnyObject], callback: @escaping (StandartResponse?) -> ()) {
         let header = Constants.shared().getHeaders()
-        Alamofire.request(Constants.shared().baseUrl + "volunteer/accept", method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseObject{
+        Alamofire.request(Constants.shared().baseUrl() + "volunteer/accept", method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseObject{
             (response: DataResponse<StandartResponse>) in
             if let _ = response.response{
                 let model = response.result
