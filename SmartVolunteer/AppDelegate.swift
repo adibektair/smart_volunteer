@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         if Constants.shared().getToken() != nil && !UserDefaults.standard.bool(forKey: "secure"){
             window?.rootViewController = TabbarViewController()
         }else{

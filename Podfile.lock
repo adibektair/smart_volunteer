@@ -9,6 +9,44 @@ PODS:
   - Cosmos (21.0.0)
   - DropDown (2.3.13)
   - EasyPeasy (1.9.0)
+  - Firebase/Analytics (7.3.0):
+    - Firebase/Core
+  - Firebase/Core (7.3.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 7.3.0)
+  - Firebase/CoreOnly (7.3.0):
+    - FirebaseCore (= 7.3.0)
+  - FirebaseAnalytics (7.3.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleAppMeasurement (= 7.3.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/MethodSwizzler (~> 7.0)
+    - GoogleUtilities/Network (~> 7.0)
+    - "GoogleUtilities/NSData+zlib (~> 7.0)"
+    - nanopb (~> 2.30906.0)
+  - FirebaseCore (7.3.0):
+    - FirebaseCoreDiagnostics (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+  - FirebaseCoreDiagnostics (7.3.0):
+    - GoogleDataTransport (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+    - nanopb (~> 2.30906.0)
+  - FirebaseInstallations (7.4.0):
+    - FirebaseCore (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
+    - PromisesObjC (~> 1.2)
+  - GoogleAppMeasurement (7.3.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/MethodSwizzler (~> 7.0)
+    - GoogleUtilities/Network (~> 7.0)
+    - "GoogleUtilities/NSData+zlib (~> 7.0)"
+    - nanopb (~> 2.30906.0)
+  - GoogleDataTransport (8.1.0):
+    - nanopb (~> 2.30906.0)
   - GoogleMaps (3.9.0):
     - GoogleMaps/Maps (= 3.9.0)
   - GoogleMaps/Base (3.9.0)
@@ -16,12 +54,37 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (3.9.0):
     - GoogleMaps/Base (= 3.9.0)
+  - GoogleUtilities/AppDelegateSwizzler (7.1.1):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.1.1):
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/Logger (7.1.1):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (7.1.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (7.1.1):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.1.1)"
+  - GoogleUtilities/Reachability (7.1.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.1.1):
+    - GoogleUtilities/Logger
   - ImageSlideshow (1.8.3):
     - ImageSlideshow/Core (= 1.8.3)
   - ImageSlideshow/Core (1.8.3)
   - IQKeyboardManagerSwift (6.5.5)
   - Localize-Swift (2.0.0)
+  - nanopb (2.30906.0):
+    - nanopb/decode (= 2.30906.0)
+    - nanopb/encode (= 2.30906.0)
+  - nanopb/decode (2.30906.0)
+  - nanopb/encode (2.30906.0)
   - ObjectMapper (3.5.3)
+  - PromisesObjC (1.2.11)
   - SDWebImage (5.8.1):
     - SDWebImage/Core (= 5.8.1)
   - SDWebImage/Core (5.8.1)
@@ -35,6 +98,7 @@ DEPENDENCIES:
   - Cosmos (~> 21.0)
   - DropDown
   - EasyPeasy
+  - Firebase/Analytics
   - GoogleMaps
   - GooglePlaces
   - ImageSlideshow (~> 1.8.3)
@@ -52,12 +116,22 @@ SPEC REPOS:
     - Cosmos
     - DropDown
     - EasyPeasy
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseInstallations
+    - GoogleAppMeasurement
+    - GoogleDataTransport
     - GoogleMaps
     - GooglePlaces
+    - GoogleUtilities
     - ImageSlideshow
     - IQKeyboardManagerSwift
     - Localize-Swift
+    - nanopb
     - ObjectMapper
+    - PromisesObjC
     - SDWebImage
 
 SPEC CHECKSUMS:
@@ -69,14 +143,24 @@ SPEC CHECKSUMS:
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   EasyPeasy: 19a84ef8f8bbcf925b9fecc29d1d78b7dab96718
+  Firebase: 26223c695fe322633274198cb19dca8cb7e54416
+  FirebaseAnalytics: 2580c2d62535ae7b644143d48941fcc239ea897a
+  FirebaseCore: 4d3c72622ce0e2106aaa07bb4b2935ba2c370972
+  FirebaseCoreDiagnostics: d50e11039e5984d92c8a512be2395f13df747350
+  FirebaseInstallations: 30646fc9a61c6f4ee3cd7a8b7231721842b40c95
+  GoogleAppMeasurement: 8d3c0aeede16ab7764144b5a4ca8e1d4323841b7
+  GoogleDataTransport: 116c84c4bdeb76be2a7a46de51244368f9794eab
   GoogleMaps: 4b5346bddfe6911bb89155d43c903020170523ac
   GooglePlaces: 1634d019549b969d40fe0ccb0b9513055adebe01
+  GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
   ImageSlideshow: 4694d7d699a1549582e7cc631fb392d8f91630f3
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
+  nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
 
-PODFILE CHECKSUM: 5be70307cac01081442d4e92c6b2aefee267fe88
+PODFILE CHECKSUM: 91271a9bcbf5e1fa1a93b0c2ff260e3a5853dea3
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

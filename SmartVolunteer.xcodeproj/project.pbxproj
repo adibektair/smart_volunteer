@@ -15,6 +15,7 @@
 		2F2A137F24A4A8FC00E4A9DA /* CityCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A137D24A4A8FC00E4A9DA /* CityCVC.xib */; };
 		2F331161252C9D4800D49D85 /* RateForCloseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F331160252C9D4800D49D85 /* RateForCloseVC.swift */; };
 		2F331163252C9E8200D49D85 /* RateVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F331162252C9E8200D49D85 /* RateVolunteerView.swift */; };
+		2F3826F725B37A4C00F71BD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F3826F625B37A4C00F71BD1 /* GoogleService-Info.plist */; };
 		2F45D417259D2BB20038F028 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F45D416259D2BB20038F028 /* MapVC.swift */; };
 		2F45D419259D432B0038F028 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F45D418259D432B0038F028 /* UserProfileVC.swift */; };
 		2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436D24A23AF00080C445 /* NewsListVC.swift */; };
@@ -84,6 +85,7 @@
 		2F2A137D24A4A8FC00E4A9DA /* CityCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCVC.xib; sourceTree = "<group>"; };
 		2F331160252C9D4800D49D85 /* RateForCloseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateForCloseVC.swift; sourceTree = "<group>"; };
 		2F331162252C9E8200D49D85 /* RateVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateVolunteerView.swift; sourceTree = "<group>"; };
+		2F3826F625B37A4C00F71BD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F45D416259D2BB20038F028 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		2F45D418259D432B0038F028 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		2F65436D24A23AF00080C445 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				F24B2D39249FC5CF0080C5B4 /* Assets.xcassets */,
 				F24B2D3B249FC5CF0080C5B4 /* LaunchScreen.storyboard */,
 				F24B2D3E249FC5CF0080C5B4 /* Info.plist */,
+				2F3826F625B37A4C00F71BD1 /* GoogleService-Info.plist */,
 				F2B26A9724A33B9C001EAC0E /* TabbarViewController.swift */,
 			);
 			path = SmartVolunteer;
@@ -432,6 +435,7 @@
 				F26F262824A11EE800934874 /* CheckIINVC.xib in Resources */,
 				F2B26A8B24A2246A001EAC0E /* PasswordVC.xib in Resources */,
 				F24B2D38249FC5CC0080C5B4 /* Main.storyboard in Resources */,
+				2F3826F725B37A4C00F71BD1 /* GoogleService-Info.plist in Resources */,
 				F2DB2CEF24A4BCC600940F1C /* FundVC.xib in Resources */,
 				2F2A137F24A4A8FC00E4A9DA /* CityCVC.xib in Resources */,
 			);
@@ -706,7 +710,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A6H3U35VBW;
+				DEVELOPMENT_TEAM = R5W6A2A7L3;
 				INFOPLIST_FILE = SmartVolunteer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -714,7 +718,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = qaz.SmartVolunteer.taraz1;
+				PRODUCT_BUNDLE_IDENTIFIER = qaz.SmartVolunteer.taraz;
 				PRODUCT_NAME = "SmartVolunteer Taraz";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -729,7 +733,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A6H3U35VBW;
+				DEVELOPMENT_TEAM = R5W6A2A7L3;
 				INFOPLIST_FILE = SmartVolunteer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -737,7 +741,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = qaz.SmartVolunteer.taraz1;
+				PRODUCT_BUNDLE_IDENTIFIER = qaz.SmartVolunteer.taraz;
 				PRODUCT_NAME = "SmartVolunteer Taraz";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
