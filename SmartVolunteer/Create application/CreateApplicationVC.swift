@@ -20,13 +20,13 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
     let descTextView = UITextView()
     let city = UITextField()
     let category = UITextField()
-    let address = UITextField()
+    var address = UITextField()
     let volCount = UITextField()
     var selectedCity : City?
     var selectedCategory : Data?
     var lastStackview = UIStackView()
     var createButton = UIButton()
-    
+    var addressInfo : AddressInfo?
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,7 +149,10 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
         
     }
     func selectAddress(){
-        MapApplication.open(vc: self)
+        MapApplication.open(vc: self) { (address) in
+            self.addressInfo = address
+            self.address.text = address.address
+        }
     }
     func lastInfo(){
         lastStackview.setProperties(axis: .vertical, alignment: .fill, spacing: 15, distribution: .fill)
@@ -199,11 +202,16 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
     
     // MARK: - Actions
     @objc func createAction(_ sender: UIButton) {
-        let param = ["city_id" : selectedCity?.id ?? 0,
+        var param = ["city_id" : selectedCity?.id ?? 0,
                      "category_id": selectedCategory?.id ?? 0,
                      "title" : titleTextField.text!,
                      "description" : descTextView.text!,
                      "volunteer_number" : volCount.text!] as [String : Any]
+        if let a = addressInfo {
+            param["lat"] = a.lat
+            param["lng"] = a.lng
+            param["address"] = a.address
+        }
         self.startLoad()
         Requests.shared().createApplicationReqs(params: param as [String : AnyObject]) { (result) in
             self.stopLoad()
@@ -229,6 +237,8 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
         volCount.text = ""
         titleTextField.text = ""
         descTextView.text = ""
+        address.text = ""
+        self.addressInfo = nil
         chechData()
     }
     
