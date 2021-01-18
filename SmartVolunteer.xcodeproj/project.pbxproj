@@ -90,6 +90,8 @@
 		2F3826F625B37A4C00F71BD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F38274A25B382AE00F71BD1 /* SMSCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCodeVC.swift; sourceTree = "<group>"; };
 		2F38274D25B396AE00F71BD1 /* MapApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapApplication.swift; sourceTree = "<group>"; };
+		2F38275725B5748A00F71BD1 /* SmartVolunteer Taraz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SmartVolunteer Taraz.entitlements"; sourceTree = "<group>"; };
+		2F38275925B5768500F71BD1 /* SmartVolunteer TarazDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SmartVolunteer TarazDebug.entitlements"; sourceTree = "<group>"; };
 		2F45D416259D2BB20038F028 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		2F45D418259D432B0038F028 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		2F65436D24A23AF00080C445 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
@@ -253,6 +255,8 @@
 		F24B2D2F249FC5CC0080C5B4 /* SmartVolunteer */ = {
 			isa = PBXGroup;
 			children = (
+				2F38275925B5768500F71BD1 /* SmartVolunteer TarazDebug.entitlements */,
+				2F38275725B5748A00F71BD1 /* SmartVolunteer Taraz.entitlements */,
 				F2B26A9C24A34C13001EAC0E /* Cells */,
 				F2B26A9924A34AF4001EAC0E /* Funds */,
 				F2B26A9624A33B6B001EAC0E /* Profile */,
@@ -715,10 +719,11 @@
 			baseConfigurationReference = 4850EF2CF64FA1018328D9A9 /* Pods-SmartVolunteer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SmartVolunteer/SmartVolunteer TarazDebug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R5W6A2A7L3;
+				DEVELOPMENT_TEAM = F9R52PYR5A;
 				INFOPLIST_FILE = SmartVolunteer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -739,9 +744,11 @@
 			baseConfigurationReference = 7FD70581A056A715446020F8 /* Pods-SmartVolunteer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SmartVolunteer/SmartVolunteer Taraz.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R5W6A2A7L3;
+				DEVELOPMENT_TEAM = F9R52PYR5A;
 				INFOPLIST_FILE = SmartVolunteer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -751,6 +758,7 @@
 				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = qaz.SmartVolunteer.taraz;
 				PRODUCT_NAME = "SmartVolunteer Taraz";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
