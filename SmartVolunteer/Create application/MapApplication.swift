@@ -41,13 +41,13 @@ class MapApplication: UIViewController,MKMapViewDelegate {
         mapView.easy.layout(Edges())
         mapView.mapType = .hybrid
         self.mapView.addSubview(addressText)
-        addressText.placeholder = "Введите адрес"
+        addressText.placeholder = "Введите адрес".localized()
         addressText.easy.layout(Top(24),Left(16),Right(16),Height(48))
         addressText.layer.cornerRadius = 10
         addressText.addTarget(self, action: #selector(textFieldChange(_:)), for: .editingChanged)
         addressText.backgroundColor = .white
         self.view.addSubview(select)
-        select.title = "Подтвердить"
+        select.title = "Подтвердить".localized()
         select.isAccessible = true
         select.easy.layout(Bottom(120),Left(16),Right(16))
         select.addTapGestureRecognizer {

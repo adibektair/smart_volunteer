@@ -1,0 +1,205 @@
+//<string name="save_info">Сохранить изменения</string>
+//<string name="success_saved">Профиль успешно сохранен!</string>
+//<string name="success_ava_saved">Аватар успешно изменен!</string>
+//<string name="select_user_logo">Выберите фото для аватарки</string>
+//<string name="sure_to_exit">Уверены, что хотите выйти?</string>
+//<string name="yes">Подтверждаю</string>
+//<string name="no">Отмена</string>
+//
+//<string name="category">Категория</string>
+//<string name="volunteer_amount">Количество волонтеров</string>
+//<string name="title">Заголовок</string>
+//<string name="desc">Описание</string>
+//<string name="create_application">Создать заявку</string>
+//<string name="creating_application">Создание заявки</string>
+//
+//<string name="my_applications">Мои заявки</string>
+//<string name="fill_amount">Заполните количество волонтеров</string>
+//<string name="fill_title">Заполните заголовок</string>
+//<string name="fill_desc">Заполните описание</string>
+//<string name="create_again">Создать еще заявку</string>
+//
+//<string name="see_all_volunteers">Посмотреть список желающих</string>
+//<string name="volunteers_list">Список желающих</string>
+//<string name="unauth_desc">Прежде чем получить доступ к данным\nмодулям, сперва необходимо\nавторизоваться</string>
+//<string name="to_auth">Перейти к авторизации</string>
+//
+//<string name="slider1_title">Стань волонтером</string>
+//<string name="slider2_title">Легкий поиск и доступ</string>
+//<string name="slider3_title">Ищите на карте</string>
+//
+//<string name="slider1_desc">Волонтером может быть каждый</string>
+//<string name="slider2_desc">Найди лучший способ помочь другим</string>
+//<string name="slider3_desc">Ищи на карте где ты можешь\nбыть полезен</string>
+//
+//<string name="end_request">Завершить заявку</string>
+//<string name="accept">Принять</string>
+//<string name="decline">Отклонить</string>
+//<string name="reviews">Отзывы</string>
+//
+//<string name="apply">Применить</string>
+//<string name="question_sure_to_cancel_application">Вы уверены что хотите завершить\n данную заявку, тем самым поставить\n оценку волонтером?</string>
+//<string name="rate_volunteers">Оценка волонтеров</string>
+//<string name="finish_rate_and_send">Отправить оценки и завершить</string>
+//<string name="write_comment">Напишите комментарий</string>
+//<string name="application_success_ended">Заявка успешно завершена!</string>
+//
+//<string name="completed_works">Выполненные работы</string>
+//<string name="more">Подробнее</string>
+//<string name="go_to_profile">Перейти в профиль</string>
+//<string name="sms_et">Смс-код</string>
+//<string name="map_fragment_title">Активные заявки на карте</string>
+//<string name="address">Адрес</string>
+//
+//<string name="volunteer">Волонтер</string>
+//<string name="user">Нуждающийся</string>
+//<string name="who_are_you">Кто Вы?</string>
+//</resources>
+//
+//<resources>
+//<string name = "app_name"> Smart Volunteer Taraz </string>
+//
+//<string name = "not_connected"> Интернет байланысы жоқ </string>
+//<string name = "network_error"> желі қатесі </string>
+//<string name = "generic_error"> Сұрауыңызды қайталаңыз </string>
+//<string name = "next"> келесі </string>
+//<string name = "be_volunteer"> Ерікті болыңыз </string>
+//<string name = "register"> Тіркелу </string>
+//<string name = "register_volunteer"> Еріктілерді тіркеу </string>
+//<string name = "skip"> Өткізу </string>
+//<string name = "тіркеу"> Тіркелу </string>
+//
+//<string name = "alert_title"> Ескерту </string>
+//<string name = "fill_all_fields"> Барлық өрістерді дұрыс толтырыңыз! </string>
+//
+//<string name = "enter_iin_desc"> иин енгізіңіз, бағдарлама \ nтіркелген-тіркелмегеніңізді тексереді </string>
+//<string name = "enter_iin"> енгізіңіз </string>
+//<string name = "name"> аты </string>
+//<string name = "surname"> тегі </string>
+//<string name = "phone"> нөмір </string>
+//<string name = "cellphone"> Телефон </string>
+//<string name = "selection_city"> Қаланы таңдаңыз </string>
+//<string name = "selection_categories"> Санаттарды таңдау </string>
+//<string name = "selection_category"> Санатты таңдаңыз </ string>
+//<string name = "select_city"> Қалалар мен халықтар </string>
+//<string name = "city_name"> қала атауы </string>
+//<string name = "news_name"> жаңалықтар тақырыбы </string>
+//<string name = "fund_name"> қор атауы </string>
+//<string name = "fund"> қор </string>
+//<string name = "password"> пароль </string>
+//<string name = "kazakh"> қазақша </string>
+//<string name = "rus"> орыс </string>
+//<string name = "corrent"> дұрыс </string>
+//<string name = "enter_name"> атауды енгізу </string>
+//<string name = "enter_surname"> фамилияны енгізіңіз </string>
+//<string name = "enter_phone"> телефон нөміріңізді енгізіңіз </ string>
+//<string name = "password_validation"> пароль кемінде 6 таңбадан тұруы керек </ string>
+//
+//<string name = "login"> Кіру </string>
+//<string name = "signin"> кіру </string>
+//<string name = "unut_password"> пароліңізді ұмыттыңыз ба? </string>
+//
+//<string name = "news"> жаңалықтар </string>
+//<string name = "founds"> Негіздер </string>
+//<string name = "request"> Сұраныстар </string>
+//<string name = "profile"> профиль </string>
+//
+//<string name = "unauthoriz_message"> Өтінішке кіріңіз </ string>
+//<string name = "ok"> жақсы </string>
+//<string name = "hours_ago"> сағат бұрын </string>
+//<string name = "Кечээ"> Кеше </string>
+//
+//<string name = "minutes_to_read">% 1 $ d минут оқыңыз </string>
+//
+//<string name = "волонтерлар">% 1 $ d еріктілер </string>
+//<string name = "follow"> Follow </string>
+//<string name = "already_followed"> Сіз жазылдыңыз </string>
+//<string name = "unfollow"> жазылымнан бас тарту </string>
+//
+//<string name = "Fundas_requests"> Қор туралы сұраулар </string>
+//
+//<string name = "from_all">% 1 $ d /% 2 $ d өтініш беруші </string>
+//
+//<string name = "my_followed_funds"> Келесі қаражат </string>
+//
+//<string name = "all"> барлығы </string>
+//<string name = "by_fund"> қор </string>
+//<string name = "in_progress"> Орындалуда </string>
+//<string name = "Applications_size">% 1 $ d қолданба </string>
+//<string name = "filter"> Сүзгі </string>
+//<string name = "private_type"> Жеке </string>
+//<string name = "reset"> Барлығын қалпына келтіру </string>
+//<string name = "add_city"> қаланы қосу </string>
+//
+//<string name = "show_appls"> Билеттерді көрсету </string>
+//
+//<string name = "assigned_from_to">% 2 $ d еріктілерден% 1 $ d жинады </string>
+//<string name = "send_request"> Сұраным жіберу </string>
+//
+//<string name = "successed_sended"> Сіздің өтінішіңіз сәтті жіберілді </string>
+//<string name = "waint_fund"> қордан жауап күтіңіз </string>
+//<string name = "category_is"> Санат:% 1 $ s </string>
+//
+//<string name = "edit_profile"> Профильді өңдеу </string>
+//<string name = "logout"> Шығу </string>
+//
+//<string name = "iin"> ИИН </string>
+//<string name = "language"> тіл </string>
+//<string name = "city"> қала </string>
+//<string name = "save_info"> Өзгерістерді сақтау </string>
+//<string name = "success_saved"> Профиль сәтті сақталды! </string>
+//<string name = "success_ava_saved"> Аватар сәтті өзгертілді! </string>
+//<string name = "select_user_logo"> Аватарыңызға фотосурет таңдаңыз </string>
+//<string name = "sure_to_exit"> Шынымен шыққыңыз келе ме? </string>
+//<string name = "yes"> Растау </string>
+//<string name = "no"> Болдырмау </string>
+//
+//<string name = "category"> Санат </string>
+//<string name = "volonter_amount"> еріктілер саны </string>
+//<string name = "title"> тақырып </string>
+//<string name = "desc"> Сипаттама </string>
+//<string name = "create_application"> қолданба жасау </string>
+//<string name = "creat_application"> қосымша құру </string>
+//
+//<string name = "my_applications"> Менің қосымшаларым </string>
+//<string name = "fill_amount"> еріктілердің санын толтырыңыз </string>
+//<string name = "fill_title"> Тақырыпты толтырыңыз </ string>
+//<string name = "fill_desc"> Сипаттаманы толтырыңыз </string>
+//<string name = "create_again"> Басқа билет жасаңыз </string>
+//
+//<string name = "see_all_volunteers"> Қалаулар тізімін қараңыз </string>
+//<string name = "волонтерлар тізімі"> еріктілер тізімі </string>
+//<string name = "unauth_desc"> осы \ nмодульдерге қол жеткізбес бұрын, алдымен \ n авторизациялау керек </string>
+//<string name = "to_auth"> авторизацияға барыңыз </string>
+//
+//<string name = "slider1_title"> Ерікті болу </string>
+//<string name = "slider2_title"> Оңай іздеу және қол жетімділік </string>
+//<string name = "slider3_title"> Картадан іздеу </string>
+//
+//<string name = "slider1_desc"> Кез-келген адам ерікті бола алады </string>
+//<string name = "slider2_desc"> басқаларға көмектесудің жақсы әдісін табыңыз </string>
+//<string name = "slider3_desc"> Картадан \ пайдалы болатын жерді іздеңіз </string>
+//
+//<string name = "end_request"> Сұранысты толтыру </string>
+//<string name = "accept"> Қабылдау </string>
+//<string name = "rad"> бас тарту </string>
+//<string name = "reviews"> Пікірлер </string>
+//
+//<string name = "apply"> Қолдану </string>
+//<string name = "question_sure_to_cancel_application"> Сіз бұл қолданбаны \ n аяқтағыңыз келетініне сенімдісіз, сол арқылы \ n волонтер ретінде бағалайсыз ба? </string>
+//<string name = "rate_volunteers"> Еріктілердің рейтингі </string>
+//<string name = "finish_rate_and_send"> Бағаларды жіберіп, аяқтаңыз </string>
+//<string name = "write_comment"> Пікір жазу </string>
+//<string name = "application_success_ended"> Өтініш сәтті аяқталды! </string>
+//
+//<string name = "done_works"> Аяқталған жұмыстар </string>
+//<string name = "more"> қосымша </string>
+//<string name = "go_to_profile"> Профильге өту </string>
+//<string name = "sms_et"> SMS коды </string>
+//<string name = "map_fragment_title"> картадағы белсенді тапсырыстар </string>
+//<string name = "address"> Мекен-жай </string>
+//
+//<string name = "волонтер"> ерікті </string>
+//<string name = "user"> мұқтаж </string>
+//<string name = "who_are_you"> сіз кімсіз? </string>
+//</resources>

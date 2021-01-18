@@ -52,7 +52,7 @@ class CheckIINVC: UIViewController, UITextFieldDelegate {
 
     @IBAction func nextButtonPressed(_ sender: Any) {
         if let t = iinTextField.text, t.count == 12, !check(iin:t) {
-            self.showAlert(title: "Внимание", message: "Неверный иин")
+            self.showAlert(title: "Внимание".localized(), message: "Неверный иин".localized())
             return
         }
         self.startLoad()

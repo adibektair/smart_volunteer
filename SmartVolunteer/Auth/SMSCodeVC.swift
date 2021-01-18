@@ -64,7 +64,7 @@ class SMSCodeVC: ScrollStackController, UITextFieldDelegate {
         
         // Title Label
         let titleLabel = UILabel()
-        titleLabel.text = "Подтверждение номера"
+        titleLabel.text = "Подтверждение номера".localized()
         titleLabel.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
         titleLabel.font = titleLabel.font.withSize(21)
         titleLabel.numberOfLines = 0
@@ -75,7 +75,7 @@ class SMSCodeVC: ScrollStackController, UITextFieldDelegate {
     }
     func IIN(){
         iinTextField.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9764705882, alpha: 1)
-        iinTextField.placeholder = "ИИН"
+        iinTextField.placeholder = "ИИН".localized()
         iinTextField.keyboardType = .numberPad
         iinTextField.borderStyle = .roundedRect
         iinTextField.isEnabled = false
@@ -85,7 +85,7 @@ class SMSCodeVC: ScrollStackController, UITextFieldDelegate {
     }
     func phone(){
         phoneTextField.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9764705882, alpha: 1)
-        phoneTextField.placeholder = "Номер телефона"
+        phoneTextField.placeholder = "Номер телефона".localized()
         phoneTextField.maskExpression = "+7 ({ddd}) {ddd} {dd} {dd}"
 
         phoneTextField.keyboardType = .numberPad
@@ -107,7 +107,7 @@ class SMSCodeVC: ScrollStackController, UITextFieldDelegate {
     }
     
     func button(){
-        self.continueButton.title = "Отправить код"
+        self.continueButton.title = "Отправить код".localized()
         self.continueButton.isAccessible = true
         self.continueButton.addTarget(self, action: #selector(self.sendReq), for: .touchUpInside)
         self.stackView.addArrangedSubview(continueButton)
@@ -120,7 +120,7 @@ class SMSCodeVC: ScrollStackController, UITextFieldDelegate {
             Requests.shared().sendCode(params: p) { (result) in
                 if result?.success ?? false {
                     self.smsCodeTextField.isHidden = false
-                    self.continueButton.title = "Подтвердить код"
+                    self.continueButton.title = "Подтвердить код".localized()
                 }
             }
         }

@@ -31,7 +31,7 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
         tableView.delegate = self
         tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
-        self.navigationItem.title = "Оценка волонтеров"
+        self.navigationItem.title = "Оценка волонтеров".localized()
     }
     func getData(){
         Requests.shared().getVolunteersList(id: id, page: 1) { (r) in
@@ -43,7 +43,7 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
     }
     func bottomView(){
         let label = UILabel()
-        label.setProperties(text: "Отправить оценки и завершить", textColor: .white, font: .systemFont(ofSize: 18), textAlignment: .center, numberLines: 1)
+        label.setProperties(text: "Отправить оценки и завершить".localized(), textColor: .white, font: .systemFont(ofSize: 18), textAlignment: .center, numberLines: 1)
         label.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1)
         self.view.addSubview(label)
         label.easy.layout(Left(),Right(),Height(60))
@@ -74,7 +74,7 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
         Requests.shared().complete(param: param) { (result) in
             if let s = result.success, let m = result.message {
                 if s {
-                    self.showAlert(title: "Внимание", message: m, popToRoot: true)
+                    self.showAlert(title: "Внимание".localized(), message: m, popToRoot: true)
                 }
             }
         }
@@ -105,7 +105,7 @@ class RateForCloseVC: UIViewController,UITableViewDelegate, UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.setProperties(text: "Отправить оценки и завершить", textColor: .white, font: .systemFont(ofSize: 18), textAlignment: .center, numberLines: 1)
+        label.setProperties(text: "Отправить оценки и завершить".localized(), textColor: .white, font: .systemFont(ofSize: 18), textAlignment: .center, numberLines: 1)
         label.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1)
         return UIView()
     }

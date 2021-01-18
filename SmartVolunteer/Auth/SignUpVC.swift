@@ -71,7 +71,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         
         // Title Label
         let titleLabel = UILabel()
-        titleLabel.text = "Регистрация волонтера"
+        titleLabel.text = "Регистрация волонтера".localized()
         titleLabel.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
         titleLabel.font = titleLabel.font.withSize(21)
         titleLabel.numberOfLines = 0
@@ -83,7 +83,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         // TextFields
         
         iinTextField.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9764705882, alpha: 1)
-        iinTextField.placeholder = "ИИН"
+        iinTextField.placeholder = "ИИН".localized()
         iinTextField.keyboardType = .numberPad
         iinTextField.borderStyle = .roundedRect
         iinTextField.delegate = self
@@ -92,7 +92,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         
         
         firstNameTextField.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9764705882, alpha: 1)
-        firstNameTextField.placeholder = "Имя"
+        firstNameTextField.placeholder = "Имя".localized()
         firstNameTextField.keyboardType = .default
         firstNameTextField.borderStyle = .roundedRect
         firstNameTextField.autocapitalizationType = .words
@@ -101,7 +101,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         
         
         lastNameTextField.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9764705882, alpha: 1)
-        lastNameTextField.placeholder = "Фамилия"
+        lastNameTextField.placeholder = "Фамилия".localized()
         lastNameTextField.keyboardType = .default
         lastNameTextField.borderStyle = .roundedRect
         lastNameTextField.autocapitalizationType = .words
@@ -111,7 +111,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         
         phoneTextField.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9764705882, alpha: 1)
         let p = phoneTextField.text
-        phoneTextField.placeholder = "Номер телефона"
+        phoneTextField.placeholder = "Номер телефона".localized()
         phoneTextField.maskExpression = "+7 ({ddd}) {ddd} {dd} {dd}"
         phoneTextField.text = p
         phoneTextField.keyboardType = .numberPad
@@ -123,7 +123,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         
         
         cityTextField.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9764705882, alpha: 1)
-        cityTextField.placeholder = "Город или поселение"
+        cityTextField.placeholder = "Город или поселение".localized()
         cityTextField.borderStyle = .roundedRect
         cityTextField.addTapGestureRecognizer {
             self.present(self.picker, animated: true, completion: nil)
@@ -133,7 +133,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         
         
         passwordTextField.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9764705882, alpha: 1)
-        passwordTextField.placeholder = "Пароль"
+        passwordTextField.placeholder = "Пароль".localized()
         passwordTextField.keyboardType = .default
         passwordTextField.isSecureTextEntry = true
         passwordTextField.borderStyle = .roundedRect
@@ -192,7 +192,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         //is volunteer
         role()
         // Button
-        self.continueButton.title = "Зарегистрироваться"
+        self.continueButton.title = "Зарегистрироваться".localized()
         self.continueButton.isAccessible = true
         self.continueButton.addTarget(self, action: #selector(self.register), for: .touchUpInside)
         self.stackView.addArrangedSubview(continueButton)
@@ -205,7 +205,7 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
         volunteer.cornerRadius(radius: 8, width: 0.5, color: #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1))
         
         let volunteerLabel = UILabel()
-        volunteerLabel.text = "Волонтер"
+        volunteerLabel.text = "Волонтер".localized()
         volunteerLabel.textColor = #colorLiteral(red: 0.1907444894, green: 0.4766811728, blue: 0.96295017, alpha: 1)
         volunteerLabel.font = volunteerLabel.font.withSize(14)
         volunteer.addSubview(volunteerLabel)
@@ -300,12 +300,12 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
                     tabbar.modalPresentationStyle = .fullScreen
                     self.present(tabbar, animated: true, completion: nil)
                 }else{
-                    self.showError(text: "Такой ИИН уже существует")
+                    self.showError(text: "Такой ИИН уже существует".localized())
                 }
             }
         }
         else{
-            self.showError(text: "Заполните все поля")
+            self.showError(text: "Заполните все поля".localized())
         }
     }
     

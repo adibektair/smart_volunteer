@@ -8,6 +8,7 @@
 
 import UIKit
 import EasyPeasy
+import Localize_Swift
 class LinksVC: ScrollStackController {
 
     var links : [Link]?
@@ -22,7 +23,7 @@ class LinksVC: ScrollStackController {
     }
     func setUI(){
         stackView.setSpacing(top: 10, left: 20, right: 0, bottom: 0)
-        title = "Доп. информация"
+        title = "Доп. информация".localized()
     }
     func getData(){
         Requests.shared().getLinks { (result) in

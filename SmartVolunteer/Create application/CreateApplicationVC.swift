@@ -8,6 +8,7 @@
 
 import UIKit
 import EasyPeasy
+import Localize_Swift
 
 class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
     
@@ -46,7 +47,7 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
     
     // MARK: - Functions
     func life(){
-        self.navigationItem.title = "Создание заявки"
+        self.navigationItem.title = "Создание заявки".localized()
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
@@ -134,10 +135,10 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
         volCount.cornerRadius(radius: 10, width: 1,color: #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1))
         volCount.setLeftPaddingPoints(20)
         
-        city.placeholder = "Город"
-        address.placeholder = "Адрес"
-        category.placeholder = "Категория"
-        volCount.placeholder = "Количество волонтеров"
+        city.placeholder = "Город".localized()
+        address.placeholder = "Адрес".localized()
+        category.placeholder = "Категория".localized()
+        volCount.placeholder = "Количество волонтеров".localized()
         
         
         textFieldsStackView.addArrangedSubview(city)
@@ -156,7 +157,7 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
     }
     func lastInfo(){
         lastStackview.setProperties(axis: .vertical, alignment: .fill, spacing: 15, distribution: .fill)
-        titleLabel.setProperties(text: "Заголовок", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .left, numberLines: 1)
+        titleLabel.setProperties(text: "Заголовок".localized(), textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .left, numberLines: 1)
         lastStackview.addArrangedSubview(titleLabel)
         lastStackview.setSpacing(top: 0, left: 20, right: 20, bottom: 0)
         
@@ -165,7 +166,7 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
         titleTextField.cornerRadius(radius: 10, width: 1,color: #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1))
         titleTextField.setLeftPaddingPoints(20)
         
-        descLabel.setProperties(text: "Описание", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .left, numberLines: 1)
+        descLabel.setProperties(text: "Описание".localized(), textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .left, numberLines: 1)
         descTextView.cornerRadius(radius: 10, width: 1,color: #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1))
         descTextView.easy.layout(Height(140))
         descTextView.font = .systemFont(ofSize: 14)
@@ -178,7 +179,7 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
     func createButtonSetting(){
         createButton.easy.layout(Height(52))
         createButton.cornerRadius(radius: 10, width: 0)
-        createButton.setTitle("Создать заявку", for: .normal)
+        createButton.setTitle("Создать заявку".localized(), for: .normal)
         createButton.addTarget(self, action: #selector(createAction(_:)), for: .touchUpInside)
         self.createButton.isEnabled = false
         self.createButton.backgroundColor =  #colorLiteral(red: 0.5960784314, green: 0.737254902, blue: 0.9843137255, alpha: 1)
@@ -218,7 +219,7 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
             if result?.success ?? false {
                 self.successView()
             } else {
-                self.showAlert(title: "Внимание", message: "Ошибка", popToRoot: false)
+                self.showAlert(title: "Внимание", message: "Ошибка".localized(), popToRoot: false)
             }
             
         }

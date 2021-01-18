@@ -49,7 +49,7 @@ class ApplicationView: UIView {
         }
         contAuth.layer.cornerRadius = 11
         authorLabel.easy.layout(Height(18),Left(8),Right(8),Top(2),Bottom(2))
-        authorLabel.setProperties(text: data?.fund?.name ?? data?.user?.name ?? "Анонимно", textColor: .white, font: .systemFont(ofSize: 12, weight: .bold), textAlignment: .center, numberLines: 1)
+        authorLabel.setProperties(text: data?.fund?.name ?? data?.user?.name ?? "Анонимно".localized(), textColor: .white, font: .systemFont(ofSize: 12, weight: .bold), textAlignment: .center, numberLines: 1)
         countOf.setProperties(text: "\(data?.volunteerNumberAccessed ?? 0) из \(data?.volunteerNumber ?? 0) желающих", textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 12), textAlignment: .right, numberLines: 1)
         infoStackView.addArrangedSubview(contAuth)
         infoStackView.addArrangedSubview(UIView())
@@ -65,7 +65,7 @@ class ApplicationView: UIView {
         title.setProperties(text: data?.title ?? "", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14),numberLines: 2)
         nameStackView.addArrangedSubview(image)
         nameStackView.addArrangedSubview(title)
-        let descText =  data?.descriptionField ?? "Акимат города Алматы просит всех желающих, помочь бездомным животным а также бездомным бомбам ко.."
+        let descText =  data?.descriptionField ?? ""
         desc.setProperties(text: descText, textColor: #colorLiteral(red: 0.5921568627, green: 0.6784313725, blue: 0.7137254902, alpha: 1), font: .systemFont(ofSize: 12), textAlignment: .left, numberLines: 2)
         
         stackView.addArrangedSubview(infoStackView)

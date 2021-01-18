@@ -18,6 +18,7 @@
 		2F3826F725B37A4C00F71BD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F3826F625B37A4C00F71BD1 /* GoogleService-Info.plist */; };
 		2F38274B25B382AE00F71BD1 /* SMSCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F38274A25B382AE00F71BD1 /* SMSCodeVC.swift */; };
 		2F38274E25B396AE00F71BD1 /* MapApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F38274D25B396AE00F71BD1 /* MapApplication.swift */; };
+		2F3827AF25B5DCBC00F71BD1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F3827B125B5DCBC00F71BD1 /* Localizable.strings */; };
 		2F45D417259D2BB20038F028 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F45D416259D2BB20038F028 /* MapVC.swift */; };
 		2F45D419259D432B0038F028 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F45D418259D432B0038F028 /* UserProfileVC.swift */; };
 		2F65436E24A23AF00080C445 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65436D24A23AF00080C445 /* NewsListVC.swift */; };
@@ -92,6 +93,13 @@
 		2F38274D25B396AE00F71BD1 /* MapApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapApplication.swift; sourceTree = "<group>"; };
 		2F38275725B5748A00F71BD1 /* SmartVolunteer Taraz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SmartVolunteer Taraz.entitlements"; sourceTree = "<group>"; };
 		2F38275925B5768500F71BD1 /* SmartVolunteer TarazDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SmartVolunteer TarazDebug.entitlements"; sourceTree = "<group>"; };
+		2F3827A625B5DC1300F71BD1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		2F3827A725B5DC1300F71BD1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2F3827A925B5DC2600F71BD1 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/Main.strings; sourceTree = "<group>"; };
+		2F3827AA25B5DC2600F71BD1 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2F3827B025B5DCBC00F71BD1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F3827B325B5DCC100F71BD1 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F3827B425B5DCC200F71BD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F45D416259D2BB20038F028 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		2F45D418259D432B0038F028 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		2F65436D24A23AF00080C445 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
@@ -257,6 +265,7 @@
 			children = (
 				2F38275925B5768500F71BD1 /* SmartVolunteer TarazDebug.entitlements */,
 				2F38275725B5748A00F71BD1 /* SmartVolunteer Taraz.entitlements */,
+				2F3827B125B5DCBC00F71BD1 /* Localizable.strings */,
 				F2B26A9C24A34C13001EAC0E /* Cells */,
 				F2B26A9924A34AF4001EAC0E /* Funds */,
 				F2B26A9624A33B6B001EAC0E /* Profile */,
@@ -422,6 +431,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				kk,
 			);
 			mainGroup = F24B2D24249FC5CC0080C5B4;
 			productRefGroup = F24B2D2E249FC5CC0080C5B4 /* Products */;
@@ -440,6 +451,7 @@
 			files = (
 				F2156CF024A91B7700BFFDBD /* ProfileViewController.xib in Resources */,
 				F24B2D3D249FC5CF0080C5B4 /* LaunchScreen.storyboard in Resources */,
+				2F3827AF25B5DCBC00F71BD1 /* Localizable.strings in Resources */,
 				F2B26AA024A34C33001EAC0E /* FuncTVC.xib in Resources */,
 				F24B2D3A249FC5CF0080C5B4 /* Assets.xcassets in Resources */,
 				F26F262824A11EE800934874 /* CheckIINVC.xib in Resources */,
@@ -581,10 +593,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		2F3827B125B5DCBC00F71BD1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F3827B025B5DCBC00F71BD1 /* ru */,
+				2F3827B325B5DCC100F71BD1 /* kk */,
+				2F3827B425B5DCC200F71BD1 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F24B2D36249FC5CC0080C5B4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F24B2D37249FC5CC0080C5B4 /* Base */,
+				2F3827A625B5DC1300F71BD1 /* ru */,
+				2F3827A925B5DC2600F71BD1 /* kk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -593,6 +617,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F24B2D3C249FC5CF0080C5B4 /* Base */,
+				2F3827A725B5DC1300F71BD1 /* ru */,
+				2F3827AA25B5DC2600F71BD1 /* kk */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -604,6 +630,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -664,6 +691,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

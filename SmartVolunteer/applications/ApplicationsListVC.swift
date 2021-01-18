@@ -8,14 +8,14 @@
 
 import UIKit
 import EasyPeasy
-
+import Localize_Swift
 class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Variables
     let tableView = UITableView()
     var applications : Applications?
     var selected = 0
-    let segmentedController = UISegmentedControl(items: ["Все","Фондовые", "В работе"])
+    let segmentedController = UISegmentedControl(items: ["Все".localized(),"Фондовые".localized(), "В работе".localized()])
     var filter = ""
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -25,6 +25,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         }
         life()
         setUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
         getData()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -33,8 +34,12 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
-    // MARK: - Outlets
-    
+    // MARK: - Actions
+    @objc func setText() {
+        //Перезагрузка заголовка
+        self.navigationItem.title = "Заявки".localized()
+        self.tableView.reloadData()
+    }
     
     // MARK: - Functions
     func life() {
@@ -53,7 +58,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
             tableView.layoutMargins = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
         }
         tableView.easy.layout(Edges())
-        self.navigationItem.title = "Заявки"
+        self.navigationItem.title = "Заявки".localized()
         rightButton()
     }
     
@@ -139,7 +144,7 @@ class ApplicationsListVC: UIViewController,UITableViewDelegate, UITableViewDataS
         stackView.addArrangedSubview(segmentedController)
         let appsLabel = UILabel()
         let count = self.applications?.applications?.total ?? 0
-        appsLabel.setProperties(text: "\(count) заявок", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
+        appsLabel.setProperties(text: "\(count) " + "заявок".localized(), textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
         stackView.addArrangedSubview(appsLabel)
         c.addSubview(stackView)
         stackView.easy.layout(Edges())

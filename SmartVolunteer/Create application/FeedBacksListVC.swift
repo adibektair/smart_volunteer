@@ -21,7 +21,7 @@ class FeedBacksListVC: UIViewController,UITableViewDataSource, UITableViewDelega
         tableView.easy.layout(Edges())
         tableView.delegate = self
         tableView.dataSource = self
-        self.navigationItem.title = "Отзывы"
+        self.navigationItem.title = "Отзывы".localized()
         setBackButton()
         getData()
     }

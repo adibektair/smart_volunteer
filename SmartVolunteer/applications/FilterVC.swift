@@ -8,7 +8,7 @@
 
 import UIKit
 import EasyPeasy
-
+import Localize_Swift
 
 class FilterVC: ScrollStackController,CityPickerProtocol {
     
@@ -67,15 +67,15 @@ class FilterVC: ScrollStackController,CityPickerProtocol {
         citiesCollectionView.dataSource = self
         setPicker()
         setBackButton()
-        navigationItem.title = "Фильтр"
+        navigationItem.title = "Фильтр".localized()
     }
     
     func setUI(){
         stackView.removeAllArrangedSubviews()
         stackView.setSpacing(top: 20, left: 20, right: 20, bottom: 20)
         citiesCollectionView.easy.layout(Height(36))
-        cityTitle.setProperties(text: "Выберите город", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .left, numberLines: 1)
-        typeLabel.setProperties(text: "Выберите тип заявки", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold))
+        cityTitle.setProperties(text: "Выберите город".localized(), textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .left, numberLines: 1)
+        typeLabel.setProperties(text: "Выберите тип заявки".localized(), textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold))
         stackView.addArrangedSubview(cityTitle)
         stackView.addArrangedSubview(citiesCollectionView)
         stackView.addArrangedSubview(typeLabel)
@@ -138,7 +138,7 @@ class FilterVC: ScrollStackController,CityPickerProtocol {
     }
     
     func categories(){
-        categoryLabel.setProperties(text: "Выберите категории", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .left, numberLines: 1)
+        categoryLabel.setProperties(text: "Выберите категории".localized(), textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .left, numberLines: 1)
         stackView.addArrangedSubview(categoryLabel)
         self.categoryStackView.setProperties(axis: .vertical, alignment: .fill, spacing: 18, distribution: .fill)
         if categoriesObj == nil {
@@ -192,8 +192,8 @@ class FilterVC: ScrollStackController,CityPickerProtocol {
         clearButton.easy.layout(Height(54))
         filter.easy.layout(Height(54))
         
-        clearButton.setProperties(text: "Сбросить все", textColor:  #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 16, weight: .medium), textAlignment: .center, numberLines: 1)
-        filter.setProperties(text: "0 заявок", textColor:  .white, font: .systemFont(ofSize: 16, weight: .bold), textAlignment: .center, numberLines: 1)
+        clearButton.setProperties(text: "Сбросить все".localized(), textColor:  #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 16, weight: .medium), textAlignment: .center, numberLines: 1)
+        filter.setProperties(text: "0 заявок".localized(), textColor:  .white, font: .systemFont(ofSize: 16, weight: .bold), textAlignment: .center, numberLines: 1)
         twoButtonsStack.addArrangedSubview(clearButton)
         twoButtonsStack.addArrangedSubview(filter)
         stackView.addArrangedSubview(UIView())

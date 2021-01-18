@@ -43,11 +43,11 @@ class PasswordVC: UIViewController {
                     tabbar.modalPresentationStyle = .fullScreen
                     self.present(tabbar, animated: true, completion: nil)
                 }else{
-                    self.showAlert(title: "Внимание", message: "Неверный пароль")
+                    self.showAlert(title: "Внимание".localized(), message: "Неверный пароль".localized())
                 }
             }
         }else{
-            self.showAlert(title: "Внимание", message: "Заполните все поля")
+            self.showAlert(title: "Внимание".localized(), message: "Заполните все поля".localized())
         }
     }
     @IBAction func forgotPasswordPressed(_ sender: Any) {

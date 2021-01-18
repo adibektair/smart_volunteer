@@ -10,6 +10,7 @@ import UIKit
 import EasyPeasy
 import SDWebImage
 import AKMaskField
+import Localize_Swift
 
 class EditProfileVC: ScrollStackController, CityPickerProtocol {
 
@@ -39,17 +40,22 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setViews()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-        self.title = "Редактировать профиль"
+        self.title = "Редактировать профиль".localized()
         picker.pickerDelegate = self
         Requests.shared().getCities { (response) in
             self.picker.cities = response?.cities ?? []
         }
     }
+    @objc override func setText() {
+        //Перезагрузка заголовка
+        setViews()
+    }
     func setViews(){
+        stackView.removeAllArrangedSubviews()
         self.stackView.setProperties(axis: .vertical, alignment: .fill, spacing: 15, distribution: .fill)
         // image
         let imageView = UIImageView()
@@ -66,7 +72,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
 
         // iin
         let iinLabel = UILabel()
-        iinLabel.text = "ИИН"
+        iinLabel.text = "ИИН".localized()
         iinLabel.font = iinLabel.font.withSize(15)
         self.stackView.addArrangedSubview(iinLabel)
         iinLabel.easy.layout(Left(24))
@@ -81,7 +87,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         
         // name
         let nameLabel = UILabel()
-        nameLabel.text = "Имя"
+        nameLabel.text = "Имя".localized()
         nameLabel.font = nameLabel.font.withSize(15)
         self.stackView.addArrangedSubview(nameLabel)
         nameLabel.easy.layout(Left(24))
@@ -94,7 +100,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         
         // surname
         let surnameLabel = UILabel()
-        surnameLabel.text = "Фамилия"
+        surnameLabel.text = "Фамилия".localized()
         surnameLabel.font = surnameLabel.font.withSize(15)
         self.stackView.addArrangedSubview(surnameLabel)
         surnameLabel.easy.layout(Left(24))
@@ -107,7 +113,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         
         // phone
         let phoneLabel = UILabel()
-        phoneLabel.text = "Телефон"
+        phoneLabel.text = "Телефон".localized()
         phoneLabel.font = phoneLabel.font.withSize(15)
         self.stackView.addArrangedSubview(phoneLabel)
         phoneLabel.easy.layout(Left(24))
@@ -122,7 +128,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         
         // citu
         let cityLabel = UILabel()
-        cityLabel.text = "Город"
+        cityLabel.text = "Город".localized()
         cityLabel.font = cityLabel.font.withSize(15)
         self.stackView.addArrangedSubview(cityLabel)
         cityLabel.easy.layout(Left(24))
@@ -138,7 +144,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         
         // citu
         let langLabel = UILabel()
-        langLabel.text = "Язык"
+        langLabel.text = "Язык".localized()
         langLabel.font = langLabel.font.withSize(15)
         self.stackView.addArrangedSubview(langLabel)
         langLabel.easy.layout(Left(24))
@@ -197,7 +203,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         }
         password()
         // Button
-        self.continueButton.title = "Сохранить"
+        self.continueButton.title = "Сохранить".localized()
         self.continueButton.isAccessible = true
         self.continueButton.addTarget(self, action: #selector(self.editUser), for: .touchUpInside)
         self.stackView.addArrangedSubview(continueButton)
@@ -205,7 +211,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
     }
     func password(){
         let oldPasswordLabel = UILabel()
-        oldPasswordLabel.setProperties(text: "Пароль", font: .systemFont(ofSize: 15))
+        oldPasswordLabel.setProperties(text: "Пароль".localized(), font: .systemFont(ofSize: 15))
         self.stackView.addArrangedSubview(oldPasswordLabel)
         
         oldPasswordTextField.isSecureTextEntry = true
@@ -222,7 +228,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         
         self.stackView.addArrangedSubview(oldPasswordTextField)
         let passwordLabel = UILabel()
-        passwordLabel.setProperties(text: "Новый пароль", font: .systemFont(ofSize: 15))
+        passwordLabel.setProperties(text: "Новый пароль".localized(), font: .systemFont(ofSize: 15))
         self.stackView.addArrangedSubview(passwordLabel)
         self.stackView.addArrangedSubview(passwordTextField)
         oldPasswordTextField.easy.layout(Height(44))
@@ -243,11 +249,11 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         "new_password": self.passwordTextField.text!] as [String:AnyObject]
         Requests.shared().chagePassWord(params: param) { (result) in
             if result?.success ?? false {
-                self.showAlert(title: "Успешно", message: "Данные успешно сохранены")
+                self.showAlert(title: "Успешно".localized(), message: "Данные успешно сохранены".localized())
             } else if let errors = result?.errors, let error = errors.first {
                 self.showError(text: error)
             } else {
-                self.showError(text: "Произошла ошибка, попробуйте позже")
+                self.showError(text: "Произошла ошибка, попробуйте позже".localized())
             }
         }
     }
@@ -265,8 +271,10 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
             var langId = 0
             if mainLanguage == .qazaq{
                 langId = 1
+                Localize.setCurrentLanguage("kk")
             }else{
                 langId = 2
+                Localize.setCurrentLanguage("ru")
             }
             let json = ["city_id" : cityId,
                         "language_id" : langId,
@@ -276,14 +284,19 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
                    
             Requests.shared().editProfile(params: json) { (response) in
                 if response?.success ?? false{
-                    self.showAlert(title: "Успешно", message: "Данные успешно сохранены")
+                    if self.mainLanguage == .qazaq{
+                        Localize.setCurrentLanguage("kk")
+                    }else{
+                        Localize.setCurrentLanguage("ru")
+                    }
+                    self.showAlert(title: "Успешно".localized(), message: "Данные успешно сохранены".localized())
                 }else{
-                    self.showError(text: "Произошла ошибка, попробуйте позже")
+                    self.showError(text: "Произошла ошибка, попробуйте позже".localized())
 
                 }
             }
         }else{
-            self.showError(text: "Заполните все поля")
+            self.showError(text: "Заполните все поля".localized())
         }
         /**
          {
@@ -297,19 +310,20 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
        
     }
     private func setLang(lang: AppLanguage){
-           switch lang {
-               case .qazaq:
-                   self.qazaqCheckBox.image = #imageLiteral(resourceName: "Shape")
-                   self.russianCheckBox.image = nil
-                   self.qazaqCheckBox.cornerRadius(radius: 8, width: 0)
-                   russianCheckBox.cornerRadius(radius: 8, width: 2, color: #colorLiteral(red: 0.6575629115, green: 0.7900038362, blue: 0.9882785678, alpha: 1))
-               default:
-                   self.russianCheckBox.image = #imageLiteral(resourceName: "Shape")
-                   self.qazaqCheckBox.image = nil
-                   self.russianCheckBox.cornerRadius(radius: 8, width: 0)
-                   qazaqCheckBox.cornerRadius(radius: 8, width: 2, color: #colorLiteral(red: 0.6575629115, green: 0.7900038362, blue: 0.9882785678, alpha: 1))
-           }
-       }
+        switch lang {
+        case .qazaq:
+            self.qazaqCheckBox.image = #imageLiteral(resourceName: "Shape")
+            self.russianCheckBox.image = nil
+            self.qazaqCheckBox.cornerRadius(radius: 8, width: 0)
+            russianCheckBox.cornerRadius(radius: 8, width: 2, color: #colorLiteral(red: 0.6575629115, green: 0.7900038362, blue: 0.9882785678, alpha: 1))
+        default:
+            
+            self.russianCheckBox.image = #imageLiteral(resourceName: "Shape")
+            self.qazaqCheckBox.image = nil
+            self.russianCheckBox.cornerRadius(radius: 8, width: 0)
+            qazaqCheckBox.cornerRadius(radius: 8, width: 2, color: #colorLiteral(red: 0.6575629115, green: 0.7900038362, blue: 0.9882785678, alpha: 1))
+        }
+    }
     
     static func open(vc: UIViewController, profile : Profile?){
         let viewController = self.init()

@@ -13,7 +13,7 @@ class MyFundsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tableView = UITableView()
     var funds : [Fond]?
-
+    let subscribeLabel = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -29,15 +29,20 @@ class MyFundsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         Requests.shared().getMyFunds(page: 0) { (response) in
             self.funds = response.funds?.data
             if self.funds?.count ?? 0 == 0{
-                let label = UILabel()
-                label.text = "Подпишитесь на фонды"
-                label.textColor = #colorLiteral(red: 0.7803921569, green: 0.7882352941, blue: 0.8117647059, alpha: 1)
-                self.view.addSubview(label)
-                label.easy.layout(Center())
+                self.subscribeLabel.text = "Подпишитесь на фонды".localized()
+                self.subscribeLabel.textColor = #colorLiteral(red: 0.7803921569, green: 0.7882352941, blue: 0.8117647059, alpha: 1)
+                self.view.addSubview(self.subscribeLabel)
+                self.subscribeLabel.easy.layout(Center())
             }
             self.tableView.reloadData()
             self.stopLoad()
         }
+    }
+    @objc func setText() {
+        //Перезагрузка заголовка
+        self.title = "Фонды, куда подписан(а)".localized()
+        self.subscribeLabel.text = "Подпишитесь на фонды".localized()
+        self.tableView.reloadData()
     }
     func setViews(){
         self.view.backgroundColor = .white
@@ -45,7 +50,7 @@ class MyFundsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.easy.layout(Top(), Bottom(), Left(20), Right(20))
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "FuncTVC", bundle: nil), forCellReuseIdentifier: "cell")
-        self.title = "Фонды, куда подписан(а)"
+        self.title = "Фонды, куда подписан(а)".localized()
         self.navigationController?.navigationBar.prefersLargeTitles = false
 
 

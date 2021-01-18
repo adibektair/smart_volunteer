@@ -27,7 +27,7 @@ class ChooseCityVC: ScrollStackController, UITableViewDelegate, UITableViewDataS
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-        self.title = "Выберите город"
+        self.title = "Выберите город".localized()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

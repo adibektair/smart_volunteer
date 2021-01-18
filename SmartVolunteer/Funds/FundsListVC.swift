@@ -8,6 +8,7 @@
 
 import UIKit
 import EasyPeasy
+import Localize_Swift
 
 class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
@@ -21,6 +22,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchBar.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
         sideBarButton()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -30,10 +32,17 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         tableView.register(UINib(nibName: "FuncTVC", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationController?.navigationBar.isHidden = false
         self.setNavForTaraz()
-        self.navigationItem.title = "Фонды"
+        self.navigationItem.title = "Фонды".localized()
         self.setViews()
         self.getData()
     }
+    @objc func setText() {
+        //Перезагрузка заголовка
+        self.navigationItem.title = "Фонды".localized()
+        searchBar.placeholder = "Название фонда".localized()
+        self.tableView.reloadData()
+    }
+    
     
     func getData(){
         self.startLoad()
@@ -50,7 +59,7 @@ class FundsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         setBackButton()
         self.rightButton()
         self.view.backgroundColor = .white
-        searchBar.placeholder = "Название фонда"
+        searchBar.placeholder = "Название фонда".localized()
         self.view.addSubview(tableView)
         tableView.easy.layout(Top(), Bottom(), Left(20), Right(20))
         

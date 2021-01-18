@@ -21,7 +21,7 @@ class VolunteerListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     // MARK: - Navigation
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Список желающих"
+        self.navigationItem.title = "Список желающих".localized()
         setBackButton()
         tableView.delegate = self
         tableView.dataSource = self
@@ -120,12 +120,12 @@ class VolunteerListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         bottomStack.setProperties(axis: .horizontal, alignment: .fill, spacing: 15, distribution: .fillEqually)
         let accept = UILabel()
         let decline = UILabel()
-        accept.setProperties(text: "Принять", textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .center)
-        decline.setProperties(text: "Отклонить", textColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .center)
+        accept.setProperties(text: "Принять".localized(), textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .center)
+        decline.setProperties(text: "Отклонить".localized(), textColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .center)
         accept.cornerRadius(radius: 10, width: 1, color: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1))
         accept.addTapGestureRecognizer {
             self.volunteerAccept(isAccepted: true, volunteerId: data.id ?? 0) { (status) in
-                accept.text = "Успешно принят"
+                accept.text = "Успешно принят".localized()
                 UIView.animate(withDuration: 0.2) {
                     decline.isHidden = true
                 }
@@ -134,7 +134,7 @@ class VolunteerListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         decline.addTapGestureRecognizer {
             self.volunteerAccept(isAccepted: false, volunteerId: data.id ?? 0) { (status) in
                 if status! {
-                    decline.text = "Отклонен"
+                    decline.text = "Отклонен".localized()
                     UIView.animate(withDuration: 0.2) {
                         accept.isHidden = true
                     }

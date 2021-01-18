@@ -111,7 +111,7 @@ class FeedbackInfoVC: ScrollStackController {
         }
         let profile = self.data?.application?.user
         let nameLabel = UILabel()
-        let nameText = "\(profile?.name ?? "Анонимно") \(profile?.surname ?? "")"
+        let nameText = "\(profile?.name ?? "Анонимно".localized()) \(profile?.surname ?? "")"
         let name = nameText
         nameLabel.setProperties(text: name, textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 16, weight: .bold), textAlignment: .left, numberLines: 1)
         
@@ -139,7 +139,7 @@ class FeedbackInfoVC: ScrollStackController {
     func bottomPartViews(){
         let categoryLabel = UILabel()
         let catText = data?.application?.category?.name ?? "-"
-        categoryLabel.setProperties(text: "Категория: " + catText, textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14))
+        categoryLabel.setProperties(text: "Категория".localized() + ": " + catText, textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14))
         
         let mainInfo = UILabel()
         let text = data?.text ?? ""
@@ -153,7 +153,7 @@ class FeedbackInfoVC: ScrollStackController {
         titleTextLabel.setProperties(text: data?.application?.descriptionField ?? "", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), numberLines: 0)
         
         let closeLabel = UILabel()
-        closeLabel.setProperties(text: "Закрыть", textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14),textAlignment: .center)
+        closeLabel.setProperties(text: "Закрыть".localized(), textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14),textAlignment: .center)
         closeLabel.addTapGestureRecognizer {
             self.dismiss(animated: true, completion: nil)
         }

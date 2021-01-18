@@ -17,7 +17,7 @@ class MyApplicationsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     // MARK: - Navigation
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Мои заявки"
+        self.navigationItem.title = "Мои заявки".localized()
         setBackButton()
         tableView.delegate = self
         tableView.dataSource = self

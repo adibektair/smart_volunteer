@@ -7,6 +7,7 @@
 //
 import UIKit
 import EasyPeasy
+import Localize_Swift
 
 class FundVC: UIViewController {
 
@@ -44,7 +45,7 @@ class FundVC: UIViewController {
     }
 
     func setViews(){
-        self.title = "Фонд"
+        self.title = "Фонд".localized()
         if let img = fund?.imgPath{
             self.logoImageView.sd_setImage(with: URL(string: img), completed: nil)
         }else{
@@ -53,17 +54,17 @@ class FundVC: UIViewController {
         self.nameLabel.text = fund?.name
         self.cityLabel.text = fund?.city?.name
         self.amountLabel.text = "\(fund?.volunteerNumber ?? 0)"
-        self.volunteersLabel.text = "волонтеров"
+        self.volunteersLabel.text = "волонтеров".localized()
         if self.fund?.volunteer == nil{
             self.isSubscribed = false
             self.subscribeButton.setTitleColor(#colorLiteral(red: 0.1907444894, green: 0.4766811728, blue: 0.96295017, alpha: 1), for: .normal)
-            self.subscribeButton.setTitle("Подписаться", for: .normal)
+            self.subscribeButton.setTitle("Подписаться".localized(), for: .normal)
         }else{
             self.isSubscribed = true
             self.subscribeButton.setTitleColor(#colorLiteral(red: 0.9989094138, green: 0.2617629766, blue: 0.262750864, alpha: 1), for: .normal)
-            self.subscribeButton.setTitle("Отписаться", for: .normal)
+            self.subscribeButton.setTitle("Отписаться".localized(), for: .normal)
         }
-        self.requestsLabel.text = "Заявки фонда"
+        self.requestsLabel.text = "Заявки фонда".localized()
         self.infoLabel.text = self.fund?.descriptionField
         self.subscribeButton.addTarget(self, action: #selector(self.subscribe(_:)), for: .touchUpInside)
         self.requestsView.addTapGestureRecognizer {
@@ -88,10 +89,10 @@ class FundVC: UIViewController {
                 self.singleVibration()
                 if self.isSubscribed{
                     self.subscribeButton.setTitleColor(#colorLiteral(red: 0.9989094138, green: 0.2617629766, blue: 0.262750864, alpha: 1), for: .normal)
-                    self.subscribeButton.setTitle("Отписаться", for: .normal)
+                    self.subscribeButton.setTitle("Отписаться".localized(), for: .normal)
                 }else{
                     self.subscribeButton.setTitleColor(#colorLiteral(red: 0.1907444894, green: 0.4766811728, blue: 0.96295017, alpha: 1), for: .normal)
-                    self.subscribeButton.setTitle("Подписаться", for: .normal)
+                    self.subscribeButton.setTitle("Подписаться".localized(), for: .normal)
                 }
             }
         }

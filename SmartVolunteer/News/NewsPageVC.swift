@@ -9,6 +9,7 @@
 import UIKit
 import EasyPeasy
 import SDWebImage
+import Localize_Swift
 
 class NewsPageVC: ScrollStackController {
 

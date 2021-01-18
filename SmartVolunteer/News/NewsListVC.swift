@@ -8,6 +8,7 @@
 
 import UIKit
 import EasyPeasy
+import Localize_Swift
 
 class NewsListVC: UIViewController, UISearchBarDelegate,UITableViewDelegate, UITableViewDataSource {
 
@@ -22,6 +23,7 @@ class NewsListVC: UIViewController, UISearchBarDelegate,UITableViewDelegate, UIT
         life()
         setUI()
         getData()
+        NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
         sideBarButton()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +36,11 @@ class NewsListVC: UIViewController, UISearchBarDelegate,UITableViewDelegate, UIT
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
+    @objc  func setText() {
+        //Перезагрузка заголовка
+        self.navigationItem.title = "Новости".localized()
+        search.searchBar.placeholder = "Название новости".localized()
+    }
     // MARK: - Functions
     func life() {
         tableView.delegate = self
@@ -44,8 +51,8 @@ class NewsListVC: UIViewController, UISearchBarDelegate,UITableViewDelegate, UIT
     func setUI(){
         self.view.addSubview(tableView)
         tableView.easy.layout(Edges())
-        self.navigationItem.title = "Новости"
-        search.searchBar.placeholder = "Название новости"
+        self.navigationItem.title = "Новости".localized()
+        search.searchBar.placeholder = "Название новости".localized()
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
         setNavForTaraz()

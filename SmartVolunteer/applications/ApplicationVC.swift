@@ -9,7 +9,7 @@
 import UIKit
 import EasyPeasy
 import SDWebImage
-
+import Localize_Swift
 class ApplicationVC: ScrollStackController {
     
     let headStack = UIStackView()
@@ -19,7 +19,7 @@ class ApplicationVC: ScrollStackController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Заявка"
+        self.navigationItem.title = "Заявка".localized()
         setBackButton()
         setViews()
     }
@@ -35,19 +35,19 @@ class ApplicationVC: ScrollStackController {
         
         let counterLabel = UILabel()
         cont.addSubview(counterLabel)
-        let t = "\(data?.volunteerNumberAccessed ?? 0) из \(data?.volunteerNumber ?? 0) желающих"
+        let t = "\(data?.volunteerNumberAccessed ?? 0) из \(data?.volunteerNumber ?? 0) желающих".localized()
         counterLabel.setProperties(text: t, textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .center, numberLines: 1)
         counterLabel.easy.layout(Edges(),Height(50))
         stackView.addArrangedSubview(cont)
 
         
         let categoryLabel = UILabel()
-        let cText = "Категория: \(data?.category?.name ?? "")"
+        let cText = "Категория".localized() + ": \(data?.category?.name ?? "")"
         categoryLabel.setProperties(text: cText, textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .left, numberLines: 1)
         stackView.addArrangedSubview(categoryLabel)
         
         let finishLabel = UILabel()
-        finishLabel.setProperties(text: "Завершить заявку", textColor: .white, font: .systemFont(ofSize: 18, weight: .bold), textAlignment: .center, numberLines: 1)
+        finishLabel.setProperties(text: "Завершить заявку".localized(), textColor: .white, font: .systemFont(ofSize: 18, weight: .bold), textAlignment: .center, numberLines: 1)
         finishLabel.backgroundColor = #colorLiteral(red: 0, green: 0.7764705882, blue: 0.4039215686, alpha: 1)
         finishLabel.addTapGestureRecognizer {
              if let id = self.data?.id, self.nuzhd {
@@ -59,7 +59,7 @@ class ApplicationVC: ScrollStackController {
         stackView.addArrangedSubview(title)
         let buttonsStack = UIStackView()
         buttonsStack.setProperties(axis: .vertical, alignment: .fill, spacing: 0, distribution: .fill)
-        let proceedTitle = nuzhd ? "Посмотреть список желающих" : "Подать заявку"
+        let proceedTitle = nuzhd ? "Посмотреть список желающих".localized() : "Подать заявку".localized()
         proceedLabel.setProperties(text: proceedTitle, textColor: .white, font: .systemFont(ofSize: 18, weight: .bold), textAlignment: .center, numberLines: 1)
         buttonsStack.addArrangedSubview(proceedLabel)
         if data?.volunteer == nil {
@@ -77,7 +77,7 @@ class ApplicationVC: ScrollStackController {
                 Requests.shared().acceptApplication(id: id) { (result) in
                     self.stopLoading()
                     if result?.success ?? false {
-                        let t = "\((self.data?.volunteerNumberAccessed ?? 0) + 1) из \(self.data?.volunteerNumber ?? 0) желающих"
+                        let t = "\((self.data?.volunteerNumberAccessed ?? 0) + 1) из \(self.data?.volunteerNumber ?? 0) желающих".localized()
                         counterLabel.text = t
                         self.proceedLabel.isHidden = true
                         self.data?.volunteer = Volunteer.init(JSON: ["name" : "name"])
@@ -91,7 +91,7 @@ class ApplicationVC: ScrollStackController {
     }
     
     func succceedAction(){
-        let s = SuccessView(buttonName: "Готово", messsage: "Ваша заявка успешно подана\nОжидайте ответа от фонда") {
+        let s = SuccessView(buttonName: "Готово".localized(), messsage: "Ваша заявка успешно подана\nОжидайте ответа от фонда".localized()) {
             
         }
         self.view.addSubview(s)
@@ -111,7 +111,7 @@ class ApplicationVC: ScrollStackController {
             icon.sd_setImage(with: url, completed: nil)
         }
         let nameLabel = UILabel()
-        let name = data?.user?.name ?? data?.fund?.name ?? "Анонимно"
+        let name = data?.user?.name ?? data?.fund?.name ?? "Анонимно".localized()
         nameLabel.setProperties(text: name, textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 16, weight: .bold), textAlignment: .left, numberLines: 1)
         
         let placeStack = UIStackView()

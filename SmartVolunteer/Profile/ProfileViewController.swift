@@ -46,24 +46,24 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var rateView: CosmosView!
     @IBOutlet weak var additionInfo: UIButton! {
         didSet{
-            self.additionInfo.setTitle("Доп. информация", for: .normal)
+            self.additionInfo.setTitle("Доп. информация".localized(), for: .normal)
         }
     }
     @IBOutlet weak var editButton: UIButton!{
         didSet{
-            self.editButton.setTitle("Редактировать профиль", for: .normal)
+            self.editButton.setTitle("Редактировать профиль".localized(), for: .normal)
             self.editButton.cornerRadius(radius: 10, width: 1, color: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1))
         }
     }
     @IBOutlet weak var logOutButton: UIButton!{
         didSet{
-            self.logOutButton.setTitle("Выйти", for: .normal)
+            self.logOutButton.setTitle("Выйти".localized(), for: .normal)
             self.logOutButton.cornerRadius(radius: 10, width: 1, color: #colorLiteral(red: 0.9989094138, green: 0.2617629766, blue: 0.262750864, alpha: 1))
         }
     }
     @IBOutlet weak var finishedWorks: UIButton! {
           didSet {
-            self.finishedWorks.setTitle("Выполненные работы", for: .normal)
+            self.finishedWorks.setTitle("Выполненные работы".localized(), for: .normal)
           }
       }
     @IBOutlet weak var finishedView: UIView! {
@@ -133,17 +133,17 @@ class ProfileViewController: UIViewController {
             rate.settings.updateOnTouch = false
             rate.rating = self.profile?.ratingScore ?? 0.0
         }
-        iinLabel.text = "ИИН"
+        iinLabel.text = "ИИН".localized()
         iinDataLabel.text = profile?.iin ?? ""
-        nameLabel.text = "Имя"
+        nameLabel.text = "Имя".localized()
         nameDataLabel.text = profile?.name ?? ""
-        surnameLabel.text = "Фамилия"
+        surnameLabel.text = "Фамилия".localized()
         surnameDataLabel.text = profile?.surname ?? ""
-        phoneLabel.text = "Телефон"
+        phoneLabel.text = "Телефон".localized()
         phoneDataLabel.text = profile?.phone ?? ""
-        langLabel.text = "Язык"
+        langLabel.text = "Язык".localized()
         langDataLabel.text = profile?.language ?? ""
-        cityLabel.text = "Город"
+        cityLabel.text = "Город".localized()
         cityDataLabel.text = profile?.city ?? ""
         if let tabbarCount = self.tabBarController?.viewControllers?.count, tabbarCount == 3, finishedView != nil, rateView != nil {
             self.finishedView.removeFromSuperview()
@@ -164,9 +164,9 @@ class ProfileViewController: UIViewController {
     @IBAction func logOutPressed(_ sender: Any) {
         let navigationController = UINavigationController()
         navigationController.addChild(CheckIINVC())
-        let alert = UIAlertController(title: "Выйти?", message: "", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Выйти".localized() + "?", message: "", preferredStyle: UIAlertController.Style.alert)
                
-            alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { action in
+            alert.addAction(UIAlertAction(title: "Да".localized(), style: .default, handler: { action in
                 Constants.shared().clear()
                 let navigationController = UINavigationController()
                 if #available(iOS 13.0, *) {
@@ -177,7 +177,7 @@ class ProfileViewController: UIViewController {
                 self.present(navigationController, animated: true, completion: nil)
             }))
                
-        alert.addAction(UIAlertAction(title: "Нет", style: .destructive, handler: { action in
+        alert.addAction(UIAlertAction(title: "Нет".localized(), style: .destructive, handler: { action in
                   
         }))
         self.present(alert, animated: true, completion: nil)
