@@ -11,6 +11,7 @@ import SDWebImage
 import EasyPeasy
 import Cosmos
 import Alamofire
+import Localize_Swift
 
 class ProfileViewController: UIViewController {
 
@@ -44,6 +45,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var worksCountLabel: UILabel!
     @IBOutlet weak var heightConst: NSLayoutConstraint!
     @IBOutlet weak var rateView: CosmosView!
+    @IBOutlet weak var safetyLoginLabel: UILabel!
     @IBOutlet weak var additionInfo: UIButton! {
         didSet{
             self.additionInfo.setTitle("Доп. информация".localized(), for: .normal)
@@ -80,7 +82,7 @@ class ProfileViewController: UIViewController {
             v.easy.layout(Edges())
         }
         self.switcher.isOn = UserDefaults.standard.bool(forKey: "secure")
-
+        NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
         switcher.addTarget(self, action: #selector(switchSate(_:)), for: .valueChanged)
         setBackButton()
         avatarImageView.addTapGestureRecognizer {
@@ -94,6 +96,21 @@ class ProfileViewController: UIViewController {
         if Constants.shared().getToken() == nil { return }
         self.getData()
         self.getFeedbacks()
+    }
+    @objc  func setText() {
+        //Перезагрузка заголовка
+        safetyLoginLabel.text = "Безопасный вход".localized()
+        iinLabel.text = "ИИН".localized()
+        
+        nameLabel.text = "Имя".localized()
+        
+        surnameLabel.text = "Фамилия".localized()
+        
+        phoneLabel.text = "Телефон".localized()
+        
+        langLabel.text = "Язык".localized()
+        
+        cityLabel.text = "Город".localized()
     }
     
     func getData(){
