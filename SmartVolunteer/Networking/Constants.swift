@@ -48,7 +48,7 @@ class Constants: NSObject {
     
     public var secure = false
     
-    public let isTaraz = true
+    public let isTaraz = false
     
     public var baseUrl : String = "https://taraz.smartvolunteer.kz/api/v1/" {
 //        public var baseUrl : String = "https://tdk.smartvolunteer.kz/api/v1/" {
@@ -56,13 +56,17 @@ class Constants: NSObject {
             if isTaraz {
 //                self.baseUrl = "https://taraz.smartvolunteer.kz/api/v1/"
             } else {
-//                self.baseUrl = "https://tdk.smartvolunteer.kz/api/v1/"
+                self.baseUrl = "https://tdk.smartvolunteer.kz/api/v1/"
             }
         }
     }
     
     public func baseUrl(version : Int = 1) -> String{
-        return "https://taraz.smartvolunteer.kz/api/v\(version)/"
+        if isTaraz {
+            return "https://taraz.smartvolunteer.kz/api/v\(version)/"
+        } else {
+            return "https://tdk.smartvolunteer.kz/api/v\(version)/"
+        }
     }
 
 }

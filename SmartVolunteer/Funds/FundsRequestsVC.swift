@@ -24,7 +24,7 @@ class FundsRequestsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     override func viewWillAppear(_ animated: Bool) {
         self.setViews()
-        self.title = "Заявки фонда"
+        self.title = "Заявки фонда".localized()
         self.setViews()
         self.getData()
     }
@@ -36,7 +36,7 @@ class FundsRequestsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.applications = response
             if response?.applications?.data?.count ?? 0 == 0{
                 let label = UILabel()
-                label.text = "Заявки отсутствуют"
+                label.text = "Заявки отсутствуют".localized()
                 label.textColor = #colorLiteral(red: 0.7803921569, green: 0.7882352941, blue: 0.8117647059, alpha: 1)
                 self.view.addSubview(label)
                 label.easy.layout(Center())
