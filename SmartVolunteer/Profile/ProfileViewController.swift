@@ -112,6 +112,9 @@ class ProfileViewController: UIViewController {
         
         cityLabel.text = "Город".localized()
         self.finishedWorks.setTitle("Выполненные работы".localized(), for: .normal)
+        self.logOutButton.setTitle("Выйти".localized(), for: .normal)
+        self.editButton.setTitle("Редактировать профиль".localized(), for: .normal)
+        self.additionInfo.setTitle("Доп. информация".localized(), for: .normal)
     }
     
     func getData(){
