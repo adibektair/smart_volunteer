@@ -111,6 +111,7 @@ class ProfileViewController: UIViewController {
         langLabel.text = "Язык".localized()
         
         cityLabel.text = "Город".localized()
+        self.finishedWorks.setTitle("Выполненные работы".localized(), for: .normal)
     }
     
     func getData(){

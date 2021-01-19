@@ -52,7 +52,9 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
     }
     @objc override func setText() {
         //Перезагрузка заголовка
-        setViews()
+//        setViews()
+//        stackView.reloadInputViews()
+        
     }
     func setViews(){
         stackView.removeAllArrangedSubviews()
@@ -250,6 +252,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
         Requests.shared().chagePassWord(params: param) { (result) in
             if result?.success ?? false {
                 self.showAlert(title: "Успешно".localized(), message: "Данные успешно сохранены".localized())
+                self.navigationController?.popViewController(animated: true)
             } else if let errors = result?.errors, let error = errors.first {
                 self.showError(text: error)
             } else {
@@ -289,7 +292,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
                     }else{
                         Localize.setCurrentLanguage("ru")
                     }
-                    self.showAlert(title: "Успешно".localized(), message: "Данные успешно сохранены".localized())
+                    self.showAlert(title: "Успешно".localized(), message: "Данные успешно сохранены".localized(), popToRoot: true)
                 }else{
                     self.showError(text: "Произошла ошибка, попробуйте позже".localized())
 
