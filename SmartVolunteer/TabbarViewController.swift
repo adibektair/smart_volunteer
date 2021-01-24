@@ -53,7 +53,7 @@ class TabbarViewController: UITabBarController {
         
         let icon4 = UITabBarItem(title: "", image: UIImage(named: "Profile.png"), tag: 4)
         let prof = UINavigationController()
-        prof.addChild(ProfileViewController())
+        prof.addChild(ProfileVC())
         prof.tabBarItem = icon4
         controllers.append(prof)
         

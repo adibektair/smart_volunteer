@@ -90,6 +90,7 @@ class ProfileViewController: UIViewController {
             self.thisIsTheFunctionWeAreCalling()
         }
         setText()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
