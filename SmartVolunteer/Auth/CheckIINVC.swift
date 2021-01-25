@@ -24,6 +24,7 @@ class CheckIINVC: UIViewController, UITextFieldDelegate {
         
         self.iinTextField.delegate = self
         self.setViews()
+        self.setBackButton()
         if Constants.shared().getToken() != nil && UserDefaults.standard.bool(forKey: "secure") {
             self.showPasscodeAuthentication(message: "SmartVolunteer")
         }

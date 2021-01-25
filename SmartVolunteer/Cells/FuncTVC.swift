@@ -16,12 +16,13 @@ class FuncTVC: UITableViewCell {
             self.titleLabel.text = self.data?.name ?? ""
             self.descriptionLabel.text = self.data?.descriptionField ?? ""
             if self.data?.volunteer?.id != nil{
-                self.actionButton.setTitle("Отписаться", for: .normal)
+                self.actionButton.setTitle("Отписаться".localized(), for: .normal)
             }else{
-                self.actionButton.setTitle("Подписаться", for: .normal)
+                self.actionButton.setTitle("Подписаться".localized(), for: .normal)
                 
             }
-            self.volunteersNumberLabel.text = "\(self.data?.volunteerNumber ?? 0) волонтеров"
+            let t = String(format: "%@ волонтеров".localized(), "\(data?.volunteerNumber ?? 0)")
+            self.volunteersNumberLabel.text = t
             self.logoImageView.cornerRadius(radius: 28, width: 0)
             if let img = self.data?.imgPath{
                 let url = URL(string: img.encodeUrl)

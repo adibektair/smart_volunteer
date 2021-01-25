@@ -31,6 +31,7 @@
 		2F82279E24A605D000612BFF /* MyApplicationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279D24A605D000612BFF /* MyApplicationsVC.swift */; };
 		2F8227A024A61EE600612BFF /* ApplicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F82279F24A61EE600612BFF /* ApplicationVC.swift */; };
 		2F907D9B257C422F0032F363 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F907D9A257C422F0032F363 /* SideBarView.swift */; };
+		2FB29BA625BF49C600FCBDAB /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB29BA525BF49C500FCBDAB /* ResetPasswordVC.swift */; };
 		2FB93AE9254DB1E7005C1348 /* LinksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB93AE8254DB1E7005C1348 /* LinksVC.swift */; };
 		2FB93AED254DBD79005C1348 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB93AEC254DBD79005C1348 /* WebVC.swift */; };
 		2FC4A5EA251CBE8400421BC2 /* FinishedWorksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */; };
@@ -112,6 +113,7 @@
 		2F82279D24A605D000612BFF /* MyApplicationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplicationsVC.swift; sourceTree = "<group>"; };
 		2F82279F24A61EE600612BFF /* ApplicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationVC.swift; sourceTree = "<group>"; };
 		2F907D9A257C422F0032F363 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
+		2FB29BA525BF49C500FCBDAB /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		2FB93AE8254DB1E7005C1348 /* LinksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksVC.swift; sourceTree = "<group>"; };
 		2FB93AEC254DBD79005C1348 /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		2FC4A5E9251CBE8400421BC2 /* FinishedWorksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorksVC.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			children = (
 				F26F262524A11EE800934874 /* CheckIINVC.swift */,
 				2F38274A25B382AE00F71BD1 /* SMSCodeVC.swift */,
+				2FB29BA525BF49C500FCBDAB /* ResetPasswordVC.swift */,
 				F26F262624A11EE800934874 /* CheckIINVC.xib */,
 				F2B26A8824A2246A001EAC0E /* PasswordVC.swift */,
 				F2B26A8924A2246A001EAC0E /* PasswordVC.xib */,
@@ -581,6 +584,7 @@
 				2FB93AED254DBD79005C1348 /* WebVC.swift in Sources */,
 				2F07095C24A46FE20023B1AB /* ApplicationsListVC.swift in Sources */,
 				2F907D9B257C422F0032F363 /* SideBarView.swift in Sources */,
+				2FB29BA625BF49C600FCBDAB /* ResetPasswordVC.swift in Sources */,
 				2F8227A024A61EE600612BFF /* ApplicationVC.swift in Sources */,
 				F24B2D5B249FC72E0080C5B4 /* Requests.swift in Sources */,
 				F2B26A9B24A34B08001EAC0E /* FundsListVC.swift in Sources */,

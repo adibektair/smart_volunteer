@@ -10,6 +10,7 @@ import UIKit
 import EasyPeasy
 import SDWebImage
 import Localize_Swift
+
 class ApplicationVC: ScrollStackController {
     
     let headStack = UIStackView()
@@ -20,11 +21,17 @@ class ApplicationVC: ScrollStackController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Заявка".localized()
+        NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
         setBackButton()
+        setViews()
+    }
+    @objc override func setText() {
+        self.navigationItem.title = "Заявка".localized()
         setViews()
     }
     
     func setViews(){
+        stackView.removeAllArrangedSubviews()
         headViews()
         stackView.setSpacing(top: 20, left: 20, right: 20, bottom: 70)
         let cont = UIView()
@@ -35,7 +42,8 @@ class ApplicationVC: ScrollStackController {
         
         let counterLabel = UILabel()
         cont.addSubview(counterLabel)
-        let t = "\(data?.volunteerNumberAccessed ?? 0) из \(data?.volunteerNumber ?? 0) желающих".localized()
+        let t = String(format: "%@ из %@ желающих".localized(), "\(data?.volunteerNumberAccessed ?? 0)","\(data?.volunteerNumber ?? 0)")
+            
         counterLabel.setProperties(text: t, textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .center, numberLines: 1)
         counterLabel.easy.layout(Edges(),Height(50))
         stackView.addArrangedSubview(cont)

@@ -51,6 +51,7 @@ class PasswordVC: UIViewController {
         }
     }
     @IBAction func forgotPasswordPressed(_ sender: Any) {
+        SMSCodeVC.open(vc: self, iin: iin ?? "",resetPass: true)
     }
     
     static func open(vc: UIViewController, iin : String){

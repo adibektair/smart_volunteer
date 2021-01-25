@@ -50,7 +50,8 @@ class ApplicationView: UIView {
         contAuth.layer.cornerRadius = 11
         authorLabel.easy.layout(Height(18),Left(8),Right(8),Top(2),Bottom(2))
         authorLabel.setProperties(text: data?.fund?.name ?? data?.user?.name ?? "Анонимно".localized(), textColor: .white, font: .systemFont(ofSize: 12, weight: .bold), textAlignment: .center, numberLines: 1)
-        countOf.setProperties(text: "\(data?.volunteerNumberAccessed ?? 0) из \(data?.volunteerNumber ?? 0) желающих", textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 12), textAlignment: .right, numberLines: 1)
+        let t = String(format: "%@ из %@ желающих".localized(), "\(data?.volunteerNumberAccessed ?? 0)","\(data?.volunteerNumber ?? 0)")
+        countOf.setProperties(text: t, textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 12), textAlignment: .right, numberLines: 1)
         infoStackView.addArrangedSubview(contAuth)
         infoStackView.addArrangedSubview(UIView())
         infoStackView.addArrangedSubview(countOf)

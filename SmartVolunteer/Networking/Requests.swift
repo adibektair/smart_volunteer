@@ -77,6 +77,15 @@ class Requests: NSObject {
             }
         }
     }
+    func resetPassword(params : [String: String], callback: @escaping (RegisterResponse?) -> ()) {
+        Alamofire.request(Constants.shared().baseUrl(version: 2) + "restore/password", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseObject{
+            (response: DataResponse<RegisterResponse>) in
+            if let _ = response.response{
+                let model = response.result
+                callback(model.value ?? nil)
+            }
+        }
+    }
     
     
     

@@ -498,6 +498,7 @@ class StandartResponse : NSObject, NSCoding, Mappable{
 
     var message : String?
     var success : Bool?
+    var isCorrect : Bool?
     var errorCode : Int?
     var errors : [String]?
     var links : [Link]?
@@ -515,7 +516,7 @@ class StandartResponse : NSObject, NSCoding, Mappable{
         errorCode <- map["errorCode"]
         errors <- map["errors"]
         links <- map["links"]
-
+        isCorrect <- map["is_correct"]
     }
 
     /**

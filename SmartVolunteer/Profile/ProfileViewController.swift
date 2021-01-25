@@ -254,7 +254,7 @@ extension ProfileViewController : UINavigationControllerDelegate, UIImagePickerC
     }
     func uploadImage(image: UIImage) {
         
-        let url = URL(string: Constants.shared().baseUrl + "profile/avatar")
+        let url = URL(string: Constants.shared().baseUrl() + "profile/avatar")
         
         let session = URLSession.shared
         

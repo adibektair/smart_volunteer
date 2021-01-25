@@ -8,6 +8,7 @@
 
 import UIKit
 import EasyPeasy
+import Localize_Swift
 
 class MyApplicationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,6 +19,7 @@ class MyApplicationsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Мои заявки".localized()
+        NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
         setBackButton()
         tableView.delegate = self
         tableView.dataSource = self
@@ -35,6 +37,9 @@ class MyApplicationsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             self.applications = res
             self.tableView.reloadData()
         }
+    }
+    @objc func setText() {
+        self.tableView.reloadData()
     }
     func rightButton(){
            let b = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(topPressed(_:)))

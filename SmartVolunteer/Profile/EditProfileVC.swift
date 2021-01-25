@@ -283,7 +283,7 @@ class EditProfileVC: ScrollStackController, CityPickerProtocol {
                         "language_id" : langId,
                         "name" : nameTextField.text!,
                         "surname":surnameTextField.text!,
-                   "phone": phoneTextField.text!] as [String : AnyObject]
+                        "phone": phoneTextField.text!.digits] as [String : AnyObject]
                    
             Requests.shared().editProfile(params: json) { (response) in
                 if response?.success ?? false{

@@ -47,7 +47,12 @@ class ProfileVC: ScrollStackController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         setNavForTaraz()
-        if Constants.shared().getToken() == nil { return }
+        if Constants.shared().getToken() == nil {
+            let v = AnonimView()
+            self.view.addSubview(v)
+            v.easy.layout(Edges())
+            return
+        }
         getData()
         getFeedbacks()
     }
@@ -292,7 +297,7 @@ extension ProfileVC : UINavigationControllerDelegate, UIImagePickerControllerDel
     }
     func uploadImage(image: UIImage) {
         
-        let url = URL(string: Constants.shared().baseUrl + "profile/avatar")
+        let url = URL(string: Constants.shared().baseUrl() + "profile/avatar")
         
         let session = URLSession.shared
         

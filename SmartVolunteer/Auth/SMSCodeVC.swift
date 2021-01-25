@@ -17,12 +17,16 @@ class SMSCodeVC: ScrollStackController, UITextFieldDelegate {
     let iinTextField = UITextField()
     let smsCodeTextField = UITextField()
     let continueButton = GeneralButton()
+    var resetPass = false
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - Actions
@@ -131,17 +135,24 @@ class SMSCodeVC: ScrollStackController, UITextFieldDelegate {
             let p = ["phone" : self.phoneTextField.text!.digits,
                      "code": code] as [String: AnyObject]
             Requests.shared().checkCode(params: p) { (result) in
-                if result?.success ?? false {
-                    SignUpVC.open(vc: self,iin: self.iinTextField.text!, phone: self.phoneTextField.text!,code: code)
+                if result?.isCorrect ?? false {
+                    if self.resetPass {
+                        ResetPasswordVC.open(vc: self, phone: self.phoneTextField.text!,code: code)
+                    } else {
+                        SignUpVC.open(vc: self,iin: self.iinTextField.text!, phone: self.phoneTextField.text!,code: code)
+                    }
+                    
+                } else {
+                    self.showAlert(title: "Внимание".localized(), message: "Неверный код".localized())
                 }
             }
         }
-        
     }
     // MARK: - Navigation
-    static func open(vc: UIViewController, iin: String) {
+    static func open(vc: UIViewController, iin: String,resetPass: Bool = false) {
         let vcc = SMSCodeVC()
         vcc.iinTextField.text = iin
+        vcc.resetPass = resetPass
         if let nav = vc.navigationController {
             nav.pushViewController(vcc, animated: true)
         }

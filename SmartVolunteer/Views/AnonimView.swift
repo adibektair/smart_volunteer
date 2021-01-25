@@ -32,7 +32,7 @@ class AnonimView: UIView {
         image.easy.layout(Width(200),Height(200))
         stackview.addArrangedSubview(image)
         let title = UILabel()
-        title.setProperties(text: "Прежде чем получить доступ к данным модулям, сперва необходимо авторизоваться", textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .center, numberLines: 5)
+        title.setProperties(text: "Прежде чем получить доступ к данным модулям, сперва необходимо авторизоваться".localized(), textColor: #colorLiteral(red: 0.2431372549, green: 0.2862745098, blue: 0.3450980392, alpha: 1), font: .systemFont(ofSize: 14), textAlignment: .center, numberLines: 5)
         stackview.addArrangedSubview(title)
         buttons()
       }
@@ -49,7 +49,7 @@ class AnonimView: UIView {
         buttonsStackview.addArrangedSubview(okButton)
         
         let goToAuth = UILabel()
-        goToAuth.setProperties(text: "Перейти к авторизации", textColor: .white, font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .center, numberLines: 1)
+        goToAuth.setProperties(text: "Перейти к авторизации".localized(), textColor: .white, font: .systemFont(ofSize: 14, weight: .bold), textAlignment: .center, numberLines: 1)
         goToAuth.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         goToAuth.cornerRadius(radius: 10, width: 0)
         buttonsStackview.addArrangedSubview(goToAuth)
