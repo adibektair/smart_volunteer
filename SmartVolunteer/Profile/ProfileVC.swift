@@ -45,7 +45,7 @@ class ProfileVC: ScrollStackController {
         setBackButton()
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = true
         setNavForTaraz()
         if Constants.shared().getToken() == nil { return }
         getData()
@@ -56,7 +56,7 @@ class ProfileVC: ScrollStackController {
     func setViews(){
         stackView.removeAllArrangedSubviews()
         self.stackView.setProperties(axis: .vertical, alignment: .fill, spacing: 20, distribution: .fill)
-        stackView.setSpacing(top: 0, left: 20, right: 20, bottom: 20)
+        stackView.setSpacing(top: 60, left: 20, right: 20, bottom: 20)
         
         setAvaAndRate()
         setDataView()
@@ -64,7 +64,7 @@ class ProfileVC: ScrollStackController {
         setButtons()
   
     }
-    func setAvaAndRate(){
+    func setAvaAndRate() {
         // image
         
         if profile?.avatar != nil{
@@ -73,7 +73,7 @@ class ProfileVC: ScrollStackController {
         let avatarView = UIView()
         avatarView.addSubview(avatarImageView)
         avatarImageView.contentMode = .scaleAspectFit
-        avatarImageView.easy.layout(Edges(),Height(80))
+        avatarImageView.easy.layout(CenterX(),Top(),Bottom(),Width(80),Height(80))
         avatarImageView.cornerRadius(radius: 40, width: 0)
         avatarImageView.addTapGestureRecognizer {
             self.thisIsTheFunctionWeAreCalling()
@@ -94,8 +94,8 @@ class ProfileVC: ScrollStackController {
             self.rateView.isHidden = true
         }
         stackView.addArrangedSubview(finishedWorks)
-        
     }
+    
     func setDataView() {
         // profile data
         let profileDataView = UIView()

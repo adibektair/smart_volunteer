@@ -28,14 +28,29 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
     var lastStackview = UIStackView()
     var createButton = UIButton()
     var addressInfo : AddressInfo?
+    let titleLbl = UILabel()
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
+        NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
         // Do any additional setup after loading the view.
     }
-    
+    @objc  override func setText() {
+        //Перезагрузка заголовка
+        
+        navigationItem.title = "Создание заявки".localized()
+        titleLbl.text = "Мои заявки".localized()
+        city.placeholder = "Город".localized()
+        address.placeholder = "Адрес".localized()
+        category.placeholder = "Категория".localized()
+        volCount.placeholder = "Количество волонтеров".localized()
+        titleLabel.text = "Заголовок".localized()
+        descLabel.text = "Описание".localized()
+        createButton.setTitle("Создать заявку".localized(),for: .normal)
+    }
     func setView(){
+        stackView.removeAllArrangedSubviews()
         life()
         stackView.setSpacing( bottom: 30)
         setMyApps()
@@ -61,8 +76,8 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
         let container = UIView()
         myApps.setProperties(axis: .horizontal, alignment: .fill, spacing: 12, distribution: .fill)
         myApps.setSpacing(top: 14, left: 20, right: 20, bottom: 14)
-        let titleLbl = UILabel()
-        titleLbl.setProperties(text: "Мои заявки", textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 16, weight: .semibold), textAlignment: .left, numberLines: 1)
+        
+        titleLbl.setProperties(text: "Мои заявки".localized(), textColor: #colorLiteral(red: 0.1921568627, green: 0.4784313725, blue: 0.9647058824, alpha: 1), font: .systemFont(ofSize: 16, weight: .semibold), textAlignment: .left, numberLines: 1)
         let arrowIcon = UIImageView()
         arrowIcon.image = #imageLiteral(resourceName: "RightArrow")
         myApps.addArrangedSubview(titleLbl)
@@ -219,7 +234,7 @@ class CreateApplicationVC: ScrollStackController,UITextViewDelegate {
             if result?.success ?? false {
                 self.successView()
             } else {
-                self.showAlert(title: "Внимание", message: "Ошибка".localized(), popToRoot: false)
+                self.showAlert(title: "Внимание".localized(), message: "Ошибка".localized(), popToRoot: false)
             }
             
         }

@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+
         if Constants.shared().getToken() != nil && !UserDefaults.standard.bool(forKey: "secure"){
             window?.rootViewController = TabbarViewController()
         }else{

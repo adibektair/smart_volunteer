@@ -177,12 +177,14 @@ class CitiesResponse : NSObject, NSCoding, Mappable{
 class RegisterResponse : NSObject, NSCoding, Mappable{
 
     var avatar : String?
+    var user : User?
     var name : String?
     var success : Bool?
     var surname : String?
     var token : String?
     var isVolunteer : Bool?
-
+    var errors : [String]?
+    
     class func newInstance(map: Map) -> Mappable?{
         return RegisterResponse()
     }
@@ -197,6 +199,8 @@ class RegisterResponse : NSObject, NSCoding, Mappable{
         surname <- map["surname"]
         token <- map["token"]
         isVolunteer <- map["is_volunteer"]
+        errors <- map["errors"]
+        user <- map["user"]
     }
 
     /**

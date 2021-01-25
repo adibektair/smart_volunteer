@@ -291,16 +291,23 @@ class SignUpVC: ScrollStackController, UITextFieldDelegate, CityPickerProtocol {
                 "is_volunteer" : isVolunteer,
                 "device_token" : "fireBaseToken" //fireBaseToken
             ] as [String : AnyObject]
+            print(json)
             Requests.shared().register(params: json) { (response) in
                 self.stopLoad()
                 if response?.success ?? false{
-                    Constants.shared().setRole(isVolunteer: response?.isVolunteer ?? false)
-                    Constants.shared().saveToken(token: response!.token!)
+                    Constants.shared().setRole(isVolunteer: response?.isVolunteer ?? response?.user?.isVolunteer ?? false)
+                    if let token = response?.user?.token ?? response?.token {
+                        Constants.shared().saveToken(token: token)
+                    }
                     let tabbar = TabbarViewController()
                     tabbar.modalPresentationStyle = .fullScreen
                     self.present(tabbar, animated: true, completion: nil)
                 }else{
-                    self.showError(text: "Такой ИИН уже существует".localized())
+                    var err = ""
+                    for i in (response?.errors ?? []){
+                       err = err + "\n\(i)"
+                    }
+                    self.showError(text: err)
                 }
             }
         }

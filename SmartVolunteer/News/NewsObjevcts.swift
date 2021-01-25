@@ -356,7 +356,8 @@ class User : NSObject, NSCoding, Mappable{
     var avgMark : String?
     var doneWorks : Int?
     var email : String?
-
+    var avatar : String?
+    var token : String?
     
     class func newInstance(map: Map) -> Mappable?{
         return User()
@@ -366,6 +367,7 @@ class User : NSObject, NSCoding, Mappable{
     
     func mapping(map: Map)
     {
+        avatar <- map["avatar"]
         id <- map["id"]
         iin <- map["iin"]
         imgPath <- map["img_path"]
@@ -376,6 +378,7 @@ class User : NSObject, NSCoding, Mappable{
         roleId <- map["role_id"]
         surname <- map["surname"]
         phone <- map["phone"]
+        token <- map["token"]
     }
     
     /**

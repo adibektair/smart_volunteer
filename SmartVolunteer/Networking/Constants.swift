@@ -48,7 +48,7 @@ class Constants: NSObject {
     
     public var secure = false
     
-    public let isTaraz = false
+    public let isTaraz = true
     
     public var baseUrl : String = "https://taraz.smartvolunteer.kz/api/v1/" {
 //        public var baseUrl : String = "https://tdk.smartvolunteer.kz/api/v1/" {
